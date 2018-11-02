@@ -1,0 +1,7 @@
+astrocytes_ependymal	endothelial-mural	interneurons	microglia	oligodendrocytes	pyramidal CA1	pyramidal SS
+Astrocytes	169	8	0	2	0	0	0
+Endothelial.Cells	5	177	0	10	8	0	0
+Microglia	0	0	0	62	0	0	0
+Neuron	33	49	288	5	22	930	388
+Oligodendrocyte.Precursor.Cell	4	0	0	17	0	1	1
+Oligodendrocytes	13	1	2	2	790	8	10
