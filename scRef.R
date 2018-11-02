@@ -101,13 +101,6 @@ library('pcaPP')
     }
 
 
-
-
-
-
-
-
-
 .get_p_ref_given_sc <- function(LOG_P_SC_GIVEN_REF){
     #######
     ref2sc <- function(log_p_sc_given_ref_list){
