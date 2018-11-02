@@ -1,5 +1,3 @@
-#source('cal_dist.R')
-#library('rococo')
 library('pcaPP')
 ########################################
 #Author: Feng Zhang
