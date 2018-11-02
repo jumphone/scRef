@@ -1,5 +1,7 @@
 # Benchmarks
 
+#Expression matrix of benchmarks can be downloaded from https://sourceforge.net/projects/scref/files/.
+
 #Zeisel:
 
 This benchmark has 3,005 mouse brain cells and 3,752 sequenced genes per cell (Zeisel, et al., 2015). We download the expression matrix (count) from: 
@@ -24,4 +26,4 @@ This benchmark has 24,185 mouse brain cells and 1,929 sequenced genes per cell (
 
 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE104323
 
-All expression matrix of benchmarks can be downloaded from https://sourceforge.net/projects/scref/files/.
+
