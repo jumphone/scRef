@@ -1,4 +1,4 @@
-library('pcaPP')
+#library('pcaPP')
 ########################################
 #Author: Feng Zhang
 #Email: 15110700005@fudan.edu.cn
