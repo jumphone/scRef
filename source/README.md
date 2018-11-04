@@ -1,1 +1,1 @@
-source
+R CMD INSTALL *.tar.gz
