@@ -69,6 +69,7 @@ library('pcaPP')
     colname_ref=colnames(exp_ref_mat)
     #Step 2. calculate prob
     SINGLE <- function(i){
+        library('pcaPP')
         exp_sc = as.array(exp_sc_mat[,i])
         log_p_sc_given_ref_list=c()
         j=1
