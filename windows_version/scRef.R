@@ -41,8 +41,8 @@ library('pcaPP')
         return(log_p_sc_given_ref_list)
         }
     #######################################
-    c1= makeCluster(CPU)
-    RUN = parLapply(c1=c1,1:length(colname_sc), SINGLE)
+    cl= makeCluster(CPU)
+    RUN = parLapply(cl=cl,1:length(colname_sc), SINGLE)
     LOG_P_SC_GIVEN_REF = c()
     for(log_p_sc_given_ref_list in RUN){
         LOG_P_SC_GIVEN_REF=cbind(LOG_P_SC_GIVEN_REF, log_p_sc_given_ref_list)}
@@ -89,8 +89,8 @@ library('pcaPP')
         return(log_p_sc_given_ref_list)
         }
     #######################################
-    c1= makeCluster(CPU)
-    RUN = parLapply(c1=c1,1:length(colname_sc), SINGLE)
+    cl= makeCluster(CPU)
+    RUN = parLapply(cl=cl,1:length(colname_sc), SINGLE)
     LOG_P_SC_GIVEN_REF = c()
     for(log_p_sc_given_ref_list in RUN){
         LOG_P_SC_GIVEN_REF=cbind(LOG_P_SC_GIVEN_REF, log_p_sc_given_ref_list)}
