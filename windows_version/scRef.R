@@ -37,7 +37,7 @@
             log_p_sc_given_ref_list=c(log_p_sc_given_ref_list, log_p_sc_given_ref)
             j=j+1}
         ################################
-        if(i%%print_step==1){cat(i);cat('\n')}
+        #if(i%%print_step==1){cat(i);cat('\n')}
         return(log_p_sc_given_ref_list)
         }
     #######################################
@@ -86,7 +86,7 @@
             log_p_sc_given_ref_list=c(log_p_sc_given_ref_list, log_p_sc_given_ref)
             j=j+1}
         ################################
-        if(i%%print_step==1){cat(i);cat('\n')}
+        #if(i%%print_step==1){cat(i);cat('\n')}
         return(log_p_sc_given_ref_list)
         }
     #######################################
