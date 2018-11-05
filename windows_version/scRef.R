@@ -123,7 +123,7 @@
     TAG=cbind(CN,rep('NA',length(CN)))
     i=1
     while(i<=length(CN)){
-        this_rn_index=which(P_REF_GIVEN_SC[,i] == max(P_REF_GIVEN_SC[,i]))
+        this_rn_index=which(P_REF_GIVEN_SC[,i] == max(P_REF_GIVEN_SC[,i]))[1]
         TAG[i,2]=RN[this_rn_index]
         i=i+1
         }
@@ -138,7 +138,7 @@
     TAG=cbind(CN,rep('NA',length(CN)))
     i=1
     while(i<=length(CN)){
-        this_rn_index=which(P_REF_GIVEN_SC[,i] == min(P_REF_GIVEN_SC[,i]))
+        this_rn_index=which(P_REF_GIVEN_SC[,i] == min(P_REF_GIVEN_SC[,i]))[1]
         TAG[i,2]=RN[this_rn_index]
         i=i+1
         }
