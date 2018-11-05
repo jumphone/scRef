@@ -24,7 +24,7 @@ real=data.frame(ids=ids,label=b[,2])
 print('NMI')
 NMI(real,pred)$value
 
-#########Neuron Merged######
+#########Merged######
 print('merge')
 print('ARI')
 r=which(!c[,2] %in% c('Unclassified'))
@@ -35,7 +35,7 @@ print('NMI')
 NMI(real,pred)$value
 
 
-#########Neuron Removed#####
+#########Removed#####
 print('remove')
 print('ARI')
 r=which(!c[,2] %in% c('Neuron','Unclassified'))
