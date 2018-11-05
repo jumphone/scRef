@@ -1,47 +1,46 @@
 library('mclust')
 library('NMI')
 
-TAG=read.table('TAG.txt',header=T,sep='\t')
-TAG[,2]=as.character(TAG[,2])
-TAG[which(TAG[,2]=='Myelinating Oligodendrocytes'),2]='Oligodendrocyte'
-TAG[which(TAG[,2]=='Newly Formed Oligodendrocyte'),2]='Oligodendrocyte'
-
-ORI=read.table('Zeisel_exp_sc_mat_cluster_original.txt',header=T,sep='\t')
-ORI[,2]=as.character(ORI[,2])
-MER=read.table('Zeisel_exp_sc_mat_cluster_merged.txt',header=T,sep='\t')
-MER[,2]=as.character(MER[,2])
-
-r=which(MER[,2]!='neurons')
-
-ids=c(1:length(ORI[,2]))
-TAG_N=data.frame(cbind(ids,TAG[,2]))
-ORI_N=data.frame(cbind(ids,ORI[,2]))
-MER_N=data.frame(cbind(ids,MER[,2]))
+#TAG=read.table('TAG.txt',header=T,sep='\t')
+a=read.table('Kendall.txt',header=T,sep='\t')
+b=read.table('../../Tasic_exp_sc_mat_cluster_original.txt',header=T,sep='\t')
+c=read.table('../../Tasic_exp_sc_mat_cluster_merged.txt',sep='\t',header=T)
 
 
-O_ARI=adjustedRandIndex(TAG[,2],ORI[,2])
-O_NMI=NMI(TAG_N,ORI_N)
 
-M_ARI=adjustedRandIndex(TAG[,2],MER[,2])
-M_NMI=NMI(TAG_N,MER_N)
+a[,2]=as.character(a[,2])
+a[which(a[,2]=='Myelinating.Oligodendrocytes'),2]='Oligodendrocytes'
+a[which(a[,2]=='Newly.Formed.Oligodendrocyte'),2]='Oligodendrocytes'
 
-print('O_ARI:')
-print(O_ARI)
-print('O_NMI:')
-print(O_NMI)
-print('M_ARI:')
-print(M_ARI)
-print('M_NMI:')
-print(M_NMI)
 
-TAG_N=data.frame(cbind(ids[r],TAG[r,2]))
-ORI_N=data.frame(cbind(ids[r],ORI[r,2]))
-MER_N=data.frame(cbind(ids[r],MER[r,2]))
+write.table(table(a[,2],b[,2]),file='TABLE.txt',sep='\t',quote=F,row.names=T,col.names=T)
+#########Original###########
+print('ori')
+print('ARI')
+adjustedRandIndex(a[,2],b[,2])
+ids=1:length(a[,2])
+pred=data.frame(ids=ids,label=a[,2])
+real=data.frame(ids=ids,label=b[,2])
+print('NMI')
+NMI(real,pred)$value
 
-R_ARI=adjustedRandIndex(TAG[r,2],MER[r,2])
-R_NMI=NMI(TAG_N,MER_N)
+#########Neuron Merged######
+print('merge')
+print('ARI')
+r=which(!c[,2] %in% c('Unclassified'))
+adjustedRandIndex(a[r,2],c[r,2])
+pred=data.frame(ids=ids[r],label=a[r,2])
+real=data.frame(ids=ids[r],label=c[r,2])
+print('NMI')
+NMI(real,pred)$value
 
-print('R_ARI:')
-print(R_ARI)
-print('R_NMI:')
-print(R_NMI)
+
+#########Neuron Removed#####
+print('remove')
+print('ARI')
+r=which(!c[,2] %in% c('Neuron','Unclassified'))
+adjustedRandIndex(a[r,2],b[r,2])
+pred=data.frame(ids=ids[r],label=a[r,2])
+real=data.frame(ids=ids[r],label=b[r,2])
+print('NMI')
+NMI(real,pred)$value
