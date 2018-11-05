@@ -53,3 +53,5 @@ names(pbmc_ori@ident)=names(old_ident)
 par(mfrow=c(1,2))
 TSNEPlot(object = pbmc)
 TSNEPlot(object = pbmc_ori)
+
+save.image(file='TSNE.RData')
