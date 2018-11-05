@@ -1,1 +1,1 @@
-# Window version of scRef
+# Windows version of scRef
