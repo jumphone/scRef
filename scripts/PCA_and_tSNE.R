@@ -50,7 +50,7 @@ TAG=read.table('Kendall.txt',header=T,sep='\t')
 TAG[,2]=as.character(TAG[,2])
 TAG[which(TAG[,2]=='Myelinating.Oligodendrocytes'),2]='Oligodendrocytes'
 TAG[which(TAG[,2]=='Newly.Formed.Oligodendrocyte'),2]='Oligodendrocytes'
-
+TAG[which(TAG[,2]=='Oligodendrocyte.Precursor.Cell'),2]='OPC'
 
 h=read.table('Zeisel_exp_sc_mat_cluster_original.txt',header=T,sep='\t')
 
