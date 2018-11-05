@@ -1,3 +1,4 @@
+
 library('Seurat')
 library(dplyr)
 load('this.RData')
@@ -33,6 +34,8 @@ text(PC1, PC3, labels=LABEL, cex= 0.7, pos=c(1,2,3,4))
 
 #########tSNE workflow########
 
+
+
 pbmc.data <- exp_sc_mat
 pbmc <- CreateSeuratObject(raw.data = pbmc.data, min.cells = 0, min.genes = 0)
 
@@ -42,16 +45,32 @@ pbmc <- ScaleData(object = pbmc, vars.to.regress = c("nUMI"))
 pbmc <- RunPCA(object = pbmc, pcs.compute=150, pc.genes = allgene, do.print = TRUE, pcs.print = 1:5, genes.print = 5)
 pbmc <- RunTSNE(object = pbmc, dims.use = 1:150, do.fast = TRUE)
 
+
+TAG=read.table('Kendall.txt',header=T,sep='\t')
+TAG[,2]=as.character(TAG[,2])
+TAG[which(TAG[,2]=='Myelinating.Oligodendrocytes'),2]='Oligodendrocytes'
+TAG[which(TAG[,2]=='Newly.Formed.Oligodendrocyte'),2]='Oligodendrocytes'
+
+
+h=read.table('Zeisel_exp_sc_mat_cluster_original.txt',header=T,sep='\t')
+
 old_ident = pbmc@ident
 pbmc@ident = as.factor(TAG[,2])
 names(pbmc@ident)=names(old_ident)
 pbmc_ori=pbmc
-pbmc_ori@ident = as.factor(h[,5])
+pbmc_ori@ident = as.factor(h[,2])
 names(pbmc_ori@ident)=names(old_ident)
 
-
-par(mfrow=c(1,2))
 TSNEPlot(object = pbmc)
 TSNEPlot(object = pbmc_ori)
 
+
+
 save.image(file='TSNE.RData')
+
+
+
+
+
+
+
