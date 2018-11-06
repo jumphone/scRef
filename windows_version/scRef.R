@@ -161,7 +161,7 @@
     colnames(NewRef)=refnames
     if(method=='multinomial'){
     OUT=.get_log_p_sc_given_ref(exp_sc_mat, NewRef, CPU=CPU, print_step=print_step)}
-    else {OUT=.get_cor(exp_sc_mat, NewRef, method=method, CPU=CPU, print_step=print_step)}}
+    else {OUT=.get_cor(exp_sc_mat, NewRef, method=method, CPU=CPU, print_step=print_step)}
     TAG=.get_tag_max(OUT)
     return(TAG)
     }
