@@ -145,7 +145,7 @@
     }
 
 
-.tag_iteration <- function(exp_sc_mat, TAG, CPU=4, print_step=10){
+.tag_iteration <- function(exp_sc_mat, TAG, method='multinomial', CPU=4, print_step=10){
 	NewRef=c()
 	TAG[,2]=as.character(TAG[,2])
     refnames=names(table(TAG[,2]))
@@ -157,7 +157,9 @@
     }
     rownames(NewRef)=rownames(exp_sc_mat)
     colnames(NewRef)=refnames
-    OUT=.get_log_p_sc_given_ref(exp_sc_mat, NewRef, CPU=CPU, print_step=print_step)
+    if(method=='multinomial'){
+    OUT=.get_log_p_sc_given_ref(exp_sc_mat, NewRef, CPU=CPU, print_step=print_step)}
+    else {OUT=.get_cor(exp_sc_mat, NewRef, method=method, CPU=CPU, print_step=print_step)}}
     TAG=.get_tag_max(OUT)
     return(TAG)
     }
