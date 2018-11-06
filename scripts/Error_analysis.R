@@ -64,11 +64,12 @@ Spearman_correct=which(SP==1)
 Pearson_correct=which(PP==1)
 
 library(VennDiagram)
-venn.diagram(x=list(F1=A, F2=B ), \
-"VENN.png", height = 450, width = 450, \
-resolution =300, imagetype="png", col="white", 
-fill=c(colors()[616], colors()[38]), \
-alpha=c(0.6, 0.6),lwd=0.5, cex=0.5,cat.cex=0.5)
+
+venn.diagram(x=list(Kendall=Kendall_correct, Multinomial=Multinomial_correct,
+Spearman=Spearman_correct, Pearson=Pearson_correct), 
+"VENN.png", height = 750, width = 750, 
+resolution =300, imagetype="png", 
+alpha=c(0.6, 0.6, 0.6, 0.6),lwd=0.5, cex=0.5,cat.cex=0.5)
 
 
 
