@@ -64,13 +64,17 @@ names(pbmc_ori@ident)=names(old_ident)
 TSNEPlot(object = pbmc)
 TSNEPlot(object = pbmc_ori)
 
-
-
 save.image(file='TSNE.RData')
 
 
 
+##############OTHER######################
 
+pbmc_3 <- RunTSNE(object = pbmc, dims.use = 1:150, do.fast = TRUE, dim.embed = 3)
+library(plotly)
+COL=as.factor(h[,2])
+TSNE_VEC=pbmc_3@dr$tsne@cell.embeddings
+plot_ly(x=TSNE_VEC[,1],y=TSNE_VEC[,2],z=TSNE_VEC[,3],color=COL)
 
 
 
