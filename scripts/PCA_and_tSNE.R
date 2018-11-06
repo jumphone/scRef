@@ -88,7 +88,7 @@ p=plot_ly(x=TSNE_VEC[,1],y=TSNE_VEC[,2],z=TSNE_VEC[,3],color=as.factor(h[,2]))
 htmlwidgets::saveWidget(p, "original.html")
 
 
-##############OTHER 2######################
+##############Error analysis tSNE distance######################
 
 TSNE_VEC=pbmc@dr$tsne@cell.embeddings
 D=as.matrix(dist(TSNE_VEC))
