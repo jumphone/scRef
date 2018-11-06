@@ -58,6 +58,20 @@ a=rep(0,length(R[,2]))
 a[which(P[,2]==R[,2])]=1
 PP=a
 
+Kendall_correct=which(KP==1)
+Multinomial_correct=which(MP==1)
+Spearman_correct=which(SP==1)
+Pearson_correct=which(PP==1)
+
+library(VennDiagram)
+venn.diagram(x=list(F1=A, F2=B ), \
+"VENN.png", height = 450, width = 450, \
+resolution =300, imagetype="png", col="white", 
+fill=c(colors()[616], colors()[38]), \
+alpha=c(0.6, 0.6),lwd=0.5, cex=0.5,cat.cex=0.5)
+
+
+
 ERR=which(PP==0 & MP==0 &SP==0 & KP==0)
 ONE=which(PP==1 | MP==1 | SP==1 | KP==1)
 
