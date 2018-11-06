@@ -112,7 +112,53 @@ CON=which(K[,2]==P[,2] & P[,2]==S[,2] & S[,2] == M[,2])
 length(which(K[,2]==R[,2]))/3005
 #0.9341098
 
-exp_sc_mat[,which(KEN[ ,2])]
 
+a=which(K[,2]=='Astrocytes')
+Astrocytes=a[which(a %in% CON)]
+
+a=which(K[,2]=='Endothelial.Cells')
+Endothelial.Cells=a[which(a %in% CON)]
+
+a=which(K[,2]=='Microglia')
+Microglia=a[which(a %in% CON)]
+
+a=which(K[,2]=='Neuron')
+Neuron=a[which(a %in% CON)]
+
+a=which(K[,2]=='Oligodendrocyte')
+Oligodendrocyte=a[which(a %in% CON)]
+
+
+Astrocytes = apply(exp_sc_mat[,Astrocytes],1,sum)
+Endothelial.Cells = apply(exp_sc_mat[,Endothelial.Cells],1,sum)
+Microglia=apply(exp_sc_mat[,Microglia],1,sum)
+Neuron=apply(exp_sc_mat[,Neuron],1,sum)
+Oligodendrocyte=apply(exp_sc_mat[,Oligodendrocyte],1,sum)
+NewRef=cbind(Astrocytes,Endothelial.Cells,Microglia,Neuron,Oligodendrocyte)
+
+source('scRef.R')
+out=.get_cor(exp_sc_mat, NewRef, method='kendall',CPU=4, print_step=10 )
+tag=.get_tag_max(out)
+length(which(tag[,2]==R[,2]))/3005
+#0.9580699
+
+source('scRef.R')
+out=.get_cor(exp_sc_mat, NewRef, method='pearson',CPU=4, print_step=10 )
+tag=.get_tag_max(out)
+tag[CON,2]=K[CON,2]
+length(which(tag[,2]==R[,2]))/3005
+#0.909817
+
+source('scRef.R')
+out=.get_cor(exp_sc_mat, NewRef, method='spearman',CPU=4, print_step=10 )
+tag=.get_tag_max(out)
+length(which(tag[,2]==R[,2]))/3005
+#0.9554077
+
+source('scRef.R')
+out=.get_log_p_sc_given_ref(exp_sc_mat, NewRef,CPU=4, print_step=10 )
+tag=.get_tag_max(out)
+length(which(tag[,2]==R[,2]))/3005
+#0.9600666
 
 
