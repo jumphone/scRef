@@ -145,6 +145,22 @@
     }
 
 
+.tag_iteration <- function(exp_sc_mat, TAG, CPU=4, print_step=10){
+	NewRef=c()
+	TAG[,2]=as.character(TAG[,2])
+    refnames=names(table(TAG[,2]))
+    for(one in refnames){
+    	this_col=which(TAG[,2]==one)
+    	if(length(this_col)>=1){
+        this_new_ref=apply(exp_sc_mat[,this_col],1,sum)        
+        NewRef=cbind(NewRef,this_new_ref)}
+    }
+    rownames(NewRef)=rownames(exp_sc_mat)
+    colnames(NewRef)=refnames
+    OUT=.get_log_p_sc_given_ref(exp_sc_mat, NewRef, CPU=CPU, print_step=print_step)
+    TAG=.get_tag_max(OUT)
+    return(TAG)
+    }
 
 
 
