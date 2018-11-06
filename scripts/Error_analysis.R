@@ -80,8 +80,11 @@ GN=apply(exp_sc_mat,2,getGN)
 #MEAN=apply(exp_sc_mat, 2, mean)
 
 
-#boxplot(MEAN~FLAG,xlab='0: Error in all four methods. 1: Correct in at least one method', ylab='MEAN of UMI for one cell')
-boxplot(GN~FLAG,xlab='0: Error in all four methods. 1: Correct in at least one method', ylab='# Sequenced gene for one cell')
+#boxplot(MEAN~FLAG,xlab='0: Wrong in all four methods. 1: Correct in at least one method', ylab='MEAN of UMI for one cell')
+boxplot(GN~FLAG,xlab='0: Wrong in all four methods. 1: Correct in at least one method', ylab='# Sequenced gene for one cell')
+
+
+
 
 
 
