@@ -68,6 +68,15 @@ save.image(file='TSNE.RData')
 
 
 
+#######Error analysis#########################
+
+FLAG=read.table('ERR_FLAG.txt',sep='\t',header=F)
+old_ident = pbmc@ident
+pbmc@ident = as.factor(as.character(FLAG[,1]))
+names(pbmc@ident)=names(old_ident)
+
+TSNEPlot(object = pbmc)
+
 ##############OTHER######################
 
 library(plotly)
