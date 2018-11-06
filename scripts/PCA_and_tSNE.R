@@ -122,7 +122,7 @@ length(ERR)
 length(HDIS)
 
 
-
+fisher.test(cbind(c(21,92),c(131,2761)))
 
 
 
