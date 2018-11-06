@@ -100,7 +100,7 @@ boxplot(GN~FLAG,xlab='0: Wrong in all four methods. 1: Correct in at least one m
 
 
 
-###########Other########################
+###########Other CON########################
 
 CON=which(K[,2]==P[,2] & P[,2]==S[,2] & S[,2] == M[,2])
 
@@ -112,7 +112,7 @@ CON=which(K[,2]==P[,2] & P[,2]==S[,2] & S[,2] == M[,2])
 length(which(K[,2]==R[,2]))/3005
 #0.9341098
 
-
+exp_sc_mat[,which(KEN[ ,2])]
 
 
 
