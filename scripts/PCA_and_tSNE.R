@@ -77,7 +77,7 @@ names(pbmc@ident)=names(old_ident)
 
 TSNEPlot(object = pbmc)
 
-##############OTHER######################
+##############OTHER 1######################
 
 library(plotly)
 pbmc_3 <- RunTSNE(object = pbmc, dims.use = 1:150, do.fast = TRUE, dim.embed = 3)
@@ -86,5 +86,46 @@ p=plot_ly(x=TSNE_VEC[,1],y=TSNE_VEC[,2],z=TSNE_VEC[,3],color=as.factor(TAG[,2]))
 htmlwidgets::saveWidget(p, "kendall.html")
 p=plot_ly(x=TSNE_VEC[,1],y=TSNE_VEC[,2],z=TSNE_VEC[,3],color=as.factor(h[,2]))
 htmlwidgets::saveWidget(p, "original.html")
+
+
+##############OTHER 2######################
+
+TSNE_VEC=pbmc@dr$tsne@cell.embeddings
+D=as.matrix(dist(TSNE_VEC))
+OD=apply(D,2,order)
+
+TOP=10
+DIS=c()
+i=1
+while(i<=length(D[1,])){
+    this_dis=mean(D[OD[,i][1:TOP],i])
+    DIS=c(DIS,this_dis)
+    i=i+1}
+
+hist(DIS,breaks=100)
+CUTOFF=quantile(DIS,0.95)
+
+COL=rep(0,length(DIS))
+COL[which(DIS>=CUTOFF)]=1
+old_ident = pbmc@ident
+pbmc@ident = as.factor(as.character(COL))
+names(pbmc@ident)=names(old_ident)
+TSNEPlot(object = pbmc)
+
+HDIS=which(DIS >= CUTOFF)
+
+FLAG=read.table('ERR_FLAG.txt',sep='\t',header=F)
+ERR=which(FLAG[,1]==0)
+
+length(which(HDIS %in% ERR))
+length(ERR)
+length(HDIS)
+
+
+
+
+
+
+
 
 
