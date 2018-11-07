@@ -46,7 +46,7 @@ pbmc <- RunPCA(object = pbmc, pcs.compute=150, pc.genes = allgene, do.print = TR
 pbmc <- RunTSNE(object = pbmc, dims.use = 1:150, do.fast = TRUE)
 
 
-TAG=read.table('Kendall.txt',header=T,sep='\t')
+TAG=read.table('Zeisel_semi.txt',header=T,sep='\t')
 TAG[,2]=as.character(TAG[,2])
 TAG[which(TAG[,2]=='Myelinating.Oligodendrocytes'),2]='Oligodendrocytes'
 TAG[which(TAG[,2]=='Newly.Formed.Oligodendrocyte'),2]='Oligodendrocytes'
