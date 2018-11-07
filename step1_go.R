@@ -21,3 +21,9 @@ tag=.get_tag_max(out)
 cat('semi finished!!!')
 write.table(tag,file='TAG_SEMI.txt',quote=F,row.names=F,col.names=T,sep='\t')
   
+
+
+
+
+
+
