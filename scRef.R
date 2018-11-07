@@ -145,6 +145,7 @@
     }
 
 
+
 .tag_iteration <- function(exp_sc_mat, TAG, method='multinomial', CPU=4, print_step=10){
     NewRef=c()
     TAG[,2]=as.character(TAG[,2])
@@ -166,3 +167,18 @@
 
 
 
+
+.generate_ref <- function(exp_sc_mat, TAG){
+    NewRef=c()
+    TAG[,2]=as.character(TAG[,2])
+    refnames=names(table(TAG[,2]))
+    for(one in refnames){
+        this_col=which(TAG[,2]==one)
+        if(length(this_col)>=1){
+        this_new_ref=apply(exp_sc_mat[,this_col],1,sum)        
+        NewRef=cbind(NewRef,this_new_ref)}
+    }
+    rownames(NewRef)=rownames(exp_sc_mat)
+    colnames(NewRef)=refnames
+    return(NewRef)
+    }
