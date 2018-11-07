@@ -28,6 +28,14 @@ a[which(a[,2]=='Myelinating.Oligodendrocytes'),2]='Oligodendrocyte'
 a[which(a[,2]=='Newly.Formed.Oligodendrocyte'),2]='Oligodendrocyte'
 S=a
 
+a=read.table('Zeisel_semi.txt',header=T,sep='\t')
+a[,2]=as.character(a[,2])
+a[which(a[,2]=='Oligodendrocyte.Precursor.Cell'),2]='Oligodendrocyte'
+a[which(a[,2]=='Myelinating.Oligodendrocytes'),2]='Oligodendrocyte'
+a[which(a[,2]=='Newly.Formed.Oligodendrocyte'),2]='Oligodendrocyte'
+SE=a
+
+
 
 R=read.table('../../Zeisel_exp_sc_mat_cluster_original.txt',header=T,sep='\t')
 R[,2]=as.character(R[,2])
@@ -54,6 +62,11 @@ a=rep(0,length(R[,2]))
 a[which(S[,2]==R[,2])]=1
 SP=a
 
+
+a=rep(0,length(R[,2]))
+a[which(SE[,2]==R[,2])]=1
+SEP=a
+
 a=rep(0,length(R[,2]))
 a[which(P[,2]==R[,2])]=1
 PP=a
@@ -62,14 +75,15 @@ Kendall_correct=which(KP==1)
 Multinomial_correct=which(MP==1)
 Spearman_correct=which(SP==1)
 Pearson_correct=which(PP==1)
+Semi_correct=which(SEP==1)
 
 library(VennDiagram)
 
 venn.diagram(x=list(Kendall=Kendall_correct, Multinomial=Multinomial_correct,
-Spearman=Spearman_correct, Pearson=Pearson_correct), 
-"VENN.png", height = 750, width = 750, 
-resolution =300, imagetype="png", 
-alpha=c(0.6, 0.6, 0.6, 0.6),lwd=0.5, cex=0.5,cat.cex=0.5)
+Spearman=Spearman_correct, Pearson=Pearson_correct,SEMI=Semi_correct), 
+"VENN.png", height = 1000, width = 1000, 
+resolution =500, imagetype="png", 
+alpha=c(0.6, 0.6, 0.6, 0.6,0.6),lwd=0.3, cex=0.3,cat.cex=0.3,margin=c(0.15,0.15))
 
 
 
