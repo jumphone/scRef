@@ -1,6 +1,5 @@
 source('scRef.R')
 
-
 exp_sc_mat=read.table('Zeisel_exp_sc_mat.txt',header=T,row.names=1,'\t')
 exp_ref_mat=read.table('Reference_expression.txt',header=T,row.names=1,sep='\t')
 
