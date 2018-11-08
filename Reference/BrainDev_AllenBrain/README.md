@@ -17,7 +17,7 @@ http://www.brainspan.org/api/v2/well_known_file_download/267666525
 
 Detailed scripts are in: https://github.com/jumphone/scRef/tree/master/scripts/ALLEN
  
-# Col names:
+# Column names:
 
 Column name is the development stage tag. Please see meta.txt for details.
 
