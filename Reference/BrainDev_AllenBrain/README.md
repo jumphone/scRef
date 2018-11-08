@@ -21,6 +21,6 @@ Detailed scripts are in: https://github.com/jumphone/scRef/tree/master/scripts/A
  
 # Column names:
 
-Column name is the development stage tag. Please see meta.txt for details.
+Column name is the development stage. Please see meta.txt for details.
 
 
