@@ -6,6 +6,4 @@ Zhang, Y., et al. An RNA-sequencing transcriptome and splicing database of glia,
 
 
 # 2. BrainDev_AllenBrain
-Human & Mouse Brain Development Reference 
-
-Scripts are in https://github.com/jumphone/scRef/tree/master/scripts/ALLEN
+Human & Mouse Brain Development Reference. Scripts are in https://github.com/jumphone/scRef/tree/master/scripts/ALLEN
