@@ -1,6 +1,4 @@
 
-exp_data=read.table('expression_matrix.csv',sep=',',row.names=1,header=F)
-gene=read.table('rows_metadata.csv',sep=',',header=T)[,4]
-rownames(exp_data)=gene
-
+exp_data=read.table('exp_mat.txt',sep='\t',row.names=1,header=F)
+meta_data=read.table('meta.txt',sep='\t',header=T)
 
