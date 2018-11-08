@@ -20,12 +20,13 @@ print(i)
 
 OUT=t(OUT)
 
-hist(OUT[,2],breaks=100)
-
-
-
+OUT[which(OUT[,2]=='NaN'),2]='0'
+hist(as.numeric(OUT[,2]),breaks=100)
 save(OUT,file='COR.RData')
 
+COR=as.numeric(OUT[,2])
+
+H=which(COR >=0.5)
 
 
 
