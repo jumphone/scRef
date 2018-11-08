@@ -140,8 +140,7 @@ H=hclust(D)
 C=cutree(H,k=8)
 
 # K-means
-C=kmeans(TSNE_VEC,centers=10)$cluster
-
+#C=kmeans(TSNE_VEC,centers=10)$cluster
 
 old_ident = pbmc@ident
 pbmc@ident = as.factor(C)
