@@ -126,6 +126,7 @@ fisher.test(cbind(c(21,92),c(131,2761)))
 
 
 ######hierarchical cluster#########
+
 library('Seurat')
 load('TSNE.RData')
 
@@ -141,4 +142,19 @@ pbmc@ident = as.factor(C)
 names(pbmc@ident)=names(old_ident)
 
 TSNEPlot(object = pbmc)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
