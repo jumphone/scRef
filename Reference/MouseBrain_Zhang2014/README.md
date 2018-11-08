@@ -6,4 +6,4 @@ https://web.stanford.edu/group/barres_lab/brain_rnaseq.html
 
 # Mouse to human
 
-Please see "mouse2human.py"
+We generate a human reference matrix by using "mouse2human.py".
