@@ -151,8 +151,8 @@ TAG=read.table('Zeisel_semi.txt',header=T,sep='\t')
 
 .compare_two_tag <- function(TAG1,TAG2){
     OUT=c()
-    tag1_names=unique(TAG1[,2])
-    tag2_names=unique(TAG2[,2])
+    tag1_names=as.character(unique(TAG1[,2]))
+    tag2_names=as.character(unique(TAG2[,2]))
     i=1
     while(i<=length(tag1_names)){
         tag1 = tag1_names[i]
@@ -160,10 +160,11 @@ TAG=read.table('Zeisel_semi.txt',header=T,sep='\t')
         j=1
         while(j<=length(tag2_names)){
             tag2 = tag2_names[j] 
+            #print(tag2)
             tag2_index = which(TAG2[,2]== tag2)
             over = length(which(tag1_index %in% tag2_index))
-            tag1_over = over/length(length(tag1_index))
-            tag2_over = over/length(length(tag2_index))
+            tag1_over = over/length(tag1_index)
+            tag2_over = over/length(tag2_index)
             max_over = max(tag1_over, tag2_over)
             OUT=cbind(OUT, c(max_over, tag1, tag1_over ,tag2, tag2_over)) 
             j=j+1
@@ -171,12 +172,17 @@ TAG=read.table('Zeisel_semi.txt',header=T,sep='\t')
         i=i+1
         }
     OUT=t(OUT)
+    #OUT=as.matrix(OUT)
+    OUT[,1]=as.numeric(OUT[,1])
+    OUT[,3]=as.numeric(OUT[,3])
+    OUT[,5]=as.numeric(OUT[,5])
     colnames(OUT)=c('max_over','tag1','tag1_over','tag2','tag2_over')
+    OUT=OUT[order(OUT[,1],decreasing=T),]
     return(OUT)
     }
 
 
-
+OUT=.compare_two_tag(TAG_cluster,TAG)
 
 
 
