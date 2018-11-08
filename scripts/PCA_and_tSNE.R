@@ -146,8 +146,9 @@ C=kmeans(TSNE_VEC,centers=10)$cluster
 old_ident = pbmc@ident
 pbmc@ident = as.factor(C)
 names(pbmc@ident)=names(old_ident)
+TSNEPlot(object = pbmc, do.label=T)
 
-TSNEPlot(object = pbmc)
+
 
 TAG_cluster=cbind(rownames(TSNE_VEC),C)
 TAG=read.table('Zeisel_semi.txt',header=T,sep='\t')
