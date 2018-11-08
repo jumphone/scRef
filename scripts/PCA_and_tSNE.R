@@ -140,16 +140,29 @@ TSNE_VEC=pbmc_3@dr$tsne@cell.embeddings
 C=kmeans(TSNE_VEC,centers=10)$cluster
 
 
-old_ident = pbmc@ident
-pbmc@ident = as.factor(C)
-names(pbmc@ident)=names(old_ident)
+#old_ident = pbmc@ident
+#pbmc@ident = as.factor(C)
+#names(pbmc@ident)=names(old_ident)
 
-TSNEPlot(object = pbmc)
+#TSNEPlot(object = pbmc)
 
+TAG_cluster=cbind(rownames(TSNE_VEC),C)
+TAG=read.table('Zeisel_semi.txt',header=T,sep='\t')
 
-
-
-
+.compare_two_tag <- function(TAG1,TAG2){
+    tag1_names=names(table(TAG1))
+    tag2_names=names(table(TAG2))
+    i=1
+    while(i<=length(tag1_names)){
+        tag1 = tag1_names[i]
+        j=1
+        while(j<=length(tag2_names)){
+            tag2=tag2_names[j]
+            j=j+1
+            }
+        i=i+1
+        }
+    }
 
 
 
