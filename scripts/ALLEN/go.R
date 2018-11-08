@@ -25,8 +25,13 @@ hist(as.numeric(OUT[,2]),breaks=100)
 save(OUT,file='COR.RData')
 
 COR=as.numeric(OUT[,2])
+STEM = which(COR < -0.5)
+STEM_GENES=OUT[STEM,1]
 
-H=which(COR >=0.5)
+save(STEM_GENES,file='STEM.RData')
+
+
+
 
 
 
