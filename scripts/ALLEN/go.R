@@ -15,6 +15,12 @@ this_exp=t(exp_data[i,])
 this_cor=cor.fk(this_exp, Stage)
 OUT=cbind(OUT,c(this_gene,this_cor))
 i=i+1
+print(i)
 }
 
 OUT=t(OUT)
+
+
+
+
+
