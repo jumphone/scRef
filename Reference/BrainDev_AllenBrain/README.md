@@ -1,7 +1,7 @@
 
 # Raw Data:
 
-Build from Allen Brain Human Development RNA-seq RPKM Data
+Build from Allen Human Brain Development RNA-seq Data
 
 Please see "meta.txt" for sample information
 
