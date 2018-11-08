@@ -14,9 +14,5 @@ while line1 !='':
     if seq1[3] not in old:
         old.add(seq1[3])
         fo.write(seq1[3]+'\t'+'\t'.join(seq2[1:])+'\n')
-    line1=fa.readline()
-    line2=fi.readline() 
-
-
-
-
+    line1=fa.readline().replace('"','')
+    line2=fi.readline().replace('"','')
