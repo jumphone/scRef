@@ -8,4 +8,8 @@ Ref. Zhang, Y., et al. An RNA-sequencing transcriptome and splicing database of 
 
 
 # 2. BrainDev_AllenBrain
-Human & Mouse Brain Development Reference built from Allen Brain Database.
+Human brain development reference built from Allen Human Brain Development Database.
+
+We have generated a mouse reference in this folder by mapping human gene name to mouse gene name.
+
+Ref. http://www.brainspan.org/static/download.html
