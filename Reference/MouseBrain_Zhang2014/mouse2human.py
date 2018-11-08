@@ -29,8 +29,9 @@ old=set()
 for line in fi:
     seq=line.rstrip().split('\t')
     mouse=seq[0]
-    if mouse not in old and mouse in mouse2HGNC and mouse2HGNC[mouse] in HGNC2human:
-        old.add(mouse)
+    if mouse in mouse2HGNC and mouse2HGNC[mouse] in HGNC2human:
         hgnc=mouse2HGNC[mouse]
         human=HGNC2human[hgnc]
-        fo.write(human+'\t'+'\t'.join(seq[1:])+'\n')
+        if human not in old:
+            old.add(human)
+            fo.write(human+'\t'+'\t'.join(seq[1:])+'\n')
