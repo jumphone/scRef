@@ -20,6 +20,7 @@ print(i)
 
 OUT=t(OUT)
 
+hist(OUT[,2],breaks=100)
 
 H=which(OUT[,2] > 0.6)
 
