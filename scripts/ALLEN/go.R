@@ -46,3 +46,5 @@ for(s in S){
 colnames(exp_ref_mat)=COLNAME
 write.table(exp_ref_mat,file='exp_ref_mat_human_brain_dev.txt',quote=F,row.names=T,col.names=T,sep='\t')
 
+##################################################
+TSNEPlot(object = pbmc,colors.use=heat.colors(n=25))
