@@ -125,7 +125,7 @@ length(HDIS)
 fisher.test(cbind(c(21,92),c(131,2761)))
 
 
-######hierarchical cluster#########
+########Hierarchical cluster#########
 
 library('Seurat')
 load('TSNE.RData')
@@ -135,7 +135,7 @@ TSNE_VEC=pbmc_3@dr$tsne@cell.embeddings
 
 D=dist(TSNE_VEC)
 H=hclust(D)
-C=cutree(H,k=6)
+C=cutree(H,k=8)
 
 old_ident = pbmc@ident
 pbmc@ident = as.factor(C)
