@@ -187,7 +187,7 @@ TAG=read.table('Zeisel_semi.txt',header=T,sep='\t')
 
 OUT=.compare_two_tag(TAG_cluster,TAG)
 
-
+write.table(OUT,'COM.txt',sep='\t',quote=F,col.names=T,row.names=F)
 
 
 
