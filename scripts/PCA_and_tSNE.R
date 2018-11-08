@@ -125,7 +125,20 @@ length(HDIS)
 fisher.test(cbind(c(21,92),c(131,2761)))
 
 
+######hierarchical cluster#########
+library('Seurat')
+load('TSNE.RData')
 
+pbmc_3 <- RunTSNE(object = pbmc, dims.use = 1:150, do.fast = TRUE, dim.embed = 3)
+TSNE_VEC=pbmc_3@dr$tsne@cell.embeddings
 
+D=dist(TSNE_VEC)
+H=hclust(D)
+C=cutree(H,k=6)
 
+old_ident = pbmc@ident
+pbmc@ident = as.factor(C)
+names(pbmc@ident)=names(old_ident)
+
+TSNEPlot(object = pbmc)
 
