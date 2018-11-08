@@ -136,7 +136,7 @@ TSNE_VEC=pbmc_3@dr$tsne@cell.embeddings
 
 # Hierarchical
 D=dist(TSNE_VEC)
-C=hclust(D)
+H=hclust(D)
 C=cutree(H,k=8)
 
 # K-means
