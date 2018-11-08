@@ -21,6 +21,6 @@ print(i)
 OUT=t(OUT)
 
 
-
+H=which(OUT[,2] > 0.6)
 
 
