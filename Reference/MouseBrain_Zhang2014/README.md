@@ -8,6 +8,6 @@ Zhang, Y., et al. An RNA-sequencing transcriptome and splicing database of glia,
 
 https://web.stanford.edu/group/barres_lab/brain_rnaseq.html
 
-# Mouse to human
+# Workflow
 
 We generate a human reference matrix "Reference_expression_human.txt" by using "mouse2human.py".
