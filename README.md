@@ -84,7 +84,8 @@ For single-cell expression matrix, we recommend using UMI matrix.
     source(scRef)
     
     ...
-    #To get Seurat object "pbmc", please follow the instruction in https://satijalab.org/seurat/pbmc3k_tutorial.html 
+    # To get Seurat object "pbmc", please follow the instruction of Seurat:
+    https://satijalab.org/seurat/pbmc3k_tutorial.html 
     ...
     
     COL=c()
