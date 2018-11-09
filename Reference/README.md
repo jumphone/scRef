@@ -2,7 +2,7 @@
 
 # 1. MouseBrain_Zhang2014
 
-<img src="/Reference/images/MouseBrain_Zhang2014.png" width="80">
+<img src="/Reference/images/MouseBrain_Zhang2014.png" width="200">
 
 * This mouse brain reference is built from the bulk RNA-seq data of Zhang et al.
 
