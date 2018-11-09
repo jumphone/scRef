@@ -104,15 +104,15 @@ scRef labels (Reference: Gtex_v7_Tissue):
         } 
         
     exp_sc_mat=as.matrix(pbmc@raw.data)[,COL]
-    exp_ref_mat=read.table('GTEx_v7_median_tpm_human.txt',header=T,row.names=1,sep='\t',check.name=F)
     
+    #############GTEX############
+    exp_ref_mat=read.table('GTEx_v7_median_tpm_human.txt',header=T,row.names=1,sep='\t',check.name=F)    
     out=.get_cor(exp_sc_mat, exp_ref_mat, method='kendall',CPU=10, print_step=10)
     tag=.get_tag_max(out)
     LocalRef=.generate_ref(exp_sc_mat, tag, min_cell=10)
     out=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=10, print_step=10)
     tag=.get_tag_max(out)
-    write.table(tag,file='TAG_GTEX.txt',quote=F,row.names=F,col.names=T,sep='\t')
-    
+    write.table(tag,file='TAG_GTEX.txt',quote=F,row.names=F,col.names=T,sep='\t')  
     TAG=tag
     old_ident = pbmc@ident
     pbmc@ident = as.factor(TAG[,2])
@@ -121,6 +121,25 @@ scRef labels (Reference: Gtex_v7_Tissue):
     pdf('GTEX.pdf',width=8,height=5)
     TSNEPlot(object = pbmc, do.label=T, label.size=2.2)
     dev.off()
+    
+    ##############DEV#################
+    exp_ref_mat=read.table('GTEx_v7_median_tpm_human.txt',header=T,row.names=1,sep='\t',check.name=F)
+    out=.get_cor(exp_sc_mat, exp_ref_mat, method='kendall',CPU=10, print_step=10)
+    tag=.get_tag_max(out)
+    LocalRef=.generate_ref(exp_sc_mat, tag, min_cell=10)
+    out=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=10, print_step=10)
+    tag=.get_tag_max(out)
+    write.table(tag,file='TAG_DEV.txt',quote=F,row.names=F,col.names=T,sep='\t')
+    TAG=tag
+    old_ident = pbmc@ident
+    pbmc@ident = as.factor(TAG[,2])
+    names(pbmc@ident)=names(old_ident)
+    pbmc_ori=pbmc
+    pdf('DEV.pdf',width=8,height=5)
+    COLOR=heat.colors(n=length(table(pbmc@ident))+2)
+    TSNEPlot(object = pbmc, colors.use=COLOR)
+    dev.off()
+    
     
      
 # MIT License
