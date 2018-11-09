@@ -22,7 +22,7 @@ http://www.brainspan.org/api/v2/well_known_file_download/267666525
 
 Detailed scripts are in: https://github.com/jumphone/scRef/tree/master/scripts/ALLEN
  
-# Column names:
+# Tips:
 
 Column name is the development stage. Please see meta.txt for details.
 
