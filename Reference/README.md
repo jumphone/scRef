@@ -1,7 +1,7 @@
 # Reference Database
 
 # 1. MouseBrain_Zhang2014
-![image](/Reference/images/MouseBrain_Zhang2014.png)
+![image](/Reference/images/MouseBrain_Zhang2014.png =100x50)
 * This mouse brain reference is built from the bulk RNA-seq data of Zhang et al.
 
 * Human & Mouse version available.
