@@ -53,7 +53,7 @@ Denpendent R packages: pcaPP
     tag=.get_tag_max(out)
     
     # Build local reference
-    LocalRef=.generate_ref(exp_sc_mat, tag, min_cell=1)
+    LocalRef=.generate_ref(exp_sc_mat, tag, min_cell=10)
     
     # Second-round annotation - Multinomial
     out=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=4, print_step=10)
