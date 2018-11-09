@@ -159,7 +159,7 @@
                 else{this_new_ref = exp_sc_mat[,this_col]}
             NewRef=cbind(NewRef,this_new_ref)
             }
-    }
+        }
     rownames(NewRef)=rownames(exp_sc_mat)
     colnames(NewRef)=outnames
     return(NewRef)
