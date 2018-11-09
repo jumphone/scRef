@@ -4,6 +4,8 @@ RPKM
 
 # Data Source:
 
+* 2018.11.02
+
 Build from Allen Human Brain Development RNA-seq Data
 
 Please see "meta.txt" for sample information
@@ -27,5 +29,4 @@ Detailed scripts are in: https://github.com/jumphone/scRef/tree/master/scripts/A
 # Tips:
 
 Column name is the development stage. Please see meta.txt for details.
-
 
