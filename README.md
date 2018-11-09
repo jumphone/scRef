@@ -1,4 +1,4 @@
-# scREF: reference-based single-cell annotation for single-cell RNA-seq data
+# scREF: reference-based annotation for single-cell RNA-seq data
 
 ![image](/Logo.png "image")
 
