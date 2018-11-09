@@ -64,9 +64,9 @@ Denpendent R packages: pcaPP
    
     source('scRef.R')
     
-    #Compare tags (column 1: cell_id; column 2: labels)
+    # Compare tags (column 1: cell_id; column 2: labels)
     OUT=.compare_two_tag(TAG1, TAG2)
     write.table(OUT, 'COMPARE.txt', sep='\t', quote=F, col.names=T, row.names=F)
 
 
-
+________________________
