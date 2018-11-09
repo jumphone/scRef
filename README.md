@@ -69,4 +69,12 @@ Denpendent R packages: pcaPP
     write.table(OUT, 'COMPARE.txt', sep='\t', quote=F, col.names=T, row.names=F)
 
 
-________________________
+
+
+
+
+
+
+
+
+
