@@ -90,7 +90,7 @@ scRef labels (Reference: Gtex_v7_Tissue):
 
 scRef labels (Reference: BrainDev_AllenBrain):
 
-Smaller number means earlier development stage.
+Smaller number indicates earlier development stage.
 
 <img src="/source/Usage4_scRef_dev.png" width="450">
 
