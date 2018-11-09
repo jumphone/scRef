@@ -22,7 +22,7 @@ http://www.brainspan.org/api/v2/well_known_file_download/267666525
 
 * Detailed scripts are in: https://github.com/jumphone/scRef/tree/master/scripts/ALLEN
 
-* We have generated a mouse reference by mapping mouse gene to human gene.
+* We have generated a mouse reference by mapping human gene to mouse gene.
 
 # Tips:
 
