@@ -145,31 +145,6 @@
     }
 
 
-
-.tag_iteration <- function(exp_sc_mat, TAG, min_cell=1, method='multinomial', CPU=4, print_step=10){
-    NewRef=c()
-    TAG[,2]=as.character(TAG[,2])
-    refnames=names(table(TAG[,2]))
-    for(one in refnames){
-        this_col=which(TAG[,2]==one)
-        if(length(this_col)>= min_cell){
-        if(length(this_col) >1){
-        this_new_ref=apply(exp_sc_mat[,this_col],1,sum)}
-        else{this_new_ref = exp_sc_mat[,this_col] }
-        NewRef=cbind(NewRef,this_new_ref)}
-    }
-    rownames(NewRef)=rownames(exp_sc_mat)
-    colnames(NewRef)=refnames
-    if(method=='multinomial'){
-    OUT=.get_log_p_sc_given_ref(exp_sc_mat, NewRef, CPU=CPU, print_step=print_step)}
-    else {OUT=.get_cor(exp_sc_mat, NewRef, method=method, CPU=CPU, print_step=print_step)}
-    TAG=.get_tag_max(OUT)
-    return(TAG)
-    }
-
-
-
-
 .generate_ref <- function(exp_sc_mat, TAG, min_cell=1){
     NewRef=c()
     TAG[,2]=as.character(TAG[,2])
@@ -177,15 +152,19 @@
     for(one in refnames){
         this_col=which(TAG[,2]==one)
         if(length(this_col)>= min_cell){
-        if(length(this_col) >1){
-        this_new_ref=apply(exp_sc_mat[,this_col],1,sum)}
-        else{this_new_ref = exp_sc_mat[,this_col] }
-        NewRef=cbind(NewRef,this_new_ref)}
+            outnames=c(outnames,one)
+            if(length(this_col) >1){
+                this_new_ref=apply(exp_sc_mat[,this_col],1,sum)
+                }
+                else{this_new_ref = exp_sc_mat[,this_col]}
+            NewRef=cbind(NewRef,this_new_ref)
+            }
     }
     rownames(NewRef)=rownames(exp_sc_mat)
-    colnames(NewRef)=refnames
+    colnames(NewRef)=outnames
     return(NewRef)
     }
+
 
 
 .compare_two_tag <- function(TAG1, TAG2){
