@@ -1,1 +1,1 @@
-# Scripts for preparing reference
+# Scripts for building reference
