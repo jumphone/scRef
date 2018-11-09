@@ -8,7 +8,7 @@
 
 * Human & Mouse version available.
 
-* Ref. Zhang, Y., et al. An RNA-sequencing transcriptome and splicing database of glia, neurons, and vascular cells of the cerebral cortex. J Neurosci 2014;34(36):11929-11947.
+* Source: https://web.stanford.edu/group/barres_lab/brain_rnaseq.html
 
 
 # 2. BrainDev_AllenBrain
@@ -19,7 +19,7 @@
 
 * Human & Mouse version available.
 
-* Ref. http://www.brainspan.org/static/download.html
+* Source: http://www.brainspan.org/static/download.html
 
 # 3. Gtex_v7_Tissue
 
@@ -29,7 +29,7 @@
 
 * Human & Mouse version available.
 
-* Ref. https://gtexportal.org/home/datasets
+* Source: https://gtexportal.org/home/datasets
 
 # * Non_Official
 * We non-officially collect some references which might be useful when analyzing singl-cell RNA-seq data.
