@@ -1,4 +1,4 @@
-# scRef
+# SCREF
 
 Reference-based single-cell annotation for single-cell RNA-seq data
 
