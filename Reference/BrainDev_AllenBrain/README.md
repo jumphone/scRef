@@ -4,8 +4,6 @@ RPKM
 
 # Data Source:
 
-* 2018.11.02
-
 Build from Allen Human Brain Development RNA-seq Data
 
 Please see "meta.txt" for sample information
