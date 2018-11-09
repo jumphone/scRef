@@ -14,8 +14,6 @@ http://www.brainspan.org/api/v2/well_known_file_download/267666525
 
 # Workflow:
 
-We have generated a mouse reference in this folder by mapping mouse gene to human gene.
-
 1. Calculate kendall correlation coefficient between development stage and expression value of each gene.
 
 2. Use genes with kendall correlation coefficient smaller than -0.5. 
@@ -23,7 +21,9 @@ We have generated a mouse reference in this folder by mapping mouse gene to huma
 3. Use the average expression value of each development stage to build this reference.
 
 Detailed scripts are in: https://github.com/jumphone/scRef/tree/master/scripts/ALLEN
- 
+
+* We have generated a mouse reference in this folder by mapping mouse gene to human gene.
+
 # Tips:
 
 Column name is the development stage. Please see meta.txt for details.
