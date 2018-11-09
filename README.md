@@ -1,4 +1,4 @@
-<img src="/Logo.png" width="500">
+<img src="/Logo.png">
 
 # scREF
 
