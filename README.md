@@ -90,7 +90,7 @@ scRef labels (Reference: Gtex_v7_Tissue):
 
 scRef labels (Reference: BrainDev_AllenBrain):
 
-<img src="/source/Usage4_scRef_dev.png" width="570">
+<img src="/source/Usage4_scRef_dev.png" width="480">
 
     library(Seurat)
     source('scRef.R')
