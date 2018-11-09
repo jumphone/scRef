@@ -22,6 +22,9 @@
 * Ref. http://www.brainspan.org/static/download.html
 
 # 3. Gtex_v7_Tissue
+
+<img src="/Reference/images/gtex2.png" width="240">
+
 * This Gtex tissue reference is built from RNA-seq data of The Genotype-Tissue Expression (GTEx) project (human, v7).
 
 * Human & Mouse version available.
