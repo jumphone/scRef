@@ -10,4 +10,4 @@ https://web.stanford.edu/group/barres_lab/brain_rnaseq.html
 
 # Workflow
 
-We generate a human reference matrix "Reference_expression_human.txt" by using "mouse2human.py".
+We have generated a human reference matrix named "Reference_expression_human.txt" by mapping mouse gene to human gene..
