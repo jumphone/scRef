@@ -12,7 +12,7 @@ https://storage.googleapis.com/gtex_analysis_v7/rna_seq_data/GTEx_Analysis_2016-
 
 # Workflow:
 
-* We have generated a mouse reference by mapping mouse gene to human gene.
+* We have generated a mouse reference by mapping human gene to mouse gene.
 
 
 
