@@ -145,10 +145,12 @@
     }
 
 
-.generate_ref <- function(exp_sc_mat, TAG, min_cell=1){
+.generate_ref <- function(exp_sc_mat, TAG, min_cell=1, refnames=FALSE){
     NewRef=c()
     TAG[,2]=as.character(TAG[,2])
-    refnames=names(table(TAG[,2]))
+    if(refnames==FALSE){
+    refnames=names(table(TAG[,2]))}
+    else{refnames=refnames}
     for(one in refnames){
         this_col=which(TAG[,2]==one)
         if(length(this_col)>= min_cell){
