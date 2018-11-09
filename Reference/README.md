@@ -25,3 +25,6 @@
 # * Non_Official
 * We non-officially collect some references which might be useful when analyzing singl-cell RNA-seq data.
 
+# Download
+
+We recommend using "curl" in linux or mac to download data.
