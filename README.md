@@ -1,8 +1,8 @@
+![image](/Logo.png "image")
+
 # scREF
 
 Reference-based single-cell annotation for single-cell RNA-seq data
-
-![image](/Logo.png "image")
 
 # Citation:
 
