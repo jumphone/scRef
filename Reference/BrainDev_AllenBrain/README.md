@@ -1,5 +1,8 @@
+# Data Type
 
-# Raw Data:
+RPKM
+
+# Data Source:
 
 Build from Allen Human Brain Development RNA-seq Data
 
