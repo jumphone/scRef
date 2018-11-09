@@ -76,9 +76,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
     OUT=.compare_two_tag(TAG1, TAG2)
     write.table(OUT, 'COMPARE.txt', sep='\t', quote=F, col.names=T, row.names=F)
 
-# Tips
-
-# 1. Seurat & scRef
+# 4. Seurat & scRef
 
     library(Seurat)
     source(scRef)
