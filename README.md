@@ -76,6 +76,45 @@ For single-cell expression matrix, we recommend using UMI matrix.
     OUT=.compare_two_tag(TAG1, TAG2)
     write.table(OUT, 'COMPARE.txt', sep='\t', quote=F, col.names=T, row.names=F)
 
+# Tips
+
+# 1. Seurat & scRef
+
+    library(Seurat)
+    source(scRef)
+    
+    ...
+    #To get Seurat object "pbmc", please follow the instruction in https://satijalab.org/seurat/pbmc3k_tutorial.html 
+    ...
+    
+    COL=c()
+    i=1
+    while(i <=length(pbmc@ident)){
+        this_col=which(colnames(pbmc@raw.data)==names(pbmc@ident)[i])
+        COL=c(COL,this_col)
+	    i=i+1
+        } 
+        
+    exp_sc_mat=as.matrix(R18059655_cluster_5@raw.data)[,COL]
+    exp_ref_mat=read.table('GTEx_v7_median_tpm_human.txt',header=T,row.names=1,sep='\t',check.name=F)
+    
+    out=.get_cor(exp_sc_mat, exp_ref_mat, method='kendall',CPU=10, print_step=10)
+    tag=.get_tag_max(out)
+    LocalRef=.generate_ref(exp_sc_mat, tag)
+    out=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=10, print_step=10)
+    tag=.get_tag_max(out)
+    write.table(tag,file='TAG_GTEX.txt',quote=F,row.names=F,col.names=T,sep='\t')
+    
+    TAG=tag
+    old_ident = pbmc@ident
+    pbmc@ident = as.factor(TAG[,2])
+    names(pbmc@ident)=names(old_ident)
+    pbmc_ori=pbmc
+    pdf('GTEX.pdf')
+    TSNEPlot(object = pbmc)
+    dev.off()
+    
+     
 # MIT License
 
     Copyright (c) 2018 Zhang, Feng
