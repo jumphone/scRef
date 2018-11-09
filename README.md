@@ -1,6 +1,6 @@
 # scRef
 
-Reference-based single-cell annotation for sin-gle-cell RNA-seq data
+Reference-based single-cell annotation for single-cell RNA-seq data
 
 # Reference:
 
