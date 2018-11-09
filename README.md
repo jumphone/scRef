@@ -124,9 +124,7 @@ Smaller number indicates earlier development stage.
     pbmc@ident = as.factor(TAG[,2])
     names(pbmc@ident)=names(old_ident)
     pbmc_ori=pbmc
-    pdf('GTEX.pdf',width=8,height=5)
     TSNEPlot(object = pbmc, do.label=T, label.size=2.2)
-    dev.off()
     
     ##############DEV#################
     exp_ref_mat=read.table('GTEx_v7_median_tpm_human.txt',header=T,row.names=1,sep='\t',check.name=F)
@@ -141,10 +139,9 @@ Smaller number indicates earlier development stage.
     pbmc@ident = as.factor(TAG[,2])
     names(pbmc@ident)=names(old_ident)
     pbmc_ori=pbmc
-    pdf('DEV.pdf',width=8,height=5)
     COLOR=heat.colors(n=length(table(pbmc@ident))+2)
     TSNEPlot(object = pbmc, colors.use=COLOR)
-    dev.off()
+    
     
     
      
