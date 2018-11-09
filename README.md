@@ -82,7 +82,7 @@ Original labels:
 
 <img src="/source/Usage4_Original.png" width="500">
 
-scRef labels (Gtex_v7_Tissue):
+scRef labels (Reference: Gtex_v7_Tissue):
 
 <img src="/source/Usage4_scRef.png" width="570">
 
