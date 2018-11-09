@@ -10,4 +10,4 @@ https://web.stanford.edu/group/barres_lab/brain_rnaseq.html
 
 # Workflow
 
-We have generated a human reference by mapping mouse gene to human gene..
+* We have generated a human reference by mapping mouse gene to human gene..
