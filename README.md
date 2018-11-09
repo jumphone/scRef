@@ -16,7 +16,7 @@ Denpendent R packages: pcaPP
 
 # Usage
 
-# 1. Plain reference-based annotation
+# 1. Reference-based annotation
     
     source('scRef.R')
     
