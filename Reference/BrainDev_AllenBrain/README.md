@@ -16,7 +16,7 @@ http://www.brainspan.org/api/v2/well_known_file_download/267666525
 
 1. Calculate kendall correlation coefficient between development stage and expression value of each gene.
 
-2. Select genes with kendall correlation coefficient smaller than -0.5. 
+2. Select genes with kendall correlation coefficient smaller than -0.5 (2,221 genes). 
 
 3. Use the average expression value of each development stage to build this reference.
 
