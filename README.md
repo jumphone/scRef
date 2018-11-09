@@ -84,11 +84,11 @@ https://satijalab.org/seurat/pbmc3k_tutorial.html
 
 <img src="/source/Usage4_Original.png" width="500">
 
-scRef labels (Reference: Gtex_v7_Tissue):
+scRef labels (Reference: Gtex_v7_Tissue, /Reference/Gtex_v7_Tissue/):
 
 <img src="/source/Usage4_scRef.png" width="570">
 
-scRef labels (Reference: BrainDev_AllenBrain):
+scRef labels (Reference: BrainDev_AllenBrain, /Reference/BrainDev_AllenBrain/):
 
 Smaller number indicates earlier development stage.
 
