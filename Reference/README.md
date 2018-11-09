@@ -4,7 +4,7 @@
 
 # 1. MouseBrain_Zhang2014
 
-<img src="/Reference/images/MouseBrain_Zhang2014.png" width="240">
+<img src="/Reference/images/MouseBrain_Zhang2014.png" width="300">
 
 * This mouse brain reference is built from the bulk RNA-seq data of Zhang et al.
 
@@ -15,7 +15,7 @@
 
 # 2. BrainDev_AllenBrain
 
-<img src="/Reference/images/BrainDev_AllenBrain.png" width="240">
+<img src="/Reference/images/BrainDev_AllenBrain.png" width="300">
 
 * This human brain development reference is built from Allen Human Brain Development Database.
 
@@ -25,7 +25,7 @@
 
 # 3. Gtex_v7_Tissue
 
-<img src="/Reference/images/gtex2.png" width="240">
+<img src="/Reference/images/gtex2.png" width="300">
 
 * This Gtex tissue reference is built from RNA-seq data of The Genotype-Tissue Expression (GTEx) project (human, v7).
 
