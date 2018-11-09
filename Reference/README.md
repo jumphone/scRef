@@ -1,7 +1,5 @@
 # Reference Database
 
-# * Usage
-
 * We recommend using "curl" in linux or mac to download data.
 
 # 1. MouseBrain_Zhang2014
