@@ -6,7 +6,7 @@ TPM
 
 https://www.immgen.org
 
-https://www.ncbi.nlm.nih.gov/bioproject/PRJNA281360/
+https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE109125
 
 # Workflow
 
