@@ -80,11 +80,11 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 Original labels:
 
-<img src="/source/Usage4_Original.png" width="80%">
+<img src="/source/Usage4_Original.png" width="500">
 
 scRef labels (Gtex_v7_Tissue):
 
-<img src="/source/Usage4_scRef.png" width="80%">
+<img src="/source/Usage4_scRef.png" width="500">
 
     library(Seurat)
     source('scRef.R')
