@@ -1,6 +1,6 @@
 # Data Type
 
-FPKM matrix
+FPKM
 
 # Data Source
 
