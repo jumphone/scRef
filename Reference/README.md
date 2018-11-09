@@ -13,7 +13,7 @@
 
 # 2. BrainDev_AllenBrain
 
-<img src="/Reference/images/BrainDev_AllenBrain.png" width="120">
+<img src="/Reference/images/BrainDev_AllenBrain.png" width="200">
 
 * This human brain development reference is built from Allen Human Brain Development Database.
 
