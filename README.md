@@ -95,7 +95,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 	    i=i+1
         } 
         
-    exp_sc_mat=as.matrix(R18059655_cluster_5@raw.data)[,COL]
+    exp_sc_mat=as.matrix(pbmc@raw.data)[,COL]
     exp_ref_mat=read.table('GTEx_v7_median_tpm_human.txt',header=T,row.names=1,sep='\t',check.name=F)
     
     out=.get_cor(exp_sc_mat, exp_ref_mat, method='kendall',CPU=10, print_step=10)
