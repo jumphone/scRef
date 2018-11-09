@@ -14,6 +14,14 @@ R: 3.5.0
 
 Denpendent R packages: pcaPP
 
+# Input format
+
+Single-cell and reference expression matrix must be tab-delimited with header and row names.
+
+For reference expression matrix, we recommend using TPM, FPKM, RPKM, or UMI matrix. 
+
+For single-cell expression matrix, we recommend using UMI matrix.
+
 # Usage
 
 # 1. Reference-based annotation
