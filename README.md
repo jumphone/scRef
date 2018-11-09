@@ -10,7 +10,7 @@ Feng Zhang, Yaguang Dou, Weidong Tian; Reference-based single-cell annotation fo
 
 R: 3.5.0
 
-R packages: pcaPP
+Denpendent R packages: pcaPP
 
 # Usage
 
