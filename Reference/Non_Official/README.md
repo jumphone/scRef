@@ -1,4 +1,4 @@
 
 # Non-Official Reference
 
-Reference non-officially collected by authors of scRef
+These references are non-officially collected by authors
