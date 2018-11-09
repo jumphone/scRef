@@ -27,4 +27,4 @@
 
 # Download
 
-We recommend using "curl" in linux or mac to download data.
+* We recommend using "curl" in linux or mac to download data.
