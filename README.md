@@ -84,7 +84,7 @@ Original labels:
 
 scRef labels (Gtex_v7_Tissue):
 
-<img src="/source/Usage4_scRef.png" width="600">
+<img src="/source/Usage4_scRef.png" width="550">
 
     library(Seurat)
     source('scRef.R')
