@@ -90,7 +90,7 @@ scRef labels (Reference: Gtex_v7_Tissue, [Download](/Reference/Gtex_v7_Tissue/))
 
 scRef labels (Reference: BrainDev_AllenBrain, [Download](/Reference/BrainDev_AllenBrain/)):
 
-Please note that this reference is built for analyzing brain. 
+Please note that this reference may not be suitable for analyzing pbmc. 
 
 Smaller number indicates earlier development stage.
 
