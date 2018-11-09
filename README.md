@@ -81,11 +81,10 @@ For single-cell expression matrix, we recommend using UMI matrix.
     library(Seurat)
     source(scRef)
     
-    ...
+    load('pbmc.RData')
     # To get Seurat object "pbmc", please follow the instruction of Seurat:
-    https://satijalab.org/seurat/pbmc3k_tutorial.html 
-    ...
-    
+    # https://satijalab.org/seurat/pbmc3k_tutorial.html 
+        
     COL=c()
     i=1
     while(i <=length(pbmc@ident)){
