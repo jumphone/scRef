@@ -108,8 +108,8 @@ For single-cell expression matrix, we recommend using UMI matrix.
     pbmc@ident = as.factor(TAG[,2])
     names(pbmc@ident)=names(old_ident)
     pbmc_ori=pbmc
-    pdf('GTEX.pdf')
-    TSNEPlot(object = pbmc)
+    pdf('GTEX.pdf',width=8,height=5)
+    TSNEPlot(object = pbmc, do.label=T, label.size=2.2)
     dev.off()
     
      
