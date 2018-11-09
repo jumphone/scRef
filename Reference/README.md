@@ -13,8 +13,8 @@
 
 * Ref. http://www.brainspan.org/static/download.html
 
-# 3. Gtex_Tissue
-* Tissue reference is built from RNA-seq data of The Genotype-Tissue Expression (GTEx) project (human).
+# 3. Gtex_v7_Tissue
+* Tissue reference is built from RNA-seq data of The Genotype-Tissue Expression (GTEx) project (human, v7).
 
 * We have generated a mouse reference in this folder by mapping human gene to mouse gene.
 
