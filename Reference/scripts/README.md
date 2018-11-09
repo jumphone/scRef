@@ -1,2 +1,1 @@
-
-Scripts used to generate reference
+# Scripts for preparing reference
