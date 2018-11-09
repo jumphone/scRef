@@ -79,7 +79,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 # 4. ScRef & Seurat
 
     library(Seurat)
-    source(scRef)
+    source('scRef.R')
     
     load('pbmc.RData')
     # To get Seurat object "pbmc", please follow the instruction of Seurat:
