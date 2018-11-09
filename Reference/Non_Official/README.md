@@ -3,7 +3,7 @@
 
 These references are non-officially collected by us.
 
-If you want to use them in your paper, please email us for the correct citation.
+If you want to use them in your paper, please email us for the appropriate citation.
 
 Email: 
 
