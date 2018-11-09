@@ -42,9 +42,29 @@ Denpendent R packages: pcaPP
     tag=.get_tag_max(out)
     write.table(tag,file='Pearson.txt',quote=F,row.names=F,col.names=T,sep='\t')
 
+# 2. Semi-supervised reference-based annotation
 
+    source('scRef.R')
+    
+    # First-round annotation - Kendall
+    out=.get_cor(exp_sc_mat, exp_ref_mat, method='kendall',CPU=4, print_step=10)
+    tag=.get_tag_max(out)
+    
+    # Build local reference
+    LocalRef=.generate_ref(exp_sc_mat, tag, min_cell=1)
+    
+    # Second-round annotation - Multinomial
+    out=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=4, print_step=10)
+    tag=.get_tag_max(out)
+    write.table(tag,file='Semi.txt',quote=F,row.names=F,col.names=T,sep='\t')
 
-
+# 3. Compare tags or Combine the results of tSNE and scRef 
+   
+    source('scRef.R')
+    
+    #Compare tags (column 1: cell_id; column 2: labels)
+    OUT=.compare_two_tag(TAG1, TAG2)
+    write.table(OUT, 'COMPARE.txt', sep='\t', quote=F, col.names=T, row.names=F)
 
 
 
