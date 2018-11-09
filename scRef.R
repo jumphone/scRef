@@ -151,6 +151,7 @@
     if(refnames==FALSE){
         refnames=names(table(TAG[,2]))}
         else{refnames=refnames}
+    outnames=c()
     for(one in refnames){
         this_col=which(TAG[,2]==one)
         if(length(this_col)>= min_cell){
