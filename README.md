@@ -1,7 +1,9 @@
 # scRef
+
 Reference-based single-cell annotation for sin-gle-cell RNA-seq data
 
-#Requirement
+# Requirement
+
 R: 3.5.0
-R packages:
-pcaPP
+
+R packages: pcaPP
