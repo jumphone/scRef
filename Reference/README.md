@@ -49,6 +49,7 @@
 
 * Source: https://www.immgen.org
 
-# * non_official
-* We non-officially collect some references which might be useful when analyzing singl-cell RNA-seq data.
+# * other
+
+* Informal References
 
