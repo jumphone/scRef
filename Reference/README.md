@@ -2,7 +2,9 @@
 
 # 1. MouseBrain_Zhang2014
 
-<img src="/Reference/images/MouseBrain_Zhang2014.png" width="280">
+<a href="https://web.stanford.edu/group/barres_lab/brain_rnaseq.html">
+  <img src="/Reference/images/MouseBrain_Zhang2014.png" width="280">
+</a>
 
 * This mouse brain reference is built from the bulk RNA-seq data of Zhang et al.
 
