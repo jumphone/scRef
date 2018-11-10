@@ -1,6 +1,6 @@
 # Data Type
 
-Mouse, single-cell RNA-seq UMI
+Mouse, UMI
 
 # Data Source:
 
