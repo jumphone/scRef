@@ -12,7 +12,7 @@ https://figshare.com/articles/MCA_DGE_Data/5435866
 
 # Workflow:
 
-* For each cell type, we sum all UMI count.
+* For each gene in each cell type, we add all UMI up.
 
 * Detailed scripts are in: https://github.com/jumphone/scRef/tree/master/scripts/MCA
 
