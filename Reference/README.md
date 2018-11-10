@@ -31,7 +31,7 @@
 <img src="/Reference/images/gtex2.png" width="280">
 </a>
 
-* This Gtex tissue reference is built from RNA-seq data of The Genotype-Tissue Expression (GTEx) project (human, v7).
+* This human tissue reference is built from RNA-seq data of The Genotype-Tissue Expression (GTEx) project (v7).
 
 * Human & Mouse version available.
 
@@ -43,7 +43,7 @@
 <img src="/Reference/images/ImmuneCell_ImmGen.png" width="280">
 </a>
 
-* This immune cell reference is built from RNA-seq data of Immunological Genome project (mouse).
+* This mouse immune cell reference is built from RNA-seq data of Immunological Genome project.
 
 * Human & Mouse version available.
 
