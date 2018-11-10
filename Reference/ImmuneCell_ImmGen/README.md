@@ -1,6 +1,6 @@
 # Data Type
 
-RPK (Reads Per Kilobase)
+Mouse, RPK (Reads Per Kilobase)
 
 # Data Source
 
