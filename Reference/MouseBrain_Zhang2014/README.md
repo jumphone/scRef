@@ -1,6 +1,6 @@
 # Data Type
 
-FPKM
+Mouse, FPKM
 
 # Data Source
 
