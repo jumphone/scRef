@@ -52,7 +52,7 @@
 # 5. MouseAtlas_MCA
 
 <a href="https://www.immgen.org">
-<img src="/Reference/images/ImmuneCell_ImmGen.png" width="280">
+<img src="/Reference/images/MCA.png" width="280">
 </a>
 
 * This mouse cell atlas reference is built from scRNA-seq data of Mouse Cell Atlas.
