@@ -1,10 +1,6 @@
 # Data Type
 
-TPM
-
-# Data Organism
-
-Human
+Human, TPM
 
 # Data Source:
 
