@@ -1,4 +1,4 @@
-<a href='/'>
+<a href='https://github.com/jumphone/scRef'>
 <img src="/Logo.png" width="80%">
 </a>
 
