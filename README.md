@@ -84,11 +84,15 @@ Original labels for Peripheral Blood Mononuclear Cells (PBMC):
 
 https://satijalab.org/seurat/pbmc3k_tutorial.html
 
+<a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage4_Original.png" width="500">
+</a>
 
 scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/)):
 
+<a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage4_scRef.png" width="570">
+</a>
 
 scRef labels (Reference: BrainDev_AllenBrain, [Download](/Reference/BrainDev_AllenBrain/)):
 
@@ -96,7 +100,9 @@ Please note that this reference may not be suitable for PBMC.
 
 Smaller number indicates earlier development stage.
 
+<a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage4_scRef_dev.png" width="450">
+</a>
 
     library(Seurat)
     source('scRef.R')
