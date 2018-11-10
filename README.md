@@ -1,4 +1,6 @@
+<a href='/'>
 <img src="/Logo.png" width="80%">
+</a>
 
 # scREF
 
