@@ -4,7 +4,7 @@ Human, TPM
 
 # Data Source:
 
-Build from Gtex (v7) expression file containing the median TPM by tissue.
+This reference is built from Gtex (v7) expression file containing the median TPM by tissue.
 
 https://gtexportal.org/home/datasets
 
