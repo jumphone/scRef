@@ -84,7 +84,7 @@ https://satijalab.org/seurat/pbmc3k_tutorial.html
 
 <img src="/source/Usage4_Original.png" width="500">
 
-scRef labels (Reference: Gtex_v7_Tissue, [Download](/Reference/Gtex_v7_Tissue/)):
+scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/)):
 
 <img src="/source/Usage4_scRef.png" width="570">
 
