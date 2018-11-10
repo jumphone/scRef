@@ -15,7 +15,7 @@
 
 # 2. BrainDev_AllenBrain
 
-<a href="http://www.brainspan.org/static/download.html">
+<a href="/Reference/BrainDev_AllenBrain">
 <img src="/Reference/images/BrainDev_AllenBrain.png" width="280">
 </a>
 
@@ -27,7 +27,7 @@
 
 # 3. Tissue_Gtex_v7
 
-<a href="https://gtexportal.org/home/datasets">
+<a href="/Reference/Tissue_Gtex_v7">
 <img src="/Reference/images/gtex2.png" width="280">
 </a>
 
@@ -39,7 +39,7 @@
 
 # 4. ImmuneCell_ImmGen
 
-<a href="https://www.immgen.org">
+<a href="/Reference/ImmuneCell_ImmGen">
 <img src="/Reference/images/ImmuneCell_ImmGen.png" width="280">
 </a>
 
@@ -51,7 +51,7 @@
 
 # 5. MouseAtlas_MCA
 
-<a href="http://bis.zju.edu.cn/MCA/">
+<a href="/Reference/MouseAtlas_MCA">
 <img src="/Reference/images/MCA.png" width="280">
 </a>
 
