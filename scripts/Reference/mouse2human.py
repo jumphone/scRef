@@ -13,7 +13,7 @@ for line in fa:
 
 
 
-fa=open('./MGI_HGNC_homologene.rpt')
+fa=open('./MGI_HGNC_homologene.txt')
 for line in fa:
     seq=line.rstrip().split('\t')
     sym=seq[1]
