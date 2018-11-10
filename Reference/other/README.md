@@ -1,6 +1,6 @@
-# Non-Official Reference
+# Informal Reference
 
-These references are non-officially collected by us.
+These references are collected by us.
 
 If you want to use them in your paper, please email us for the appropriate citation.
 
