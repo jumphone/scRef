@@ -21,7 +21,7 @@
 
 * Source: http://www.brainspan.org/static/download.html
 
-# 3. Gtex_v7_Tissue
+# 3. Tissue_Gtex_v7
 
 <img src="/Reference/images/gtex2.png" width="280">
 
