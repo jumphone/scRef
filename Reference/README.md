@@ -1,7 +1,5 @@
 # Reference Database
 
-* We recommend using "curl" in linux or mac to download data.
-
 # 1. MouseBrain_Zhang2014
 
 <img src="/Reference/images/MouseBrain_Zhang2014.png" width="280">
