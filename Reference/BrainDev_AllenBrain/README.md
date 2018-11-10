@@ -4,7 +4,7 @@ Human, RPKM
 
 # Data Source:
 
-Build from Allen Human Brain Development RNA-seq Data
+This reference is built from Allen Human Brain Development RNA-seq Data
 
 Please see "meta.txt" for sample information
 
