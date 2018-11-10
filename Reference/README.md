@@ -3,7 +3,7 @@
 # 1. MouseBrain_Zhang2014
 
 <a href="https://web.stanford.edu/group/barres_lab/brain_rnaseq.html" target="view_window">
-  <img src="/Reference/images/MouseBrain_Zhang2014.png" width="280">
+<img src="/Reference/images/MouseBrain_Zhang2014.png" width="280">
 </a>
 
 * This mouse brain reference is built from the bulk RNA-seq data of Zhang et al.
@@ -15,7 +15,9 @@
 
 # 2. BrainDev_AllenBrain
 
+<a href="http://www.brainspan.org/static/download.html" target="view_window">
 <img src="/Reference/images/BrainDev_AllenBrain.png" width="280">
+</a>
 
 * This human brain development reference is built from Allen Human Brain Development Database.
 
@@ -25,7 +27,9 @@
 
 # 3. Tissue_Gtex_v7
 
+<a href="https://gtexportal.org/home/datasets" target="view_window">
 <img src="/Reference/images/gtex2.png" width="280">
+</a>
 
 * This Gtex tissue reference is built from RNA-seq data of The Genotype-Tissue Expression (GTEx) project (human, v7).
 
@@ -35,7 +39,9 @@
 
 # 4. ImmuneCell_ImmGen
 
+<a href="https://www.immgen.org" target="view_window">
 <img src="/Reference/images/ImmuneCell_ImmGen.png" width="280">
+</a>
 
 * This immune cell reference is built from RNA-seq data of Immunological Genome project (mouse).
 
