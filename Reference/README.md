@@ -2,7 +2,7 @@
 
 # 1. MouseBrain_Zhang2014
 
-<a href="https://web.stanford.edu/group/barres_lab/brain_rnaseq.html" target="view_window">
+<a href="https://web.stanford.edu/group/barres_lab/brain_rnaseq.html">
 <img src="/Reference/images/MouseBrain_Zhang2014.png" width="280">
 </a>
 
@@ -15,7 +15,7 @@
 
 # 2. BrainDev_AllenBrain
 
-<a href="http://www.brainspan.org/static/download.html" target="view_window">
+<a href="http://www.brainspan.org/static/download.html">
 <img src="/Reference/images/BrainDev_AllenBrain.png" width="280">
 </a>
 
@@ -27,7 +27,7 @@
 
 # 3. Tissue_Gtex_v7
 
-<a href="https://gtexportal.org/home/datasets" target="view_window">
+<a href="https://gtexportal.org/home/datasets">
 <img src="/Reference/images/gtex2.png" width="280">
 </a>
 
@@ -39,7 +39,7 @@
 
 # 4. ImmuneCell_ImmGen
 
-<a href="https://www.immgen.org" target="view_window">
+<a href="https://www.immgen.org">
 <img src="/Reference/images/ImmuneCell_ImmGen.png" width="280">
 </a>
 
