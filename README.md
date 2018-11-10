@@ -68,7 +68,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
     tag=.get_tag_max(out)
     write.table(tag,file='Semi.txt',quote=F,row.names=F,col.names=T,sep='\t')
 
-# 3. Compare tags or Combine the results of clustering method and scRef 
+# 3. Combine the results of clustering method and scRef 
    
     source('scRef.R')
     
