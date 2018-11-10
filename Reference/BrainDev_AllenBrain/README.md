@@ -1,10 +1,6 @@
 # Data Type
 
-RPKM
-
-# Data Organism
-
-Human
+Human, RPKM
 
 # Data Source:
 
