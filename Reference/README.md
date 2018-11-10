@@ -2,7 +2,7 @@
 
 # 1. MouseBrain_Zhang2014
 
-<a href="https://web.stanford.edu/group/barres_lab/brain_rnaseq.html">
+<a href="https://web.stanford.edu/group/barres_lab/brain_rnaseq.html" target="view_window">
   <img src="/Reference/images/MouseBrain_Zhang2014.png" width="280">
 </a>
 
