@@ -20,7 +20,7 @@ http://www.brainspan.org/api/v2/well_known_file_download/267666525
 
 3. Use the average expression value of each development stage to build this reference.
 
-* Detailed scripts are in: https://github.com/jumphone/scRef/tree/master/Reference/scripts/ALLEN
+* Detailed scripts are in: https://github.com/jumphone/scRef/tree/master/scripts/ALLEN
 
 * We have generated a mouse reference by mapping human gene to mouse gene.
 
