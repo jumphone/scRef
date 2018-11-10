@@ -8,6 +8,8 @@ This reference is built from Allen Human Brain Development RNA-seq Data
 
 Please see "meta.txt" for sample information
 
+http://portal.brain-map.org/
+
 http://www.brainspan.org/static/download.html
 
 http://www.brainspan.org/api/v2/well_known_file_download/267666525
