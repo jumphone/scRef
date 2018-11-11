@@ -8,7 +8,7 @@ Reference-based single-cell annotation for single-cell RNA-seq data
 
 # dbRef 
 
-<a href='/Reference/'>Visit Database</a>
+<a href='/Reference/'>Visit dbRef</a>
 
 We build a reference database to store cell type references.
 
