@@ -63,7 +63,7 @@
 
 # 6. MouseCell_TabulaMuris
 
-<a href="/Reference/MouseAtlas_MCA">
+<a href="/Reference/MouseCell_TabulaMuris">
 <img src="/Reference/images/TabulaMuris.png" width="280">
 </a>
 
