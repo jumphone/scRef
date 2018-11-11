@@ -61,6 +61,18 @@
 
 * Source: http://bis.zju.edu.cn/MCA/
 
+# 6. MouseCell_TabulaMuris
+
+<a href="/Reference/MouseAtlas_MCA">
+<img src="/Reference/images/MCA.png" width="280">
+</a>
+
+* This mouse cell reference is built from scRNA-seq data of Tabula Muris.
+
+* Human & Mouse version available.
+
+* Source: https://figshare.com/articles/Single-cell_RNA-seq_data_from_Smart-seq2_sequencing_of_FACS_sorted_cells_v2_/5829687
+
 # * other
 
 * Informal References
