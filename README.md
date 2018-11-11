@@ -3,7 +3,7 @@
 Reference-based single-cell annotation for single-cell RNA-seq data
 
 <a href='https://github.com/jumphone/scRef'>
-<img src="/Logo.png" width="80%">
+<img src="/Logo.png" width="60%">
 </a>
 
 # dbRef 
