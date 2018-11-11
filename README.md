@@ -10,6 +10,10 @@ Reference-based single-cell annotation for single-cell RNA-seq data
 
 <a href='/Reference/'>Visit dbRef</a>
 
+<a href='/Reference/'>
+<img src="/source/dbRef.png" width="150">
+</a>
+
 We build a reference database to store cell type references.
 
 # Citation:
