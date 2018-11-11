@@ -6,7 +6,9 @@
 
 Reference-based single-cell annotation for single-cell RNA-seq data
 
-# Reference Database [<a href='/Reference/'>visit</a>]
+# Reference Database 
+
+<a href='/Reference/'>Visit Database</a>
 
 We build a reference database to store cell type references.
 
