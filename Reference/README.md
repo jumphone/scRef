@@ -64,7 +64,7 @@
 # 6. MouseCell_TabulaMuris
 
 <a href="/Reference/MouseAtlas_MCA">
-<img src="/Reference/images/MCA.png" width="280">
+<img src="/Reference/images/TabulaMuris.png" width="280">
 </a>
 
 * This mouse cell reference is built from scRNA-seq data of Tabula Muris.
