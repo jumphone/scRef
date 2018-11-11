@@ -49,19 +49,7 @@
 
 * Source: https://www.immgen.org
 
-# 5. MouseAtlas_MCA
-
-<a href="/Reference/MouseAtlas_MCA">
-<img src="/Reference/images/MCA.png" width="280">
-</a>
-
-* This mouse cell atlas reference is built from scRNA-seq data of Mouse Cell Atlas.
-
-* Human & Mouse version available.
-
-* Source: http://bis.zju.edu.cn/MCA/
-
-# 6. MouseCell_TabulaMuris
+# 5. MouseCell_TabulaMuris
 
 <a href="/Reference/MouseCell_TabulaMuris">
 <img src="/Reference/images/TabulaMuris.png" width="280">
@@ -72,6 +60,18 @@
 * Human & Mouse version available.
 
 * Source: https://tabula-muris.ds.czbiohub.org/
+
+# 6. MouseAtlas_MCA
+
+<a href="/Reference/MouseAtlas_MCA">
+<img src="/Reference/images/MCA.png" width="280">
+</a>
+
+* This mouse cell atlas reference is built from scRNA-seq data of Mouse Cell Atlas.
+
+* Human & Mouse version available.
+
+* Source: http://bis.zju.edu.cn/MCA/
 
 # * other
 
