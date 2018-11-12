@@ -95,7 +95,7 @@ Original labels for human Peripheral Blood Mononuclear Cells (PBMC):
 https://satijalab.org/seurat/pbmc3k_tutorial.html
 
 <a href='https://github.com/jumphone/scRef'>
-<img src="/source/Usage4_Original.png" width="500">
+<img src="/source/Usage4_Original.png" width="520">
 </a>
 
 scRef labels (Reference: ImmuneCell_ImmGen, [Download](/Reference/ImmuneCell_ImmGen/)):
