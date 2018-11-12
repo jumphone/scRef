@@ -119,7 +119,7 @@ scRef labels (Reference: MouseCell_TabulaMuris, [Download](/Reference/MouseCell_
 Please note that this reference is converted from mouse reference
 
 <a href='https://github.com/jumphone/scRef'>
-<img src="/source/Usage4_scRef_TabulaMuris.png" width="450">
+<img src="/source/Usage4_scRef_TabulaMuris.png" width="750">
 </a>
 
 
