@@ -98,18 +98,18 @@ https://satijalab.org/seurat/pbmc3k_tutorial.html
 <img src="/source/Usage4_Original.png" width="500">
 </a>
 
-scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/)):
-
-<a href='https://github.com/jumphone/scRef'>
-<img src="/source/Usage4_scRef.png" width="570">
-</a>
-
 scRef labels (Reference: ImmuneCell_ImmGen, [Download](/Reference/ImmuneCell_ImmGen/)):
 
 Please note that this reference is converted from mouse reference
 
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage4_scRef_ImmGen.png" width="800">
+</a>
+
+scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/)):
+
+<a href='https://github.com/jumphone/scRef'>
+<img src="/source/Usage4_scRef.png" width="570">
 </a>
 
 scRef labels (Reference: MouseCell_TabulaMuris, [Download](/Reference/MouseCell_TabulaMuris/)):
