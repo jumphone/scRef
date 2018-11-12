@@ -14,7 +14,7 @@ https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE116470
 
 # Workflow:
 
-* For each gene in each cell type, we add all UMI up.
+* We use the meta information and count data provided in "metacells.BrainCellAtlas_Saunders_version_2018.04.01.RDS" and "annotation.BrainCellAtlas_Saunders_version_2018.04.01.RDS", respectively.
 
 * Detailed scripts are in: https://github.com/jumphone/scRef/tree/master/scripts/MBA/
 
