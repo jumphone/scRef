@@ -79,7 +79,7 @@
 <img src="/Reference/images/MBA.png" width="280">
 </a>
 
-* This mouse brain atlas reference is built from scRNA-seq data of adult Mouse Brain Atlas.
+* This mouse brain reference is built from scRNA-seq data of adult Mouse Brain Atlas.
 
 * Human & Mouse version available.
 
