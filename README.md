@@ -104,14 +104,12 @@ scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/))
 <img src="/source/Usage4_scRef.png" width="570">
 </a>
 
-scRef labels (Reference: BrainDev_AllenBrain, [Download](/Reference/BrainDev_AllenBrain/)):
+scRef labels (Reference: ImmuneCell_ImmGen, [Download](/Reference/ImmuneCell_ImmGen/)):
 
-Please note that this reference may not be suitable for PBMC. 
-
-Smaller number indicates earlier development stage.
+Please note that this reference is converted from mouse reference
 
 <a href='https://github.com/jumphone/scRef'>
-<img src="/source/Usage4_scRef_dev.png" width="450">
+<img src="/source/Usage4_scRef_ImmGen.png" width="800">
 </a>
 
 scRef labels (Reference: MouseCell_TabulaMuris, [Download](/Reference/MouseCell_TabulaMuris/)):
@@ -122,6 +120,15 @@ Please note that this reference is converted from mouse reference
 <img src="/source/Usage4_scRef_TabulaMuris.png" width="800">
 </a>
 
+scRef labels (Reference: BrainDev_AllenBrain, [Download](/Reference/BrainDev_AllenBrain/)):
+
+Please note that this reference may not be suitable for PBMC. 
+
+Smaller number indicates earlier development stage.
+
+<a href='https://github.com/jumphone/scRef'>
+<img src="/source/Usage4_scRef_dev.png" width="450">
+</a>
 
     library(Seurat)
     source('scRef.R')
