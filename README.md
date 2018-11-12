@@ -106,7 +106,7 @@ Please note that "ImmuneCell_ImmGen" is mouse reference
 <img src="/source/Usage4_scRef_ImmGen.png" width="500">
 </a>
 
-scRef labels (Reference: MouseCell_TabulaMuris, [Download](/Reference/MouseCell_TabulaMuris/)):
+scRef labels (Reference: MouseCell_TabulaMuris, Spleen&Thymus, [Download](/Reference/MouseCell_TabulaMuris/)):
 
 Please note that "MouseCell_TabulaMuris" is mouse reference
 
@@ -115,7 +115,7 @@ Please note that "MouseCell_TabulaMuris" is mouse reference
 </a>
 
 
-scRef labels (Reference: MouseAtlas_MCA, [Download](/Reference/MouseAtlas_MCA/)):
+scRef labels (Reference: MouseAtlas_MCA, Spleen&Thymus, [Download](/Reference/MouseAtlas_MCA/)):
 
 Please note that "MouseAtlas_MCA" is mouse reference
 
