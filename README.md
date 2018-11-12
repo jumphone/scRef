@@ -122,7 +122,7 @@ scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/))
 
 scRef labels (Reference: BrainDev_AllenBrain, [Download](/Reference/BrainDev_AllenBrain/)):
 
-Please note that this reference may not be suitable for PBMC. 
+Please note that this mouse brain reference may not be suitable for human PBMC. 
 
 Smaller number indicates earlier development stage.
 
