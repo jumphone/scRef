@@ -171,6 +171,8 @@ Please note that this reference is converted from mouse reference
     COLOR=heat.colors(n=length(table(pbmc@ident))+2)
     TSNEPlot(object = pbmc, colors.use=COLOR)
     
+    ##################################
+    ...
     
     
      
