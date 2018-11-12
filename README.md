@@ -114,6 +114,15 @@ Smaller number indicates earlier development stage.
 <img src="/source/Usage4_scRef_dev.png" width="450">
 </a>
 
+scRef labels (Reference: MouseCell_TabulaMuris, [Download](/Reference/MouseCell_TabulaMuris/)):
+
+Please note that this reference is converted from mouse reference
+
+<a href='https://github.com/jumphone/scRef'>
+<img src="/source/Usage4_scRef_TabulaMuris.png" width="450">
+</a>
+
+
     library(Seurat)
     source('scRef.R')
     
