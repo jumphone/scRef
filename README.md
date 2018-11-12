@@ -100,7 +100,7 @@ https://satijalab.org/seurat/pbmc3k_tutorial.html
 
 scRef labels (Reference: ImmuneCell_ImmGen, [Download](/Reference/ImmuneCell_ImmGen/)):
 
-Please note that this reference is converted from mouse reference
+Please note that "ImmuneCell_ImmGen" is mouse reference
 
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage4_scRef_ImmGen.png" width="500">
@@ -108,7 +108,7 @@ Please note that this reference is converted from mouse reference
 
 scRef labels (Reference: MouseCell_TabulaMuris, [Download](/Reference/MouseCell_TabulaMuris/)):
 
-Please note that this reference is converted from mouse reference
+Please note that "MouseCell_TabulaMuris" is mouse reference
 
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage4_scRef_TabulaMuris.png" width="780">
