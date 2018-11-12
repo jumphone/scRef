@@ -4,7 +4,7 @@ Mouse, UMI
 
 # Data Source:
 
-This reference is built from Tabula Muris single-cell RNA-seq Data
+This reference is built from Mouse Brain Atlas
 
 Paper: Molecular Diversity and Specializations among the Cells of the Adult Mouse Brain
 
