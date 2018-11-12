@@ -103,7 +103,7 @@ scRef labels (Reference: ImmuneCell_ImmGen, [Download](/Reference/ImmuneCell_Imm
 Please note that this reference is converted from mouse reference
 
 <a href='https://github.com/jumphone/scRef'>
-<img src="/source/Usage4_scRef_ImmGen.png" width="600">
+<img src="/source/Usage4_scRef_ImmGen.png" width="500">
 </a>
 
 scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/)):
