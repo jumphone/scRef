@@ -10,8 +10,6 @@ Paper: Molecular Diversity and Specializations among the Cells of the Adult Mous
 
 http://dropviz.org/
 
-https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE116470
-
 # Workflow:
 
 * We use the meta information and count data provided in "metacells.BrainCellAtlas_Saunders_version_2018.04.01.RDS" and "annotation.BrainCellAtlas_Saunders_version_2018.04.01.RDS", respectively.
