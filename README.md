@@ -178,10 +178,7 @@ Smaller number indicates earlier development stage.
     COLOR=heat.colors(n=length(table(pbmc@ident))+2)
     TSNEPlot(object = pbmc, colors.use=COLOR)
     
-    ##################################
-    ...
-    
-    
+    ##################################      
      
 # MIT License
 
