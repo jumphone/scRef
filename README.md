@@ -120,7 +120,7 @@ scRef labels (Reference: MouseAtlas_MCA, [Download](/Reference/MouseAtlas_MCA/))
 Please note that "MouseAtlas_MCA" is mouse reference
 
 <a href='https://github.com/jumphone/scRef'>
-<img src="/source/Usage4_scRef_MCA.png" width="580">
+<img src="/source/Usage4_scRef_MCA.png" width="560">
 </a>
 
 scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/)):
