@@ -90,7 +90,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 # 4. ScRef & Seurat
 
-Original labels for human Peripheral Blood Mononuclear Cells (PBMC):
+# Original labels for human Peripheral Blood Mononuclear Cells (PBMC):
 
 https://satijalab.org/seurat/pbmc3k_tutorial.html
 
@@ -98,7 +98,7 @@ https://satijalab.org/seurat/pbmc3k_tutorial.html
 <img src="/source/Usage4_Original.png" width="520">
 </a>
 
-scRef labels (Reference: ImmuneCell_ImmGen, [Download](/Reference/ImmuneCell_ImmGen/)):
+# scRef labels (Reference: ImmuneCell_ImmGen, [Download](/Reference/ImmuneCell_ImmGen/)):
 
 Please note that "ImmuneCell_ImmGen" is mouse reference
 
@@ -106,7 +106,7 @@ Please note that "ImmuneCell_ImmGen" is mouse reference
 <img src="/source/Usage4_scRef_ImmGen.png" width="500">
 </a>
 
-scRef labels (Reference: MouseCell_TabulaMuris, Spleen&Thymus, [Download](/Reference/MouseCell_TabulaMuris/)):
+# scRef labels (Reference: MouseCell_TabulaMuris, Spleen&Thymus, [Download](/Reference/MouseCell_TabulaMuris/)):
 
 Please note that "MouseCell_TabulaMuris" is mouse reference
 
@@ -114,8 +114,7 @@ Please note that "MouseCell_TabulaMuris" is mouse reference
 <img src="/source/Usage4_scRef_TabulaMuris.png" width="780">
 </a>
 
-
-scRef labels (Reference: MouseAtlas_MCA, Spleen&Thymus, [Download](/Reference/MouseAtlas_MCA/)):
+# scRef labels (Reference: MouseAtlas_MCA, Spleen&Thymus, [Download](/Reference/MouseAtlas_MCA/)):
 
 Please note that "MouseAtlas_MCA" is mouse reference
 
@@ -123,13 +122,13 @@ Please note that "MouseAtlas_MCA" is mouse reference
 <img src="/source/Usage4_scRef_MCA.png" width="560">
 </a>
 
-scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/)):
+# scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/)):
 
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage4_scRef.png" width="570">
 </a>
 
-scRef labels (Reference: BrainDev_AllenBrain, [Download](/Reference/BrainDev_AllenBrain/)):
+# scRef labels (Reference: BrainDev_AllenBrain, [Download](/Reference/BrainDev_AllenBrain/)):
 
 Please note that this mouse brain reference may not be suitable for human PBMC. 
 
