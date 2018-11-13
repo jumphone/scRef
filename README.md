@@ -2,7 +2,7 @@
 Reference-based single-cell annotation
 
 <a href='https://github.com/jumphone/scRef'>
-<img src="/Logo.png" width="400">
+<img src="/Logo.png" width="360">
 </a>
 
 # dbRef
