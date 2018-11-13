@@ -2,7 +2,7 @@
 
 # 1. MouseBrain_Zhang2014
 
-<a href="/Reference/MouseBrain_Zhang2014">
+<a href="">
 <img src="/Reference/images/MouseBrain_Zhang2014.png" width="280">
 </a>
 
