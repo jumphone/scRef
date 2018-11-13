@@ -92,7 +92,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 <b> A. Original labels for human Peripheral Blood Mononuclear Cells (PBMC) </b>
 
-https://satijalab.org/seurat/pbmc3k_tutorial.html
+Source: https://satijalab.org/seurat/pbmc3k_tutorial.html
 
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage4_Original.png" width="520">
