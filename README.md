@@ -11,7 +11,7 @@ A reference database for scRef
 <a href='/Reference/'>Visit dbRef</a>
 
 <a href='/Reference/'>
-<img src="/source/dbRef.png" width="120">
+<img src="/source/dbRef.png" width="100">
 </a>
 
 # Citation:
