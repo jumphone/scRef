@@ -90,7 +90,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 # 4. ScRef & Seurat
 
-<b> a. Original labels for human Peripheral Blood Mononuclear Cells (PBMC) </b>
+<b> A. Original labels for human Peripheral Blood Mononuclear Cells (PBMC) </b>
 
 https://satijalab.org/seurat/pbmc3k_tutorial.html
 
@@ -98,7 +98,7 @@ https://satijalab.org/seurat/pbmc3k_tutorial.html
 <img src="/source/Usage4_Original.png" width="520">
 </a>
 
-<b> b. scRef labels (Reference: ImmuneCell_ImmGen, [Download](/Reference/ImmuneCell_ImmGen/)) </b>
+<b> B. scRef labels (Reference: ImmuneCell_ImmGen, [Download](/Reference/ImmuneCell_ImmGen/)) </b>
 
 Please note that "ImmuneCell_ImmGen" is mouse reference
 
@@ -106,7 +106,7 @@ Please note that "ImmuneCell_ImmGen" is mouse reference
 <img src="/source/Usage4_scRef_ImmGen.png" width="500">
 </a>
 
-<b> c. scRef labels (Reference: MouseCell_TabulaMuris, Spleen&Thymus, [Download](/Reference/MouseCell_TabulaMuris/)) </b>
+<b> C. scRef labels (Reference: MouseCell_TabulaMuris, Spleen&Thymus, [Download](/Reference/MouseCell_TabulaMuris/)) </b>
 
 Please note that "MouseCell_TabulaMuris" is mouse reference
 
@@ -114,7 +114,7 @@ Please note that "MouseCell_TabulaMuris" is mouse reference
 <img src="/source/Usage4_scRef_TabulaMuris.png" width="780">
 </a>
 
-<b> d. scRef labels (Reference: MouseAtlas_MCA, Spleen&Thymus, [Download](/Reference/MouseAtlas_MCA/)) </b>
+<b> D. scRef labels (Reference: MouseAtlas_MCA, Spleen&Thymus, [Download](/Reference/MouseAtlas_MCA/)) </b>
 
 Please note that "MouseAtlas_MCA" is mouse reference
 
@@ -122,13 +122,13 @@ Please note that "MouseAtlas_MCA" is mouse reference
 <img src="/source/Usage4_scRef_MCA.png" width="560">
 </a>
 
-<b> e. scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/)) </b>
+<b> E. scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/)) </b>
 
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage4_scRef.png" width="570">
 </a>
 
-<b> f. scRef labels (Reference: BrainDev_AllenBrain, [Download](/Reference/BrainDev_AllenBrain/)) </b>
+<b> F. scRef labels (Reference: BrainDev_AllenBrain, [Download](/Reference/BrainDev_AllenBrain/)) </b>
 
 Please note that this mouse brain reference may not be suitable for human PBMC. 
 
