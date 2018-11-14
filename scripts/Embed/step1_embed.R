@@ -47,5 +47,10 @@ library("RColorBrewer")
 display.brewer.all()
 brewer.pal(n=8,name='Set2')
 #install.packages("wesanderson")
+
 library(wesanderson)
+colpal=wes_palette(name="Moonrise3", n=24, type = c("continuous"))
+COLOR=colpal[as.factor(IDENT)]
+plot(TSNE_VEC, col=COLOR, pch=16,cex=0.5)
+
 
