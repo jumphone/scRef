@@ -17,7 +17,7 @@ length(x=pbmc@var.genes) #3726
 pbmc = ScaleData(object = pbmc,vars.to.regress = c("percent.mito", "nUMI", "batch"), genes.use=pbmc@var.genes)
 
 PCNUM=40
-pbmc <- RunPCA(object = pbmc, pc.genes = EXP@var.genes, do.print = TRUE, pcs.print = 1:5,    genes.print = 5, pcs.compute=PCNUM, maxit = 500, weight.by.var = FALSE )
+pbmc <- RunPCA(object = pbmc, pc.genes = pbmc@var.genes, do.print = TRUE, pcs.print = 1:5,    genes.print = 5, pcs.compute=PCNUM, maxit = 500, weight.by.var = FALSE )
 
 PCUSE=1:35
 pbmc = RunTSNE(object = pbmc, dims.use = PCUSE, do.fast = TRUE)
