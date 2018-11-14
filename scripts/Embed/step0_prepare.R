@@ -30,9 +30,11 @@ TSNE_VEC=pbmc_3@dr$tsne@cell.embeddings
 library(plotly)
 plot_ly(x=TSNE_VEC[,1],y=TSNE_VEC[,2],z=TSNE_VEC[,3])
 
-D=dist(TSNE_VEC)
-H=hclust(D)
-C=cutree(H,k=25)
+C=kmeans(TSNE_VEC,centers=10)$cluster
+
+#D=dist(TSNE_VEC)
+#H=hclust(D)
+#C=cutree(H,k=25)
 
 old_ident = pbmc@ident
 pbmc@ident = as.factor(C)
