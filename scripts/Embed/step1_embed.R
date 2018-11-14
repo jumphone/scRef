@@ -78,7 +78,15 @@ SINGLE = function(i){
 CPU=10
 RUN = mclapply(1:length(tag[,1]), SINGLE, mc.cores=CPU)
 
+VEC_OUT = c()
+for(this_out_vec in RUN){
+    VEC_OUT=cbind(VEC_OUT, this_out_vec)
+    }
+VEC_OUT=t(VEC_OUT)
+rownames(VEC_OUT)=colnames(exp_sc_mat)
 
+
+                                 
 library("RColorBrewer")
 display.brewer.all()
 brewer.pal(n=8,name='Set2')
