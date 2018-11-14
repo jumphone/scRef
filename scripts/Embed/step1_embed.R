@@ -30,6 +30,8 @@ tag=.get_tag_max(out)
 
 library(parallel)
 
+set.seed(123456)
+
 print_step=10
 N=5
 SINGLE = function(i){   
