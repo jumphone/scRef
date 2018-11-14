@@ -22,4 +22,4 @@ pbmc <- RunPCA(object = pbmc, pc.genes = pbmc@var.genes, do.print = TRUE, pcs.pr
 PCUSE=1:35
 pbmc = RunTSNE(object = pbmc, dims.use = PCUSE, do.fast = TRUE)
 
-
+TSNEPlot(pbmc,pt.size=0.5)
