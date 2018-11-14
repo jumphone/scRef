@@ -34,6 +34,8 @@ set.seed(123456)
 
 print_step=10
 N=5
+RANDOM=50
+
 SINGLE = function(i){   
     library('pcaPP')
     .get_dis= function(this_sc, this_ref){
@@ -61,7 +63,10 @@ SINGLE = function(i){
         }
       
     this_tag = as.character(tag[i,2])
+    
     vec_index=which(IDENT==this_tag)
+    vec_index=sample(vec_index, size=RANDOM, replace = FALSE) 
+    
     this_vec = TSNE_VEC[vec_index,]
     this_ref= exp_ref_mat[,vec_index]
     this_sc = cbind(exp_sc_mat[,i],exp_sc_mat[,i])
@@ -105,10 +110,11 @@ COLOR=colpal[as.factor(IDENT)]
 XLIM=c(min(TSNE_VEC[,1]),max(TSNE_VEC[,1]))
 YLIM=c(min(TSNE_VEC[,2]),max(TSNE_VEC[,2]))
 
+pdf('tSNEinjection.pdf',width=15,height=10)
 plot(TSNE_VEC, col=COLOR, pch=16,cex=0.5,xlim=XLIM, ylim=YLIM)
 par(new=TRUE)
 plot(VEC_OUT, col='red', pch=16,cex=0.5, xlim=XLIM, ylim=YLIM)
-
+dev.off()
 
 
 
