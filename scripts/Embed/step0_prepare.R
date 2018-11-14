@@ -42,8 +42,9 @@ C=kmeans(TSNE_VEC,centers=24)$cluster
 old_ident = pbmc@ident
 pbmc@ident = as.factor(C)
 names(pbmc@ident)=names(old_ident)
+pdf('CASE_TSNE.pdf',width=15,height=10)
 TSNEPlot(object = pbmc, do.label=T)
-
+dev.off()
 #save(pbmc,file='CASE.RObj')
 
 
