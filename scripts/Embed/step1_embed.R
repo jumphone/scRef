@@ -52,7 +52,8 @@ SINGLE = function(i){
         while(j<=length(colname_ref)){
             exp_ref = as.array(exp_ref_mat[,j])
             log_p_sc_given_ref=cor.fk(exp_sc,exp_ref)
-            log_p_sc_given_ref_list=c(log_p_sc_given_ref_list, log_p_sc_given_ref)      
+            log_p_sc_given_ref_list=c(log_p_sc_given_ref_list, log_p_sc_given_ref) 
+            j=j+1
             }
         return(log_p_sc_given_ref_list)
         }
@@ -65,7 +66,7 @@ SINGLE = function(i){
     rownames(this_sc) = rownames(exp_sc_mat)
     colnames(this_sc)= c('rep1','rep2')
     this_out = .get_dis(this_sc, this_ref);
-    tmp= (1-this_out[,1])/2
+    tmp= (1-this_out)/2
     this_weight= tmp/sum( tmp)
     v1=sum(this_weight * this_vec[,1])
     v2=sum(this_weight * this_vec[,2])
