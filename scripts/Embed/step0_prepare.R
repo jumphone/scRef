@@ -24,20 +24,20 @@ pbmc = RunTSNE(object = pbmc, dims.use = PCUSE, do.fast = TRUE)
 
 TSNEPlot(pbmc,pt.size=0.5)
 
-pbmc_3 <- RunTSNE(object = pbmc, dims.use = PCUSE, do.fast = TRUE, dim.embed = 3)
-TSNE_VEC=pbmc_3@dr$tsne@cell.embeddings
+#pbmc_3 <- RunTSNE(object = pbmc, dims.use = PCUSE, do.fast = TRUE, dim.embed = 3)
+#TSNE_VEC=pbmc_3@dr$tsne@cell.embeddings
 
 
 
-#C=kmeans(TSNE_VEC,centers=18)$cluster
+C=kmeans(TSNE_VEC,centers=24)$cluster
+#TSNE_VEC=pbmc@dr$tsne@cell.embeddings
+#D=dist(TSNE_VEC)
+#H=hclust(D)
+#C=cutree(H,k=40)
 
-D=dist(TSNE_VEC)
-H=hclust(D)
-C=cutree(H,k=10)
 
-
-library(plotly)
-plot_ly(x=TSNE_VEC[,1],y=TSNE_VEC[,2],z=TSNE_VEC[,3],color=as.factor(C))
+#library(plotly)
+#plot_ly(x=TSNE_VEC[,1],y=TSNE_VEC[,2],z=TSNE_VEC[,3],color=as.factor(C))
 
 old_ident = pbmc@ident
 pbmc@ident = as.factor(C)
@@ -45,5 +45,11 @@ names(pbmc@ident)=names(old_ident)
 TSNEPlot(object = pbmc, do.label=T)
 
 #save(pbmc,file='CASE.RObj')
+
+
+
+
+
+
 
 
