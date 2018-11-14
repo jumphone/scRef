@@ -23,18 +23,18 @@ PCUSE=1:35
 pbmc = RunTSNE(object = pbmc, dims.use = PCUSE, do.fast = TRUE)
 
 TSNEPlot(pbmc,pt.size=0.5)
-#save(pbmc,file='CASE_tsne.RObj')
 
-TSNE_VEC=pbmc@dr$tsne@cell.embeddings
+pbmc_3 <- RunTSNE(object = pbmc, dims.use = PCUSE, do.fast = TRUE, dim.embed = 3)
+TSNE_VEC=pbmc_3@dr$tsne@cell.embeddings
 D=dist(TSNE_VEC)
 H=hclust(D)
-C=cutree(H,k=12)
+C=cutree(H,k=25)
 
 old_ident = pbmc@ident
 pbmc@ident = as.factor(C)
 names(pbmc@ident)=names(old_ident)
 TSNEPlot(object = pbmc, do.label=T)
 
-
+#save(pbmc,file='CASE.RObj')
 
 
