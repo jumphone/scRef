@@ -32,8 +32,7 @@ library(parallel)
 
 print_step=10
 
-SINGLE = function(i){
-    
+SINGLE = function(i){   
     library('pcaPP')
     .get_dis= function(this_sc, this_ref){
         exp_sc_mat=this_sc
@@ -57,9 +56,7 @@ SINGLE = function(i){
             }
         return(log_p_sc_given_ref_list)
         }
-    
-    
-    
+      
     this_tag = as.character(tag[i,2])
     vec_index=which(IDENT==this_tag)
     this_vec = TSNE_VEC[vec_index,]
@@ -67,9 +64,7 @@ SINGLE = function(i){
     this_sc = cbind(exp_sc_mat[,i],exp_sc_mat[,i])
     rownames(this_sc) = rownames(exp_sc_mat)
     colnames(this_sc)= c('rep1','rep2')
-    
     this_out = .get_dis(this_sc, this_ref);
-    
     tmp= (1-this_out[,1])/2
     this_weight= tmp/sum( tmp)
     v1=sum(this_weight * this_vec[,1])
