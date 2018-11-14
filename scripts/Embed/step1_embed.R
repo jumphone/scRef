@@ -28,19 +28,59 @@ exp_sc_mat=read.table('WT.txt',sep='\t',check.name=F,row.names=1,header=T)
 out=.get_cor(exp_sc_mat, LocalRef, method='kendall',CPU=10, print_step=10)
 tag=.get_tag_max(out)
 
+library(parallel)
 
+print_step=10
 
-
-i=1
-while(i<=length(tag[,1])){
+SINGLE = function(i){
+    
+    library('pcaPP')
+    .get_dis= function(this_sc, this_ref){
+        exp_sc_mat=this_sc
+        exp_ref_mat=this_ref
+        exp_sc_mat=exp_sc_mat[order(rownames(exp_sc_mat)),]
+        exp_ref_mat=exp_ref_mat[order(rownames(exp_ref_mat)),]
+        gene_sc=rownames(exp_sc_mat)
+        gene_ref=rownames(exp_ref_mat)
+        gene_over= gene_sc[which(gene_sc %in% gene_ref)]
+        exp_sc_mat=exp_sc_mat[which(gene_sc %in% gene_over),]
+        exp_ref_mat=exp_ref_mat[which(gene_ref %in% gene_over),]
+        colname_sc=colnames(exp_sc_mat)
+        colname_ref=colnames(exp_ref_mat)
+        log_p_sc_given_ref_list=c()
+        exp_sc = as.array(exp_sc_mat[,1])
+        j=1
+        while(j<=length(colname_ref)){
+            exp_ref = as.array(exp_ref_mat[,j])
+            log_p_sc_given_ref=cor.fk(exp_sc,exp_ref)
+            log_p_sc_given_ref_list=c(log_p_sc_given_ref_list, log_p_sc_given_ref)      
+            }
+        return(log_p_sc_given_ref_list)
+        }
+    
+    
+    
     this_tag = as.character(tag[i,2])
-    
     vec_index=which(IDENT==this_tag)
+    this_vec = TSNE_VEC[vec_index,]
+    this_ref= exp_ref_mat[,vec_index]
+    this_sc = cbind(exp_sc_mat[,i],exp_sc_mat[,i])
+    rownames(this_sc) = rownames(exp_sc_mat)
+    colnames(this_sc)= c('rep1','rep2')
     
+    this_out = .get_dis(this_sc, this_ref);
     
-    exp_ref_mat[,vec_index]
-    
-    i=i+1}
+    tmp= (1-this_out[,1])/2
+    this_weight= tmp/sum( tmp)
+    v1=sum(this_weight * this_vec[,1])
+    v2=sum(this_weight * this_vec[,2])
+    this_out_vec=c(v1,v2)
+    if(i%%print_step==1){print(i)}
+    return(this_out_vec)
+    }
+
+CPU=10
+RUN = mclapply(1:length(tag[,1]), SINGLE, mc.cores=CPU)
 
 
 library("RColorBrewer")
