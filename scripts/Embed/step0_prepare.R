@@ -27,14 +27,17 @@ TSNEPlot(pbmc,pt.size=0.5)
 pbmc_3 <- RunTSNE(object = pbmc, dims.use = PCUSE, do.fast = TRUE, dim.embed = 3)
 TSNE_VEC=pbmc_3@dr$tsne@cell.embeddings
 
+
+
+#C=kmeans(TSNE_VEC,centers=18)$cluster
+
+D=dist(TSNE_VEC)
+H=hclust(D)
+C=cutree(H,k=10)
+
+
 library(plotly)
-plot_ly(x=TSNE_VEC[,1],y=TSNE_VEC[,2],z=TSNE_VEC[,3])
-
-C=kmeans(TSNE_VEC,centers=10)$cluster
-
-#D=dist(TSNE_VEC)
-#H=hclust(D)
-#C=cutree(H,k=25)
+plot_ly(x=TSNE_VEC[,1],y=TSNE_VEC[,2],z=TSNE_VEC[,3],color=as.factor(C))
 
 old_ident = pbmc@ident
 pbmc@ident = as.factor(C)
