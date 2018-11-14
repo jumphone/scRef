@@ -105,13 +105,13 @@ rownames(VEC_OUT)=colnames(exp_sc_mat)
 #install.packages("wesanderson")
 
 library(wesanderson)
-colpal=wes_palette(name="Moonrise3", n=24, type = c("continuous"))
+colpal=wes_palette(name="Moonrise3", n=40, type = c("continuous"))
 COLOR=colpal[as.factor(IDENT)]
 
 XLIM=c(min(TSNE_VEC[,1]),max(TSNE_VEC[,1]))
 YLIM=c(min(TSNE_VEC[,2]),max(TSNE_VEC[,2]))
 
-pdf('tSNEinjection.pdf',width=15,height=10)
+pdf('tSNEprojection.pdf',width=15,height=10)
 plot(TSNE_VEC, col=COLOR, pch=16,cex=0.5,xlim=XLIM, ylim=YLIM)
 par(new=TRUE)
 plot(VEC_OUT, col='red', pch=16,cex=0.5, xlim=XLIM, ylim=YLIM)
