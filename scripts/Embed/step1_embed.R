@@ -87,14 +87,22 @@ rownames(VEC_OUT)=colnames(exp_sc_mat)
 
 
                                  
-library("RColorBrewer")
-display.brewer.all()
-brewer.pal(n=8,name='Set2')
+#library("RColorBrewer")
+#display.brewer.all()
+#brewer.pal(n=8,name='Set2')
 #install.packages("wesanderson")
 
 library(wesanderson)
 colpal=wes_palette(name="Moonrise3", n=24, type = c("continuous"))
 COLOR=colpal[as.factor(IDENT)]
-plot(TSNE_VEC, col=COLOR, pch=16,cex=0.5)
+
+XLIM=c(min(TSNE_VEC[,1]),max(TSNE_VEC[,1]))
+YLIM=c(min(TSNE_VEC[,2]),max(TSNE_VEC[,2]))
+
+plot(TSNE_VEC, col=COLOR, pch=16,cex=0.5,xlim=XLIM, ylim=YLIM)
+par(new=TRUE)
+plot(VEC_OUT, col='red', pch=16,cex=0.5, xlim=XLIM, ylim=YLIM)
+
+
 
 
