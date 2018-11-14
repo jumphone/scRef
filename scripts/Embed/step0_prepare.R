@@ -26,6 +26,10 @@ TSNEPlot(pbmc,pt.size=0.5)
 
 pbmc_3 <- RunTSNE(object = pbmc, dims.use = PCUSE, do.fast = TRUE, dim.embed = 3)
 TSNE_VEC=pbmc_3@dr$tsne@cell.embeddings
+
+library(plotly)
+plot_ly(x=TSNE_VEC[,1],y=TSNE_VEC[,2],z=TSNE_VEC[,3])
+
 D=dist(TSNE_VEC)
 H=hclust(D)
 C=cutree(H,k=25)
