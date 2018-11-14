@@ -17,7 +17,7 @@ while(i <=length(pbmc@ident)){
     i=i+1
     } 
 
-tag=cbind(names(pbmc@ident),pbmc@ident)
+tag=cbind(names(pbmc@ident),as.character(pbmc@ident))
 exp_ref_mat=as.matrix(pbmc@raw.data)[,COL]
 exp_sc_mat=as.matrix(pbmc@raw.data)[,COL]
 LocalRef=.generate_ref(exp_sc_mat, tag, min_cell=10)
@@ -65,7 +65,8 @@ SINGLE = function(i){
     this_tag = as.character(tag[i,2])
     
     vec_index=which(IDENT==this_tag)
-    vec_index=sample(vec_index, size=min(RANDOM, length(vec_index)), replace = FALSE) 
+    this_R=min(RANDOM, length(vec_index))
+    vec_index=sample(vec_index, size= this_R, replace = FALSE) 
     
     this_vec = TSNE_VEC[vec_index,]
     this_ref= exp_ref_mat[,vec_index]
