@@ -34,3 +34,7 @@ old_ident = pbmc@ident
 pbmc@ident = as.factor(C)
 names(pbmc@ident)=names(old_ident)
 TSNEPlot(object = pbmc, do.label=T)
+
+
+
+
