@@ -105,7 +105,7 @@ rownames(VEC_OUT)=colnames(exp_sc_mat)
 #install.packages("wesanderson")
 
 library(wesanderson)
-colpal=wes_palette(name="Moonrise3", n=40, type = c("continuous"))
+colpal=wes_palette(name="Moonrise3", n=length(table(tag[,2])), type = c("continuous"))
 COLOR=colpal[as.factor(IDENT)]
 
 XLIM=c(min(TSNE_VEC[,1]),max(TSNE_VEC[,1]))
