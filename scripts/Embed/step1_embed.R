@@ -33,8 +33,8 @@ library(parallel)
 set.seed(123456)
 
 print_step=10
-N=5
-RANDOM=20
+N=3
+RANDOM=30
 
 SINGLE = function(i){   
     library('pcaPP')
@@ -65,7 +65,7 @@ SINGLE = function(i){
     this_tag = as.character(tag[i,2])
     
     vec_index=which(IDENT==this_tag)
-    vec_index=sample(vec_index, size=RANDOM, replace = FALSE) 
+    vec_index=sample(vec_index, size=min(RANDOM, length(vec_index)), replace = FALSE) 
     
     this_vec = TSNE_VEC[vec_index,]
     this_ref= exp_ref_mat[,vec_index]
