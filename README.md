@@ -186,7 +186,7 @@ Smaller number indicates earlier development stage.
     
     ##################################      
 
-# 5. tSNE plot injection
+# 5. tSNE plot projection
 
 Coming Soon
 
