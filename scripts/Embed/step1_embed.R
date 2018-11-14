@@ -31,7 +31,7 @@ tag=.get_tag_max(out)
 library(parallel)
 
 print_step=10
-
+N=5
 SINGLE = function(i){   
     library('pcaPP')
     .get_dis= function(this_sc, this_ref){
@@ -66,8 +66,12 @@ SINGLE = function(i){
     rownames(this_sc) = rownames(exp_sc_mat)
     colnames(this_sc)= c('rep1','rep2')
     this_out = .get_dis(this_sc, this_ref);
-    tmp= (1-this_out)/2
-    this_weight= tmp/sum( tmp)
+    this_out_rank=rank(-this_out)
+    
+    this_weight = rep(0,length(this_out))
+    this_weight[which(this_out_rank <=N)]=1
+    this_weight=this_weight/sum(this_weight)
+    
     v1=sum(this_weight * this_vec[,1])
     v2=sum(this_weight * this_vec[,2])
     this_out_vec=c(v1,v2)
