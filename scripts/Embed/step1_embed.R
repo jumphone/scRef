@@ -34,7 +34,7 @@ set.seed(123456)
 
 print_step=10
 N=5
-RANDOM=50
+RANDOM=20
 
 SINGLE = function(i){   
     library('pcaPP')
