@@ -27,7 +27,7 @@ TSNEPlot(pbmc,pt.size=0.5)
 #pbmc_3 <- RunTSNE(object = pbmc, dims.use = PCUSE, do.fast = TRUE, dim.embed = 3)
 #TSNE_VEC=pbmc_3@dr$tsne@cell.embeddings
 
-
+TSNE_VEC=pbmc@dr$tsne@cell.embeddings
 
 C=kmeans(TSNE_VEC,centers=24)$cluster
 #TSNE_VEC=pbmc@dr$tsne@cell.embeddings
