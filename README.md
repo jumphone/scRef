@@ -185,7 +185,11 @@ Smaller number indicates earlier development stage.
     TSNEPlot(object = pbmc, colors.use=COLOR)
     
     ##################################      
-     
+
+# 5. tSNE plot injection
+
+Coming Soon
+
 # MIT License
 
     Copyright (c) 2018 Zhang, Feng
