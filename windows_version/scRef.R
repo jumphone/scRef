@@ -3,9 +3,10 @@
 #Author: Feng Zhang
 #Email: 15110700005@fudan.edu.cn
 #######################################
-delta = 0.01;
+
 
 .get_log_p_sc_given_ref <- function(exp_sc_mat, exp_ref_mat, CPU=4, print_step=10){
+    delta = 0.01;
     #exp_sc_mat: single-cell gene expression matrix; row is gene; col is sample; should have row name and col name
     #exp_ref_mat: reference gene expression matrix; row is gene; col is sample; should have row name and col name   
     ##################
@@ -210,6 +211,8 @@ delta = 0.01;
 
 
 .vec_projection <- function(exp_sc_mat, exp_ref_mat, ref_tag, ref_vec, method1='kendall', method2='kendall', nearest_cell=3, random_size=30, random_seed=123, min_cell=10, CPU=4, print_step=10){
+
+    delta = 0.01;
     library(parallel)
     set.seed(random_seed)
     sc_cell_name=colnames(exp_sc_mat)
