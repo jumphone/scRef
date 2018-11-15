@@ -30,7 +30,7 @@ A reference database for scRef
 
 # Citation
 
-Feng Zhang, Yaguang Dou, Weidong Tian; Reference-based single-cell annotation for single-cell RNA-seq data, Coming Soon
+Feng Zhang, Yaguang Dou, Rohit R Rao, Weidong Tian; Reference-based single-cell annotation for single-cell RNA-seq data, Coming Soon
 
 # Requirement
 
