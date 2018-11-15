@@ -192,7 +192,7 @@ Smaller number indicates earlier development stage.
     out=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=10, print_step=10)
     tag=.get_tag_max(out)
     pbmc@meta.data$scref=tag[,2]
-    COLOR=heat.colors(n=length(table(pbmc@ident))+2)
+    COLOR=heat.colors(n=length(table(pbmc@meta.data$scref))+2)
     TSNEPlot(object = pbmc, colors.use=COLOR, group.by ='scref')
     
     ##################################      
