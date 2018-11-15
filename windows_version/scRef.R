@@ -31,7 +31,7 @@
         while(j<=length(colname_ref)){
             exp_ref = as.array(exp_ref_mat[,j])
             #####
-            exp_ref[which(exp_ref==0)]=min(exp_ref[which(exp_ref>0)])
+            exp_ref[which(exp_ref==0)]=0.1 * min(exp_ref[which(exp_ref>0)])
             #####
             log_p_sc_given_ref=Refprob(exp_sc,exp_ref)
             log_p_sc_given_ref_list=c(log_p_sc_given_ref_list, log_p_sc_given_ref)
@@ -223,7 +223,7 @@
     SINGLE = function(i){   
         library('pcaPP')
         Refprob <- function(exp_sc, exp_ref){
-        	exp_ref[which(exp_ref==0)]= max(min(exp_ref[which(exp_ref > 0)]) , 1)
+        	exp_ref[which(exp_ref==0)] = 0.1 * min(exp_ref[which(exp_ref > 0)]) 
             log_p_sc_given_ref = dmultinom(x=exp_sc,log=T,prob=exp_ref)
             return(log_p_sc_given_ref)}
         .get_dis= function(this_sc, this_ref, method2=method2){
