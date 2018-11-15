@@ -20,11 +20,11 @@ A reference database for scRef
 * [Requirement](#Requirement)
 * [Input format](#Input-format)
 * [Usage](#Usage)
-    * [1.Reference-based annotation](#1Reference-based-annotation)
-    * [2.Semi-supervised annotation](#2Semi-supervised-annotation)
-    * [3.Combine the results of clustering method and scRef](#3Combine-the-results-of-clustering-method-and-scRef)
-    * [4.ScRef & Seurat](#4scRef--Seurat)
-    * [5.tSNE projection](#5tSNE-projection)
+    * [1. Reference-based annotation](#1-Reference-based-annotation)
+    * [2. Semi-supervised annotation](#2-Semi-supervised-annotation)
+    * [3. Combine the results of clustering method and scRef](#3-Combine-the-results-of-clustering-method-and-scRef)
+    * [4. ScRef & Seurat](#4-scRef--Seurat)
+    * [5. tSNE projection](#5-tSNE-projection)
 * [License](#License)
 
 
@@ -48,7 +48,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 # Usage
 
-# 1.Reference-based annotation
+# 1. Reference-based annotation
 
 ### Code:
     
@@ -78,7 +78,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
     tag=.get_tag_max(out)
     write.table(tag,file='Pearson.txt',quote=F,row.names=F,col.names=T,sep='\t')
 
-# 2.Semi-supervised annotation
+# 2. Semi-supervised annotation
 
 ### Code:
 
@@ -96,7 +96,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
     tag=.get_tag_max(out)
     write.table(tag,file='Semi.txt',quote=F,row.names=F,col.names=T,sep='\t')
 
-# 3.Combine the results of clustering method and scRef 
+# 3. Combine the results of clustering method and scRef 
  
 ### Code:
  
@@ -106,7 +106,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
     OUT=.compare_two_tag(TAG1, TAG2)
     write.table(OUT, 'COMPARE.txt', sep='\t', quote=F, col.names=T, row.names=F)
 
-# 4.ScRef & Seurat
+# 4. ScRef & Seurat
 
 ### Original labels for human Peripheral Blood Mononuclear Cells (PBMC) 
 
@@ -208,7 +208,7 @@ Smaller number indicates earlier development stage.
     
     ##################################      
 
-# 5.tSNE projection
+# 5. tSNE projection
 
 Visualize low-quality scRNA-seq data in the tSNE plot of high-quality scRNA-seq data.
 
