@@ -190,7 +190,7 @@ Smaller number indicates earlier development stage.
 
 Visualize low-quality scRNA-seq data in the tSNE plot of high-quality scRNA-seq data.
 
-<b> Cell types of low-quality data must be involved in high-quality data </b>
+Cell types of low-quality data must be involved in high-quality data.
 
 <b> Workflow </b>:
 
