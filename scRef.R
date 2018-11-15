@@ -204,5 +204,102 @@
 
 
 
+.vec_projection <- function(exp_sc_mat, exp_ref_mat, ref_tag, ref_vec, method1='multinomial', method2='multinomial', nearest_cell=3, random_size=30, random_seed=123, min_cell=10, CPU=4, print_step=10){
+    library(parallel)
+    set.seed(random_seed)
+    sc_cell_name=colnames(exp_sc_mat)
+    ref_tag[,2]=as.character(ref_tag[,2])
+    LocalRef= .generate_ref(exp_ref_mat, ref_tag, min_cell = min_cell )
+    if(method1=='multinomial'){
+        out = .get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=CPU, print_step=print_step)
+        } else {
+    	out=.get_cor(exp_sc_mat, LocalRef, method=method1,CPU=CPU, print_step=print_step)
+        }        
+    tag=.get_tag_max(out);
+    ref_vec=ref_vec;
+    SINGLE = function(i){   
+        library('pcaPP')
+        Refprob <- function(exp_sc, exp_ref){
+        	exp_ref[which(exp_ref==0)]= max(min(exp_ref[which(exp_ref > 0)]) , 1)
+            log_p_sc_given_ref = dmultinom(x=exp_sc,log=T,prob=exp_ref)
+            return(log_p_sc_given_ref)}
+        .get_dis= function(this_sc, this_ref, method2=method2){
+            exp_sc_mat=this_sc
+            exp_ref_mat=this_ref
+            exp_sc_mat=exp_sc_mat[order(rownames(exp_sc_mat)),]
+            exp_ref_mat=exp_ref_mat[order(rownames(exp_ref_mat)),]
+            gene_sc=rownames(exp_sc_mat)
+            gene_ref=rownames(exp_ref_mat)
+            gene_over= gene_sc[which(gene_sc %in% gene_ref)]
+            exp_sc_mat=exp_sc_mat[which(gene_sc %in% gene_over),]
+            exp_ref_mat=exp_ref_mat[which(gene_ref %in% gene_over),]
+            colname_sc=colnames(exp_sc_mat)
+            colname_ref=colnames(exp_ref_mat)
+            log_p_sc_given_ref_list=c()
+            exp_sc = as.array(exp_sc_mat[,1])
+            j=1
+            while(j<=length(colname_ref)){
+                exp_ref = as.array(exp_ref_mat[,j])
+                if(method2=='multinomial'){
+                    log_p_sc_given_ref=Refprob(exp_sc,exp_ref)
+                    } else if(method2=='kendall'){
+                	log_p_sc_given_ref=cor.fk(exp_sc,exp_ref)
+                    } else {
+                    log_p_sc_given_ref=cor(exp_sc,exp_ref, method=method2)
+                    }
+                
+                log_p_sc_given_ref_list=c(log_p_sc_given_ref_list, log_p_sc_given_ref) 
+                j=j+1
+                }
+            return(log_p_sc_given_ref_list)
+            }
+
+        
+        this_tag=as.character(tag[i,2])
+        #print(this_tag)
+        vec_index=which(as.character(ref_tag[,2])==this_tag)
+        this_R=min(random_size, length(vec_index))
+        vec_index=sample(vec_index, size= this_R, replace = FALSE)         
+        this_vec = ref_vec[vec_index,]
+        this_ref= exp_ref_mat[,vec_index]
+        this_sc = cbind(exp_sc_mat[,i],exp_sc_mat[,i])
+        rownames(this_sc) = rownames(exp_sc_mat)
+        colnames(this_sc)= c('rep1','rep2')
+        this_out = .get_dis(this_sc, this_ref, method2=method2)
+        this_out_rank=rank(-this_out)
+        used_index=which(this_out_rank <= nearest_cell)        
+        this_weight = rep(0,length(this_out))
+        this_weight[used_index] = 1 #(1-this_out[used_index])/2
+        this_weight=this_weight/sum(this_weight)
+
+        this_out_vec = t(as.matrix(this_vec)) %*% as.matrix(this_weight)
+        this_out_exp = as.matrix(this_ref) %*% as.matrix(this_weight)
+        names(this_out_exp) = rownames(this_ref)
+        this_out=list(out_vec=this_out_vec, out_exp=this_out_exp)
+        
+        if(i%%print_step==1){print(i)}
+        return(this_out)
+        }
+    #windows
+    #cl= makeCluster(CPU)
+    #RUN = parLapply(cl=cl,1:length(exp_sc_mat[1,]), SINGLE)
+    #unix
+    RUN = mclapply(1:length(exp_sc_mat[1,]), SINGLE, mc.cores=CPU)
+
+    OUT_VEC = c()
+    OUT_EXP = c()
+    for(this_out in RUN){
+        OUT_VEC = cbind(OUT_VEC, this_out$out_vec)
+        OUT_EXP = cbind(OUT_EXP, this_out$out_exp)
+        }
+    OUT_VEC = t(OUT_VEC)
+    rownames(OUT_VEC) = sc_cell_name
+    colnames(OUT_VEC) = colnames(ref_vec) 
+    rownames(OUT_EXP) = names(this_out$out_exp)    
+    colnames(OUT_EXP) = sc_cell_name
+    OUT=list(vec=OUT_VEC, exp=OUT_EXP)
+    return(OUT)
+    }
+
 
 
