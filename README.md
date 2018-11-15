@@ -209,7 +209,7 @@ Smaller number indicates earlier development stage.
     exp_sc_mat=exp_ref_mat[,which(ref_tag[,2]=='5')]
     
     out =.vec_projection(exp_sc_mat, exp_ref_mat, ref_tag, ref_vec, 
-            method1='kendall', method2='kendall', nearest_cell=3, 
+            method1='kendall', method2='kendall', nearest_cell=3, alpha=0.5,
             random_size=30, random_seed=123, min_cell=10, CPU=4, print_step=10)
     
     plot(ref_vec,xlim=c(-35,35),ylim=c(-35,35),pch=16,col='grey70')
