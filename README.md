@@ -193,9 +193,9 @@ Smaller number indicates earlier development stage.
 </a>
 
     library(Seurat)
-    source('scRef.R')
     load('pbmc.RData')
-    
+    source('scRef.R')
+     
     ref_vec=pbmc@dr$tsne@cell.embeddings
     COL=c()
     i=1
