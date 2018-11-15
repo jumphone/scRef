@@ -189,6 +189,10 @@ Smaller number indicates earlier development stage.
 # 5. tSNE projection
 
 <a href='https://github.com/jumphone/scRef'>
+<img src="/source/Usage5.png" width="420">
+</a>
+
+<a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage5_TsneProjection.png" width="420">
 </a>
 
