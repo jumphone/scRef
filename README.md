@@ -171,8 +171,7 @@ Smaller number indicates earlier development stage.
         this_col=which(colnames(pbmc@raw.data)==names(pbmc@ident)[i])
         COL=c(COL,this_col)
 	    i=i+1
-        } 
-        
+        }      
     exp_sc_mat=as.matrix(pbmc@raw.data)[,COL]
     
     #############GTEX############
@@ -182,13 +181,8 @@ Smaller number indicates earlier development stage.
     LocalRef=.generate_ref(exp_sc_mat, tag, min_cell=10)
     out=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=10, print_step=10)
     tag=.get_tag_max(out)
-    write.table(tag,file='TAG_GTEX.txt',quote=F,row.names=F,col.names=T,sep='\t')  
-    TAG=tag
-    old_ident = pbmc@ident
-    pbmc@ident = as.factor(TAG[,2])
-    names(pbmc@ident)=names(old_ident)
-    pbmc_ori=pbmc
-    TSNEPlot(object = pbmc, do.label=T, label.size=2.2)
+    pbmc@meta.data$scref=tag[,2]
+    TSNEPlot(object = pbmc, do.label=T, label.size=2.2, group.by ='scref')
     
     ##############DEV#################
     exp_ref_mat=read.table('GTEx_v7_median_tpm_human.txt',header=T,row.names=1,sep='\t',check.name=F)
@@ -197,14 +191,9 @@ Smaller number indicates earlier development stage.
     LocalRef=.generate_ref(exp_sc_mat, tag, min_cell=10)
     out=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=10, print_step=10)
     tag=.get_tag_max(out)
-    write.table(tag,file='TAG_DEV.txt',quote=F,row.names=F,col.names=T,sep='\t')
-    TAG=tag
-    old_ident = pbmc@ident
-    pbmc@ident = as.factor(TAG[,2])
-    names(pbmc@ident)=names(old_ident)
-    pbmc_ori=pbmc
+    pbmc@meta.data$scref=tag[,2]
     COLOR=heat.colors(n=length(table(pbmc@ident))+2)
-    TSNEPlot(object = pbmc, colors.use=COLOR)
+    TSNEPlot(object = pbmc, colors.use=COLOR, group.by ='scref')
     
     ##################################      
 
