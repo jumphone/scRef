@@ -204,6 +204,7 @@ Smaller number indicates earlier development stage.
     exp_ref_mat=as.matrix(pbmc@raw.data)[,COL]
     exp_sc_mat=exp_ref_mat[,which(ref_tag[,2]=='5')]
     out =.vec_projection(exp_sc_mat, exp_ref_mat, ref_tag, ref_vec)
+    
     plot(ref_vec,xlim=c(-35,35),ylim=c(-35,35),pch=16,col='grey70')
     par(new=T)
     plot(out$vec,xlim=c(-35,35),ylim=c(-35,35),pch=16,col='red')
