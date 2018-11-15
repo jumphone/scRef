@@ -189,7 +189,7 @@ Smaller number indicates earlier development stage.
 # 5. tSNE projection
 
 <a href='https://github.com/jumphone/scRef'>
-<img src="/source/Usage5_TsneProjection.png" width="500">
+<img src="/source/Usage5_TsneProjection.png" width="420">
 </a>
 
     library(Seurat)
