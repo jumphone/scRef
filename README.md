@@ -188,6 +188,10 @@ Smaller number indicates earlier development stage.
 
 # 5. tSNE projection
 
+<a href='https://github.com/jumphone/scRef'>
+<img src="/source/Usage5_TsneProjection.png" width="500">
+</a>
+
     library(Seurat)
     source('scRef.R')
     load('pbmc.RData')
