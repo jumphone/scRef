@@ -188,6 +188,8 @@ Smaller number indicates earlier development stage.
 
 # 5. Vector projection
 
+Visualize low-quality scRNA-seq data in the tSNE (or other dimension reduction method) plot of high-quality scRNA-seq data
+
 Workflow:
 
 <a href='https://github.com/jumphone/scRef'>
