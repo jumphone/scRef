@@ -204,7 +204,7 @@
 
 
 
-.vec_projection <- function(exp_sc_mat, exp_ref_mat, ref_tag, ref_vec, method1='multinomial', method2='multinomial', nearest_cell=3, random_size=30, random_seed=123, min_cell=10, CPU=4, print_step=10){
+.vec_projection <- function(exp_sc_mat, exp_ref_mat, ref_tag, ref_vec, method1='kendall', method2='kendall', nearest_cell=3, random_size=30, random_seed=123, min_cell=10, CPU=4, print_step=10){
     library(parallel)
     set.seed(random_seed)
     sc_cell_name=colnames(exp_sc_mat)
