@@ -148,7 +148,7 @@ Please note that "MouseAtlas_MCA" is mouse reference
 
 ### scRef labels (Reference: BrainDev_AllenBrain, [Download](/Reference/BrainDev_AllenBrain/)) 
 
-Please note that this mouse brain reference may not be suitable for human PBMC. 
+Please note that this brain reference may not be suitable for PBMC. 
 
 Smaller number indicates earlier development stage.
 
