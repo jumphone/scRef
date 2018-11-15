@@ -18,13 +18,13 @@ A reference database for scRef
 
 * [Citation](#Citation)
 * [Requirement](#Requirement)
-* [Input format](#Input format)
+* [Input format](#Input-format)
 * [Usage](#Usage)
-      * [1.Reference-based annotation](#1.Reference-based annotation)
-      * [2.Semi-supervised annotation](#2.Semi-supervised annotation)
-      * [3.Combine the results of clustering method and scRef](#3.Combine the results of clustering method and scRef)
-      * [4.ScRef & Seurat](#4.ScRef & Seurat)
-      * [5.tSNE projection](#5.tSNE projection)
+    * [1.Reference-based annotation](#1.Reference-based-annotation)
+    * [2.Semi-supervised annotation](#2.Semi-supervised-annotation)
+    * [3.Combine the results of clustering method and scRef](#3.Combine-the-results-of-clustering-method-and-scRef)
+    * [4.ScRef & Seurat](#4.ScRef-&-Seurat)
+    * [5.tSNE projection](#5.tSNE-projection)
 * [License](#License)
 
 
