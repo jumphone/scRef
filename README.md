@@ -186,7 +186,7 @@ Smaller number indicates earlier development stage.
     
     ##################################      
 
-# 5. tSNE plot projection
+# 5. tSNE projection
 
     library(Seurat)
     source('scRef.R')
