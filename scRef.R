@@ -206,9 +206,10 @@
 
 
 
-.vec_projection <- function(exp_sc_mat, exp_ref_mat, ref_tag, ref_vec, method1='kendall', method2='kendall', nearest_cell=3, random_size=30, random_seed=123, min_cell=10, CPU=4, print_step=10){
+.vec_projection <- function(exp_sc_mat, exp_ref_mat, ref_tag, ref_vec, method1='kendall', method2='kendall', nearest_cell=3, random_size=30, random_seed=123, alpha=0.5, min_cell=10, CPU=4, print_step=10){
 
     delta = 0.01;
+    alpha = alpha;
     library(parallel)
     set.seed(random_seed)
     sc_cell_name=colnames(exp_sc_mat)
@@ -270,9 +271,12 @@
         colnames(this_sc)= c('rep1','rep2')
         this_out = .get_dis(this_sc, this_ref, method2=method2)
         this_out_rank=rank(-this_out)
-        used_index=which(this_out_rank <= nearest_cell)        
+        used_index=which(this_out_rank <= nearest_cell)
+        
         this_weight = rep(0,length(this_out))
         this_weight[used_index] = 1 #(1-this_out[used_index])/2
+        this_weight = this_out_rank * this_weight
+        this_weight = alpha**this_weight 
         this_weight=this_weight/sum(this_weight)
 
         this_out_vec = t(as.matrix(this_vec)) %*% as.matrix(this_weight)
