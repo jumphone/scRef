@@ -276,7 +276,7 @@
         this_weight = rep(0,length(this_out))
         this_weight[used_index] = 1 #(1-this_out[used_index])/2
         this_weight = this_out_rank * this_weight
-        this_weight = alpha**this_weight 
+        this_weight[used_index] = alpha**this_weight[used_index] 
         this_weight=this_weight/sum(this_weight)
 
         this_out_vec = t(as.matrix(this_vec)) %*% as.matrix(this_weight)
