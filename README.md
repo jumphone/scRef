@@ -35,6 +35,8 @@ For single-cell expression matrix, we recommend using UMI matrix.
 # Usage
 
 # 1. Reference-based annotation
+
+## Code:
     
     source('scRef.R')
     
@@ -64,6 +66,8 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 # 2. Semi-supervised annotation
 
+## Code:
+
     source('scRef.R')
     
     # First-round annotation - Kendall
@@ -79,7 +83,9 @@ For single-cell expression matrix, we recommend using UMI matrix.
     write.table(tag,file='Semi.txt',quote=F,row.names=F,col.names=T,sep='\t')
 
 # 3. Combine the results of clustering method and scRef 
-   
+ 
+## Code:
+ 
     source('scRef.R')
     
     # Compare tags (column 1: cell_id; column 2: labels)
@@ -135,6 +141,8 @@ Smaller number indicates earlier development stage.
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage4_scRef_dev.png" width="450">
 </a>
+
+## Code:
 
     library(Seurat)
     source('scRef.R')
@@ -203,6 +211,8 @@ Cell types in the low-quality data must be covered by the high-quality data.
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage5_TsneProjection.png" width="420">
 </a>
+
+## Code:
 
     library(Seurat)
     load('pbmc.RData')
