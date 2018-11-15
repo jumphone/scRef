@@ -186,7 +186,7 @@ Smaller number indicates earlier development stage.
     
     ##################################      
 
-# 5. tSNE projection
+# 5. Vector projection
 
 Workflow:
 
