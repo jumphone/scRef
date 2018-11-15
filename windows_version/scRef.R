@@ -3,6 +3,8 @@
 #Author: Feng Zhang
 #Email: 15110700005@fudan.edu.cn
 #######################################
+delta = 0.01
+
 .get_log_p_sc_given_ref <- function(exp_sc_mat, exp_ref_mat, CPU=4, print_step=10){
     #exp_sc_mat: single-cell gene expression matrix; row is gene; col is sample; should have row name and col name
     #exp_ref_mat: reference gene expression matrix; row is gene; col is sample; should have row name and col name   
@@ -31,7 +33,7 @@
         while(j<=length(colname_ref)){
             exp_ref = as.array(exp_ref_mat[,j])
             #####
-            exp_ref[which(exp_ref==0)]=0.1 * min(exp_ref[which(exp_ref>0)])
+            exp_ref[which(exp_ref==0)]= delta * min(exp_ref[which(exp_ref>0)])
             #####
             log_p_sc_given_ref=Refprob(exp_sc,exp_ref)
             log_p_sc_given_ref_list=c(log_p_sc_given_ref_list, log_p_sc_given_ref)
@@ -223,7 +225,7 @@
     SINGLE = function(i){   
         library('pcaPP')
         Refprob <- function(exp_sc, exp_ref){
-        	exp_ref[which(exp_ref==0)] = 0.1 * min(exp_ref[which(exp_ref > 0)]) 
+        	exp_ref[which(exp_ref==0)] = delta * min(exp_ref[which(exp_ref > 0)]) 
             log_p_sc_given_ref = dmultinom(x=exp_sc,log=T,prob=exp_ref)
             return(log_p_sc_given_ref)}
         .get_dis= function(this_sc, this_ref, method2=method2){
