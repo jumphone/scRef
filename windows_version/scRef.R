@@ -300,7 +300,7 @@
     colnames(OUT_VEC) = colnames(ref_vec) 
     rownames(OUT_EXP) = names(this_out$out_exp)    
     colnames(OUT_EXP) = sc_cell_name
-    OUT=list(vec=OUT_VEC, exp=OUT_EXP)
+    OUT=list(vec=OUT_VEC, exp=OUT_EXP, tag=tag)
     return(OUT)
     }
 
