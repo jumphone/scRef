@@ -14,7 +14,17 @@ A reference database for scRef
 <img src="/source/dbRef.png" width="150">
 </a>
 
-# Citation:
+# Table of content
+
+* [Citation](#Citation)
+* [Screenshot](#screenshot)
+* [Installation](#installation)
+    * [OR using Pathogen:](#or-using-pathogen)
+    * [OR using Vundle:](#or-using-vundle)
+* [License](#license)
+
+
+# Citation
 
 Feng Zhang, Yaguang Dou, Weidong Tian; Reference-based single-cell annotation for single-cell RNA-seq data, Coming Soon
 
