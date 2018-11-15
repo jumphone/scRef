@@ -190,15 +190,15 @@ Smaller number indicates earlier development stage.
 
 Visualize low-quality scRNA-seq data in the tSNE plot of high-quality scRNA-seq data.
 
-- ![#f03c15] Cell types of low-quality data must be involved in high-quality data `#f03c15`
+<b> Cell types of low-quality data must be involved in high-quality data </b>
 
-Workflow:
+<b> Workflow </b>:
 
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage5.png" width="420">
 </a>
 
-Result:
+<b> Result </b>:
 
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage5_TsneProjection.png" width="420">
