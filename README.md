@@ -88,7 +88,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 # 4. ScRef & Seurat
 
-<b> A. Original labels for human Peripheral Blood Mononuclear Cells (PBMC) </b>
+## A. Original labels for human Peripheral Blood Mononuclear Cells (PBMC) 
 
 Source: https://satijalab.org/seurat/pbmc3k_tutorial.html
 
@@ -96,7 +96,7 @@ Source: https://satijalab.org/seurat/pbmc3k_tutorial.html
 <img src="/source/Usage4_Original.png" width="520">
 </a>
 
-<b> B. scRef labels (Reference: ImmuneCell_ImmGen, [Download](/Reference/ImmuneCell_ImmGen/)) </b>
+## B. scRef labels (Reference: ImmuneCell_ImmGen, [Download](/Reference/ImmuneCell_ImmGen/)) 
 
 Please note that "ImmuneCell_ImmGen" is mouse reference
 
@@ -104,7 +104,7 @@ Please note that "ImmuneCell_ImmGen" is mouse reference
 <img src="/source/Usage4_scRef_ImmGen.png" width="500">
 </a>
 
-<b> C. scRef labels (Reference: MouseCell_TabulaMuris, Spleen&Thymus, [Download](/Reference/MouseCell_TabulaMuris/)) </b>
+## C. scRef labels (Reference: MouseCell_TabulaMuris, Spleen&Thymus, [Download](/Reference/MouseCell_TabulaMuris/)) 
 
 Please note that "MouseCell_TabulaMuris" is mouse reference
 
@@ -112,7 +112,7 @@ Please note that "MouseCell_TabulaMuris" is mouse reference
 <img src="/source/Usage4_scRef_TabulaMuris.png" width="780">
 </a>
 
-<b> D. scRef labels (Reference: MouseAtlas_MCA, Spleen&Thymus, [Download](/Reference/MouseAtlas_MCA/)) </b>
+## D. scRef labels (Reference: MouseAtlas_MCA, Spleen&Thymus, [Download](/Reference/MouseAtlas_MCA/)) 
 
 Please note that "MouseAtlas_MCA" is mouse reference
 
@@ -120,13 +120,13 @@ Please note that "MouseAtlas_MCA" is mouse reference
 <img src="/source/Usage4_scRef_MCA.png" width="560">
 </a>
 
-<b> E. scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/)) </b>
+## E. scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/)) 
 
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage4_scRef.png" width="570">
 </a>
 
-<b> F. scRef labels (Reference: BrainDev_AllenBrain, [Download](/Reference/BrainDev_AllenBrain/)) </b>
+## F. scRef labels (Reference: BrainDev_AllenBrain, [Download](/Reference/BrainDev_AllenBrain/)) 
 
 Please note that this mouse brain reference may not be suitable for human PBMC. 
 
@@ -192,13 +192,13 @@ Visualize low-quality scRNA-seq data in the tSNE plot of high-quality scRNA-seq 
 
 Cell types in the low-quality data must be covered by the high-quality data.
 
-<b> Workflow </b>:
+## Workflow: 
 
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage5.png" width="420">
 </a>
 
-<b> Result </b>:
+## Result:
 
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage5_TsneProjection.png" width="420">
