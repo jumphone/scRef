@@ -17,11 +17,15 @@ A reference database for scRef
 # Table of content
 
 * [Citation](#Citation)
-* [Screenshot](#screenshot)
-* [Installation](#installation)
-    * [OR using Pathogen:](#or-using-pathogen)
-    * [OR using Vundle:](#or-using-vundle)
-* [License](#license)
+* [Requirement](#Requirement)
+* [Input format](#Input format)
+* [Usage](#Usage)
+    * [1.Reference-based annotation](#1.Reference-based annotation)
+    * [2.Semi-supervised annotation](#2.Semi-supervised annotation)
+    * [3.Combine the results of clustering method and scRef](#3.Combine the results of clustering method and scRef)
+    * [4.ScRef & Seurat](#4.ScRef & Seurat)
+    * [5.tSNE projection](#5.tSNE projection)
+* [License](#License)
 
 
 # Citation
@@ -44,7 +48,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 # Usage
 
-# 1. Reference-based annotation
+# 1.Reference-based annotation
 
 ## Code:
     
@@ -74,7 +78,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
     tag=.get_tag_max(out)
     write.table(tag,file='Pearson.txt',quote=F,row.names=F,col.names=T,sep='\t')
 
-# 2. Semi-supervised annotation
+# 2.Semi-supervised annotation
 
 ## Code:
 
@@ -92,7 +96,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
     tag=.get_tag_max(out)
     write.table(tag,file='Semi.txt',quote=F,row.names=F,col.names=T,sep='\t')
 
-# 3. Combine the results of clustering method and scRef 
+# 3.Combine the results of clustering method and scRef 
  
 ## Code:
  
@@ -102,9 +106,9 @@ For single-cell expression matrix, we recommend using UMI matrix.
     OUT=.compare_two_tag(TAG1, TAG2)
     write.table(OUT, 'COMPARE.txt', sep='\t', quote=F, col.names=T, row.names=F)
 
-# 4. ScRef & Seurat
+# 4.ScRef & Seurat
 
-## A. Original labels for human Peripheral Blood Mononuclear Cells (PBMC) 
+## A.Original labels for human Peripheral Blood Mononuclear Cells (PBMC) 
 
 Source: https://satijalab.org/seurat/pbmc3k_tutorial.html
 
@@ -112,7 +116,7 @@ Source: https://satijalab.org/seurat/pbmc3k_tutorial.html
 <img src="/source/Usage4_Original.png" width="520">
 </a>
 
-## B. scRef labels (Reference: ImmuneCell_ImmGen, [Download](/Reference/ImmuneCell_ImmGen/)) 
+## B.scRef labels (Reference: ImmuneCell_ImmGen, [Download](/Reference/ImmuneCell_ImmGen/)) 
 
 Please note that "ImmuneCell_ImmGen" is mouse reference
 
@@ -120,7 +124,7 @@ Please note that "ImmuneCell_ImmGen" is mouse reference
 <img src="/source/Usage4_scRef_ImmGen.png" width="500">
 </a>
 
-## C. scRef labels (Reference: MouseCell_TabulaMuris, Spleen&Thymus, [Download](/Reference/MouseCell_TabulaMuris/)) 
+## C.scRef labels (Reference: MouseCell_TabulaMuris, Spleen&Thymus, [Download](/Reference/MouseCell_TabulaMuris/)) 
 
 Please note that "MouseCell_TabulaMuris" is mouse reference
 
@@ -128,7 +132,7 @@ Please note that "MouseCell_TabulaMuris" is mouse reference
 <img src="/source/Usage4_scRef_TabulaMuris.png" width="780">
 </a>
 
-## D. scRef labels (Reference: MouseAtlas_MCA, Spleen&Thymus, [Download](/Reference/MouseAtlas_MCA/)) 
+## D.scRef labels (Reference: MouseAtlas_MCA, Spleen&Thymus, [Download](/Reference/MouseAtlas_MCA/)) 
 
 Please note that "MouseAtlas_MCA" is mouse reference
 
@@ -136,13 +140,13 @@ Please note that "MouseAtlas_MCA" is mouse reference
 <img src="/source/Usage4_scRef_MCA.png" width="560">
 </a>
 
-## E. scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/)) 
+## E.scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/)) 
 
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage4_scRef.png" width="570">
 </a>
 
-## F. scRef labels (Reference: BrainDev_AllenBrain, [Download](/Reference/BrainDev_AllenBrain/)) 
+## F.scRef labels (Reference: BrainDev_AllenBrain, [Download](/Reference/BrainDev_AllenBrain/)) 
 
 Please note that this mouse brain reference may not be suitable for human PBMC. 
 
@@ -204,7 +208,7 @@ Smaller number indicates earlier development stage.
     
     ##################################      
 
-# 5. tSNE projection
+# 5.tSNE projection
 
 Visualize low-quality scRNA-seq data in the tSNE plot of high-quality scRNA-seq data.
 
@@ -248,7 +252,7 @@ Cell types in the low-quality data must be covered by the high-quality data.
     par(new=T)
     plot(out$vec,xlim=c(-35,35),ylim=c(-35,35),pch=16,col='red')
 
-# MIT License
+# License
 
     Copyright (c) 2018 Zhang, Feng
 
