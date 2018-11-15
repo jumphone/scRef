@@ -147,6 +147,7 @@
     }
 
 
+
 .generate_ref <- function(exp_sc_mat, TAG, min_cell=1, refnames=FALSE){
     NewRef=c()
     TAG[,2]=as.character(TAG[,2])
