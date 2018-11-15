@@ -205,6 +205,7 @@
 
 
 .vec_projection <- function(exp_sc_mat, exp_ref_mat, ref_tag, ref_vec, method1='kendall', method2='kendall', nearest_cell=3, random_size=30, random_seed=123, min_cell=10, CPU=4, print_step=10){
+
     library(parallel)
     set.seed(random_seed)
     sc_cell_name=colnames(exp_sc_mat)
@@ -220,7 +221,7 @@
     SINGLE = function(i){   
         library('pcaPP')
         Refprob <- function(exp_sc, exp_ref){
-        	exp_ref[which(exp_ref==0)]= max(min(exp_ref[which(exp_ref > 0)]) , 1)
+        	exp_ref[which(exp_ref==0)] = 0.1 * min(exp_ref[which(exp_ref > 0)]) 
             log_p_sc_given_ref = dmultinom(x=exp_sc,log=T,prob=exp_ref)
             return(log_p_sc_given_ref)}
         .get_dis= function(this_sc, this_ref, method2=method2){
@@ -253,7 +254,6 @@
                 }
             return(log_p_sc_given_ref_list)
             }
-
         
         this_tag=as.character(tag[i,2])
         #print(this_tag)
