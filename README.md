@@ -2,7 +2,7 @@
 Reference-based single-cell annotation
 
 <a href='https://github.com/jumphone/scRef'>
-<img src="/Logo.png" width="360">
+<img src="/Logo.png" width="600">
 </a>
 
 # dbRef
@@ -11,7 +11,7 @@ A reference database for scRef
 <a href='/Reference/'>Visit dbRef</a>
 
 <a href='/Reference/'>
-<img src="/source/dbRef.png" width="100">
+<img src="/source/dbRef.png" width="150">
 </a>
 
 # Citation:
