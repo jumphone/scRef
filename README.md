@@ -186,7 +186,7 @@ Smaller number indicates earlier development stage.
     
     ##################################      
 
-# 5. Vector projection
+# 5. tSNE projection
 
 Visualize low-quality scRNA-seq data in the tSNE plot of high-quality scRNA-seq data.
 
