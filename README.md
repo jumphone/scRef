@@ -191,7 +191,7 @@ Smaller number indicates earlier development stage.
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage5.png" width="420">
 </a>
-
+</br>
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage5_TsneProjection.png" width="420">
 </a>
