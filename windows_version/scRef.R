@@ -77,7 +77,7 @@
         while(j<=length(colname_ref)){
             exp_ref = as.array(exp_ref_mat[,j])
             #####
-            exp_ref[which(exp_ref==0)]=min(exp_ref[which(exp_ref>0)])
+            #exp_ref[which(exp_ref==0)]=min(exp_ref[which(exp_ref>0)])
             #####
             #if(method=='rococo'){log_p_sc_given_ref=rococo(exp_sc,exp_ref)} else
             if(method=='kendall'){log_p_sc_given_ref=cor.fk(exp_sc,exp_ref)}
