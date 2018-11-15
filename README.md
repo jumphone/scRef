@@ -188,7 +188,25 @@ Smaller number indicates earlier development stage.
 
 # 5. tSNE plot projection
 
-Coming Soon
+    library(Seurat)
+    source('scRef.R')
+    load('pbmc.RData')
+    
+    ref_vec=pbmc@dr$tsne@cell.embeddings
+    COL=c()
+    i=1
+    while(i <=length(pbmc@ident)){
+        this_col=which(colnames(pbmc@raw.data)==names(pbmc@ident)[i])
+        COL=c(COL,this_col)
+        i=i+1
+        } 
+    ref_tag=cbind(names(pbmc@ident),as.character(pbmc@ident))
+    exp_ref_mat=as.matrix(pbmc@raw.data)[,COL]
+    exp_sc_mat=exp_ref_mat[,which(ref_tag[,2]=='5')]
+    out =.vec_projection(exp_sc_mat, exp_ref_mat, ref_tag, ref_vec)
+    plot(ref_vec,xlim=c(-35,35),ylim=c(-35,35),pch=16,col='grey70')
+    par(new=T)
+    plot(out$vec,xlim=c(-35,35),ylim=c(-35,35),pch=16,col='red')
 
 # MIT License
 
