@@ -124,22 +124,6 @@ Please note that "ImmuneCell_ImmGen" is mouse reference
 <img src="/source/Usage4_scRef_ImmGen.png" width="500">
 </a>
 
-### scRef labels (Reference: MouseCell_TabulaMuris, Spleen&Thymus, [Download](/Reference/MouseCell_TabulaMuris/)) 
-
-Please note that "MouseCell_TabulaMuris" is mouse reference
-
-<a href='https://github.com/jumphone/scRef'>
-<img src="/source/Usage4_scRef_TabulaMuris.png" width="780">
-</a>
-
-### scRef labels (Reference: MouseAtlas_MCA, Spleen&Thymus, [Download](/Reference/MouseAtlas_MCA/)) 
-
-Please note that "MouseAtlas_MCA" is mouse reference
-
-<a href='https://github.com/jumphone/scRef'>
-<img src="/source/Usage4_scRef_MCA.png" width="560">
-</a>
-
 ### scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/)) 
 
 <a href='https://github.com/jumphone/scRef'>
@@ -154,6 +138,22 @@ Smaller number indicates earlier development stage.
 
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage4_scRef_dev.png" width="450">
+</a>
+
+### scRef labels (Reference: MouseCell_TabulaMuris, Spleen&Thymus, [Download](/Reference/MouseCell_TabulaMuris/)) 
+
+Please note that "MouseCell_TabulaMuris" is mouse reference
+
+<a href='https://github.com/jumphone/scRef'>
+<img src="/source/Usage4_scRef_TabulaMuris.png" width="780">
+</a>
+
+### scRef labels (Reference: MouseAtlas_MCA, Spleen&Thymus, [Download](/Reference/MouseAtlas_MCA/)) 
+
+Please note that "MouseAtlas_MCA" is mouse reference
+
+<a href='https://github.com/jumphone/scRef'>
+<img src="/source/Usage4_scRef_MCA.png" width="560">
 </a>
 
 ### Code:
