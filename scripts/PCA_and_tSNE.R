@@ -190,7 +190,73 @@ OUT=.compare_two_tag(TAG_cluster,TAG)
 write.table(OUT,'COM.txt',sep='\t',quote=F,col.names=T,row.names=F)
 
 
+######## wokflow demo #########
+load('TSNE.RData')
+library('Seurat')
+source('scRef.R')
+ori=read.table('Zeisel_exp_sc_mat_cluster_original.txt',header=T,sep='\t')
+ken=read.table('Kendall.txt',header=T,sep='\t')
+semi=read.table('Zeisel_semi.txt',header=T,sep='\t')
+
+pbmc@meta.data$ori=ori[,2]
+pbmc@meta.data$ken=ken[,2]
+pbmc@meta.data$semi=semi[,2]
+
+TSNEPlot(pbmc, group.by='ori')
+
+MIC=which(ori[,2]=='microglia')
+MICK=which(ori[,2]=='microglia' & ken[,2]=='Microglia')
+MICS=which(ori[,2]=='microglia' & semi[,2]=='Microglia')
+
+OP=which(ori[,2]=='oligodendrocytes')
+OPK=which( (ken[,2]=='Newly.Formed.Oligodendrocyte'| ken[,2]=='Myelinating.Oligodendrocytes'))
+OPS=which( (semi[,2]=='Newly.Formed.Oligodendrocyte'| semi[,2]=='Myelinating.Oligodendrocytes'))
+
+AC=which(ori[,2]=='astrocytes_ependymal')
+ACK=which( ken[,2]=='Astrocytes')
+ACS=which( semi[,2]=='Astrocytes')
+
+EN=which(ori[,2]=='endothelial-mural')
+ENK=which(ken[,2]=='Endothelial.Cells')
+ENS=which(semi[,2]=='Endothelial.Cells')
+
+NU=which(ori[,2]=='interneurons' | ori[,2]=='pyramidal SS' | ori[,2]=='pyramidal CA1')
+NUK=which(ken[,2]=='Neuron')
+NUS=which(semi[,2]=='Neuron')
 
 
 
+length(AC)
+length(ACK)
+length(which(AC %in% ACK))
+length(ACS)
+length(which(AC %in% ACS))
+
+length(EN)
+length(ENK)
+length(which(EN %in% ENK))
+length(ENS)
+length(which(EN %in% ENS))
+
+length(MIC)
+length(MICK)
+length(which(MIC %in% MICK))
+length(MICS)
+length(which(MIC %in% MICS))
+
+length(OP)
+length(OPK)
+length(which(OP %in% OPK))
+length(OPS)
+length(which(OP %in% OPS))
+
+length(NU)
+length(NUK)
+length(which(NU %in% NUK))
+length(NUS)
+length(which(NU %in% NUS))
+
+TSNE_VEC=pbmc@dr$tsne@cell.embeddings
+
+plot(TSNE_VEC[OP,1],TSNE_VEC[OP,2],pch=16)
 
