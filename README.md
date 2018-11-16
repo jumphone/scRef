@@ -159,9 +159,9 @@ Smaller number indicates earlier development stage.
 ### Code:
 
     library(Seurat)
+    load('pbmc.RData')
     source('scRef.R')
     
-    load('pbmc.RData')
     # To get Seurat object "pbmc", please follow the instruction of Seurat:
     # https://satijalab.org/seurat/pbmc3k_tutorial.html 
         
