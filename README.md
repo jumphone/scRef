@@ -229,13 +229,22 @@ Cell types in the low-quality data must be covered by the high-quality data.
         COL=c(COL,this_col)
         i=i+1
         } 
-    ref_tag=cbind(names(pbmc@ident),as.character(pbmc@ident))
+	
+    ref_tag=cbind(names(pbmc@ident),as.character(pbmc@ident))    
     exp_ref_mat=as.matrix(pbmc@raw.data)[,COL]
-    exp_sc_mat=exp_ref_mat[,which(ref_tag[,2]=='5')]
+    exp_sc_mat=exp_ref_mat[,which(ref_tag[,2]=='5')]        
     
-    out =.vec_projection(exp_sc_mat, exp_ref_mat, ref_tag, ref_vec, 
-            method1='kendall', method2='kendall', nearest_cell=3, alpha=0.5,
-            random_size=30, random_seed=123, min_cell=10, CPU=4, print_step=10)
+    LocalRef= .generate_ref(exp_ref_mat, ref_tag, min_cell = 10 )    
+    out=.get_cor(exp_sc_mat, LocalRef, method='kendall',CPU=CPU, print_step=print_step)
+    tag=.get_tag_max(out)
+    LocalRef= .generate_ref(exp_sc_mat, ref_tag, min_cell = 10 )
+    out=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=10, print_step=10)
+    tag=.get_tag_max(out)
+    sc_tag=tag
+    
+    out =.vec_projection(exp_sc_mat, sc_tag, exp_ref_mat, ref_vec, 
+            method='kendall', nearest_cell=3, alpha=0.5, random_size=30, 
+            random_seed=123, min_cell=10, CPU=4, print_step=10)
     
     plot(ref_vec,xlim=c(-35,35),ylim=c(-35,35),pch=16,col='grey70')
     par(new=T)
