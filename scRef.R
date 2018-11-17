@@ -211,16 +211,27 @@
 
 
 
+
 .vec_projection <- function(exp_sc_mat, sc_tag, exp_ref_mat, ref_tag, ref_vec,  method='kendall', nearest_cell=3, random_size=30, random_seed=123, alpha=0.5, min_cell=10, CPU=4, print_step=10){
 
     delta = 0.01;
     alpha = alpha;
-    library(parallel)
-    set.seed(random_seed)
-    sc_cell_name=colnames(exp_sc_mat)
+    library(parallel);
+    random_seed=random_seed;
+    set.seed(random_seed);
+    sc_cell_name=colnames(exp_sc_mat);
     tag=sc_tag;
     ref_tag=ref_tag;
     ref_vec=ref_vec;
+    exp_ref_mat=exp_ref_mat;
+    exp_sc_mat=exp_sc_mat;
+    method=method;
+    nearest_cell=nearest_cell;
+    random_size=random_size;
+    min_cell=min_cell;
+    CPU=CPU;
+    print_step=print_step;
+    
     SINGLE = function(i){   
         library('pcaPP')
         Refprob <- function(exp_sc, exp_ref){
