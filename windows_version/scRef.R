@@ -218,12 +218,22 @@
 
     delta = 0.01;
     alpha = alpha;
-    library(parallel)
-    set.seed(random_seed)
-    sc_cell_name=colnames(exp_sc_mat)
+    library(parallel);
+    random_seed=random_seed;
+    set.seed(random_seed);
+    sc_cell_name=colnames(exp_sc_mat);
     tag=sc_tag;
     ref_tag=ref_tag;
     ref_vec=ref_vec;
+    exp_ref_mat=exp_ref_mat;
+    exp_sc_mat=exp_sc_mat;
+    method=method;
+    nearest_cell=nearest_cell;
+    random_size=random_size;
+    min_cell=min_cell;
+    CPU=CPU;
+    print_step=print_step;
+    
     SINGLE = function(i){   
         library('pcaPP')
         Refprob <- function(exp_sc, exp_ref){
