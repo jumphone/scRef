@@ -206,21 +206,14 @@
 
 
 
-.vec_projection <- function(exp_sc_mat, exp_ref_mat, ref_tag, ref_vec, method1='kendall', method2='kendall', nearest_cell=3, random_size=30, random_seed=123, alpha=0.5, min_cell=10, CPU=4, print_step=10){
+.vec_projection <- function(exp_sc_mat, sc_tag, exp_ref_mat, ref_vec,  method='kendall', nearest_cell=3, random_size=30, random_seed=123, alpha=0.5, min_cell=10, CPU=4, print_step=10){
 
     delta = 0.01;
     alpha = alpha;
     library(parallel)
     set.seed(random_seed)
     sc_cell_name=colnames(exp_sc_mat)
-    ref_tag[,2]=as.character(ref_tag[,2])
-    LocalRef= .generate_ref(exp_ref_mat, ref_tag, min_cell = min_cell )
-    if(method1=='multinomial'){
-        out = .get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=CPU, print_step=print_step)
-        } else {
-    	out=.get_cor(exp_sc_mat, LocalRef, method=method1,CPU=CPU, print_step=print_step)
-        }        
-    tag=.get_tag_max(out);
+    tag=sc_tag;
     ref_vec=ref_vec;
     SINGLE = function(i){   
         library('pcaPP')
@@ -245,12 +238,12 @@
             j=1
             while(j<=length(colname_ref)){
                 exp_ref = as.array(exp_ref_mat[,j])
-                if(method2=='multinomial'){
+                if(method=='multinomial'){
                     log_p_sc_given_ref=Refprob(exp_sc,exp_ref)
-                    } else if(method2=='kendall'){
+                    } else if(method=='kendall'){
                 	log_p_sc_given_ref=cor.fk(exp_sc,exp_ref)
                     } else {
-                    log_p_sc_given_ref=cor(exp_sc,exp_ref, method=method2)
+                    log_p_sc_given_ref=cor(exp_sc,exp_ref, method=method)
                     }
                 
                 log_p_sc_given_ref_list=c(log_p_sc_given_ref_list, log_p_sc_given_ref) 
