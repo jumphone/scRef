@@ -167,6 +167,11 @@
         }
     rownames(NewRef)=rownames(exp_sc_mat)
     colnames(NewRef)=outnames
+    if(length(NewRef[1,])==1){
+        NewRef=cbind(NewRef[,1], NewRef[,1])
+        rownames(NewRef)=rownames(exp_sc_mat)
+        colnames(NewRef)=c(outnames,outnames)
+        }
     return(NewRef)
     }
 
