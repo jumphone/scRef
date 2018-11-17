@@ -235,7 +235,7 @@ Cell types in the low-quality data must be covered by the high-quality data.
     exp_sc_mat=exp_ref_mat[,which(ref_tag[,2]=='5')]        
     
     LocalRef= .generate_ref(exp_ref_mat, ref_tag, min_cell = 10 )    
-    out=.get_cor(exp_sc_mat, LocalRef, method='kendall',CPU=CPU, print_step=print_step)
+    out=.get_cor(exp_sc_mat, LocalRef, method='kendall',CPU=4, print_step=10)
     tag=.get_tag_max(out)
     LocalRef= .generate_ref(exp_sc_mat, ref_tag, min_cell = 10 )
     out=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=10, print_step=10)
