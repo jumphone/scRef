@@ -107,7 +107,7 @@ Use “Seurat” package in R to do the tSNE:
 
 ### Step 2.
 
-Use the tSNE vectors to do hierarchical (users also can do kmeans clustering by using “kmeans” in R) clustering (users can choose a proper “k” according to the tSNE plot): 
+Use the tSNE vectors to do hierarchical (or kmeans clustering by using “kmeans” in R) clustering. Users can choose a proper “k” according to the tSNE plot: 
 
     TSNE_VEC=pbmc_3@dr$tsne@cell.embeddings
     D=dist(TSNE_VEC)
@@ -120,7 +120,7 @@ Use the tSNE vectors to do hierarchical (users also can do kmeans clustering by 
 
 ### Step 3.
 
-Compare the clusters given by hierarchical clustering and the annotation given by scRef. Users can choose a threshold for the “max_over” to get final result (we suggest using a value around 0.8). Users should be careful when there are multiple hits, because the multiple hits might be caused by unknown cell types (not in the reference). 
+Compare the clusters given by hierarchical clustering and the annotation given by scRef. Users can choose a threshold for the “max_over” to get final result (we suggest using a value around 0.8). Users should be careful about the annotation result when there are multiple hits, because the multiple hits might be caused by unknown cell types. 
 
     source(“scRef.R”)
     TAG1=cbind(rownames(TSNE_VEC),C)
