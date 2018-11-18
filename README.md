@@ -100,7 +100,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 ### Step 1.
 
-Use “Seurat” package in R to do the tSNE embedding:
+Use “Seurat” package in R to do the tSNE:
 
     pbmc = RunTSNE(object = pbmc, dims.use = 1:150, do.fast = TRUE, dim.embed = 2)
     pbmc_3 = RunTSNE(object = pbmc, dims.use = 1:150, do.fast = TRUE, dim.embed = 3)
