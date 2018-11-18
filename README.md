@@ -113,10 +113,8 @@ Use the tSNE vectors to do hierarchical (or kmeans clustering by using “kmeans
     D=dist(TSNE_VEC)
     H=hclust(D)
     C=cutree(H, k=8) 
-    old_ident = pbmc@ident
-    pbmc@ident = as.factor(C)
-    names(pbmc@ident)=names(old_ident)
-    TSNEPlot(object = pbmc, do.label=T)
+    pbmc@meta.data$C=C
+    TSNEPlot(object = pbmc, do.label=T, group.by ='C')
 
 ### Step 3.
 
@@ -128,7 +126,8 @@ Compare the clusters given by hierarchical clustering and the annotation given b
     OUT= .compare_two_tag(TAG1, TAG2)
     write.table(OUT, 'COMPARE.txt', sep='\t', quote=F, col.names=T, row.names=F)
  
- ### Format of “OUT” (output of “.compare_two_tag”):
+### Format of “OUT” (output of “.compare_two_tag”):
+
     Column 1: Max(Column3, Column5)
     Column 2: a cluster label of TAG1
     Column 3: number of overlapped cells divided by number of cells with TAG1’s label 
