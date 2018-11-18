@@ -97,14 +97,47 @@ For single-cell expression matrix, we recommend using UMI matrix.
     write.table(tag,file='Semi.txt',quote=F,row.names=F,col.names=T,sep='\t')
 
 # 3. Combine the results of clustering method and scRef 
- 
-### Code:
- 
-    source('scRef.R')
-    
-    # Compare tags (column 1: cell_id; column 2: labels)
-    OUT=.compare_two_tag(TAG1, TAG2)
+
+### Step 1.
+
+Use “Seurat” package in R to do the tSNE embedding:
+
+    pbmc = RunTSNE(object = pbmc, dims.use = 1:150, do.fast = TRUE, dim.embed = 2)
+    pbmc_3 = RunTSNE(object = pbmc, dims.use = 1:150, do.fast = TRUE, dim.embed = 3)
+
+### Step 2.
+
+Use the tSNE vectors to do hierarchical (users also can do kmeans clustering by using “kmeans” in R) clustering (users can choose a proper “k” according to the tSNE plot): 
+
+    TSNE_VEC=pbmc_3@dr$tsne@cell.embeddings
+    D=dist(TSNE_VEC)
+    H=hclust(D)
+    C=cutree(H, k=8) 
+    old_ident = pbmc@ident
+    pbmc@ident = as.factor(C)
+    names(pbmc@ident)=names(old_ident)
+    TSNEPlot(object = pbmc, do.label=T)
+
+### Step 3.
+
+Compare the clusters given by hierarchical clustering and the annotation given by scRef. Users can choose a threshold for the “max_over” to get final result (we suggest using a value around 0.8). Users should be careful when there are multiple hits, because the multiple hits might be caused by unknown cell types (not in the reference). 
+
+    source(“scRef.R”)
+    TAG1=cbind(rownames(TSNE_VEC),C)
+    TAG2=read.table('Zeisel_semi.txt', header=T, sep='\t')
+    OUT= .compare_two_tag(TAG1, TAG2)
     write.table(OUT, 'COMPARE.txt', sep='\t', quote=F, col.names=T, row.names=F)
+ 
+ ### Format of “OUT” (output of “.compare_two_tag”):
+    Column 1: Max(Column3, Column5)
+    Column 2: a cluster label of TAG1
+    Column 3: number of overlapped cells divided by number of cells with TAG1’s label 
+    Column 4: a cluster label of TAG2
+    Column 5: number of overlapped cells divided by number of cells with TAG2’s label 
+
+
+
+    
 
 # 4. ScRef & Seurat
 
