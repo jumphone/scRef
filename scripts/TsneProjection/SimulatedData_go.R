@@ -9,10 +9,12 @@ table(pbmc@meta.data$ori)
 
 ####### Data preparation ##############
 ref_vec=pbmc@dr$tsne@cell.embeddings
-OLIG=which(pbmc@meta.data$ori=='oligodendrocytes')
+
+USE=which(pbmc@meta.data$ori=='astrocytes_ependymal')
+
 plot(ref_vec[,1],ref_vec[,2], pch=16, col='gray80', xlim=c(-30, 30), ylim=c(-40,35), xlab='tSNE_1',ylab='tSNE_2')
 par(new=T)
-plot(ref_vec[OLIG,1],ref_vec[OLIG,2], pch=16, col='red', xlim=c(-30, 30), ylim=c(-40,35), xlab='',ylab='')
+plot(ref_vec[USE,1],ref_vec[USE,2], pch=16, col='red', xlim=c(-30, 30), ylim=c(-40,35), xlab='',ylab='')
 
 
 COL=c()
@@ -27,7 +29,7 @@ ref_tag=cbind(names(pbmc@ident), as.character(pbmc@meta.data$ori))
 exp_ref_mat=as.matrix(pbmc@raw.data)[,COL]
 
 
-exp_sc_mat= exp_ref_mat[,OLIG]
+exp_sc_mat= exp_ref_mat[,USE]
 
 getRanGene <- function(X){
     POS = which(X >0 )
@@ -60,7 +62,7 @@ pdf('simulationresult_tSNEprojection.pdf',width=7, height=7)
 CEX=0.5
 plot(ref_vec,xlim=c(-30, 30), ylim=c(-40,35),pch=16,col='grey70', cex=CEX)
 par(new=T)
-plot(ref_vec[OLIG,1],ref_vec[OLIG,2],xlim=c(-30, 30), ylim=c(-40,35),pch=16,col='blue', cex=CEX, xlab='',ylab='')
+plot(ref_vec[USE,1],ref_vec[USE,2],xlim=c(-30, 30), ylim=c(-40,35),pch=16,col='blue', cex=CEX, xlab='',ylab='')
 par(new=T)
 plot(out$vec,xlim=c(-30, 30), ylim=c(-40,35),pch=16,col='red', cex=CEX)
 dev.off()
@@ -104,8 +106,13 @@ immune.combined <- AlignSubspace(immune.combined, reduction.type = "cca", groupi
 immune.combined <- RunTSNE(immune.combined, reduction.use = "cca.aligned", dims.use = 1:20, 
     do.fast = T)
 
-immune.combined <- FindClusters(immune.combined, reduction.type = "cca.aligned", 
-    resolution = 0.6, dims.use = 1:20)
-
-
+pdf('simulationresult_CCA.pdf',width=7, height=7)
+CEX=0.5
+ALLVEC=immune.combined@dr$tsne@cell.embeddings
+plot(ALLVEC, pch=16, col='grey70',xlim=c(-43,35),ylim=c(-47,35),cex=CEX)
+par(new=T)
+plot(ALLVEC[USE,], pch=16, col='blue',xlim=c(-43,35),ylim=c(-47,35),cex=CEX)
+par(new=T)
+plot(ALLVEC[which(immune.combined@ident=='Sim'),], pch=16, col='red',xlim=c(-43,35),ylim=c(-47,35),cex=CEX)
+dev.off()
 
