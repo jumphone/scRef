@@ -109,10 +109,10 @@ immune.combined <- RunTSNE(immune.combined, reduction.use = "cca.aligned", dims.
 pdf('simulationresult_CCA.pdf',width=7, height=7)
 CEX=0.5
 ALLVEC=immune.combined@dr$tsne@cell.embeddings
-plot(ALLVEC, pch=16, col='grey70',xlim=c(-43,35),ylim=c(-47,35),cex=CEX)
+plot(ALLVEC, pch=16, col='grey70',xlim=c(-43,35),ylim=c(-40,35),cex=CEX)
 par(new=T)
-plot(ALLVEC[USE,], pch=16, col='blue',xlim=c(-43,35),ylim=c(-47,35),cex=CEX)
+plot(ALLVEC[USE,], pch=16, col='blue',xlim=c(-43,35),ylim=c(-40,35),cex=CEX)
 par(new=T)
-plot(ALLVEC[which(immune.combined@ident=='Sim'),], pch=16, col='red',xlim=c(-43,35),ylim=c(-47,35),cex=CEX)
+plot(ALLVEC[which(immune.combined@ident=='Sim'),], pch=16, col='red',xlim=c(-43,35),ylim=c(-40,35),cex=CEX)
 dev.off()
 
