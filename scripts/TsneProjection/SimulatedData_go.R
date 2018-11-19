@@ -66,12 +66,27 @@ dev.off()
 
 ###### CCA ############
 
+# similar to the code at https://satijalab.org/seurat/immune_alignment.html
 
+ctrl <- CreateSeuratObject(raw.data = exp_ref_mat, project = "SIM", min.cells = 5)
+ctrl@meta.data$stim <- "CTRL"
+ctrl <- NormalizeData(ctrl)
+ctrl <- ScaleData(ctrl, display.progress = F)
 
+stim <- CreateSeuratObject(raw.data = sim_exp_sc_mat, project = "SIM", min.cells = 5)
+stim@meta.data$stim <- "STIM"
+stim <- NormalizeData(stim)
+stim <- ScaleData(stim, display.progress = F)
 
+ctrl <- FindVariableGenes(ctrl, do.plot = F)
+stim <- FindVariableGenes(stim, do.plot = F)
+g.1 <- head(rownames(ctrl@hvg.info), 1000)
+g.2 <- head(rownames(stim@hvg.info), 1000)
+genes.use <- unique(c(g.1, g.2))
+genes.use <- intersect(genes.use, rownames(ctrl@scale.data))
+genes.use <- intersect(genes.use, rownames(stim@scale.data))
 
-
-
+immune.combined <- RunCCA(ctrl, stim, genes.use = genes.use, num.cc = 30)
 
 
 
