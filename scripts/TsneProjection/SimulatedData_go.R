@@ -86,9 +86,24 @@ genes.use <- unique(c(g.1, g.2))
 genes.use <- intersect(genes.use, rownames(ctrl@scale.data))
 genes.use <- intersect(genes.use, rownames(stim@scale.data))
 
-immune.combined <- RunCCA(ctrl, stim, genes.use = genes.use, num.cc = 30)
+immune.combined <- RunCCA(ctrl, stim, genes.use = genes.use, num.cc = 30, add.cell.id1='All', add.cell.id2='Sim')
 
+p1 <- DimPlot(object = immune.combined, reduction.use = "cca", group.by = "stim", 
+    pt.size = 0.5, do.return = TRUE)
+p2 <- VlnPlot(object = immune.combined, features.plot = "CC1", group.by = "stim", 
+    do.return = TRUE)
+pdf('CCA.pdf')
+plot_grid(p1, p2)
+dev.off()
 
+immune.combined <- AlignSubspace(immune.combined, reduction.type = "cca", grouping.var = "stim", 
+    dims.align = 1:20)
+
+immune.combined <- RunTSNE(immune.combined, reduction.use = "cca.aligned", dims.use = 1:20, 
+    do.fast = T)
+
+immune.combined <- FindClusters(immune.combined, reduction.type = "cca.aligned", 
+    resolution = 0.6, dims.use = 1:20)
 
 
 
