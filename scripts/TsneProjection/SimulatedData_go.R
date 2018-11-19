@@ -41,7 +41,9 @@ getRanGene <- function(X){
 set.seed(123)
 sim_exp_sc_mat = apply(exp_sc_mat,2, getRanGene)
 
+
 ###### tSNE projection ############
+
 LocalRef= .generate_ref(exp_ref_mat, ref_tag, min_cell = 10 )
 out=.get_cor(sim_exp_sc_mat, LocalRef, method='kendall',CPU=4, print_step=10)
 tag=.get_tag_max(out)
