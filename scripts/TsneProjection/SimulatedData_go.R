@@ -5,10 +5,11 @@ ori_label=read.table('Zeisel_exp_sc_mat_cluster_original.txt',header=T,sep='\t')
 pbmc@meta.data$ori=ori_label[,2]
 #TSNEPlot(pbmc, group.by="ori")
 table(pbmc@meta.data$ori)
+
+
+####### Data preparation ##############
 ref_vec=pbmc@dr$tsne@cell.embeddings
-
 OLIG=which(pbmc@meta.data$ori=='oligodendrocytes')
-
 plot(ref_vec[,1],ref_vec[,2], pch=16, col='gray80', xlim=c(-30, 30), ylim=c(-40,35), xlab='tSNE_1',ylab='tSNE_2')
 par(new=T)
 plot(ref_vec[OLIG,1],ref_vec[OLIG,2], pch=16, col='red', xlim=c(-30, 30), ylim=c(-40,35), xlab='',ylab='')
@@ -40,7 +41,7 @@ getRanGene <- function(X){
 set.seed(123)
 sim_exp_sc_mat = apply(exp_sc_mat,2, getRanGene)
 
-
+###### tSNE projection ############
 LocalRef= .generate_ref(exp_ref_mat, ref_tag, min_cell = 10 )
 out=.get_cor(sim_exp_sc_mat, LocalRef, method='kendall',CPU=4, print_step=10)
 tag=.get_tag_max(out)
@@ -61,6 +62,14 @@ plot(ref_vec[OLIG,1],ref_vec[OLIG,2],xlim=c(-30, 30), ylim=c(-40,35),pch=16,col=
 par(new=T)
 plot(out$vec,xlim=c(-30, 30), ylim=c(-40,35),pch=16,col='red', cex=CEX)
 dev.off()
+
+
+###### CCA ############
+
+
+
+
+
 
 
 
