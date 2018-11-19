@@ -59,7 +59,7 @@ out =.vec_projection(exp_sc_mat=sim_exp_sc_mat, sc_tag, exp_ref_mat, ref_tag, re
         random_seed=123, min_cell=10, CPU=4, print_step=10)
 
 pdf('simulationresult_tSNEprojection.pdf',width=7, height=7)
-CEX=0.5
+CEX=0.7
 plot(ref_vec,xlim=c(-30, 30), ylim=c(-40,35),pch=16,col='grey70', cex=CEX)
 par(new=T)
 plot(ref_vec[USE,1],ref_vec[USE,2],xlim=c(-30, 30), ylim=c(-40,35),pch=16,col='blue', cex=CEX, xlab='',ylab='')
@@ -107,7 +107,7 @@ immune.combined <- RunTSNE(immune.combined, reduction.use = "cca.aligned", dims.
     do.fast = T)
 
 pdf('simulationresult_CCA.pdf',width=7, height=7)
-CEX=0.5
+CEX=0.7
 ALLVEC=immune.combined@dr$tsne@cell.embeddings
 plot(ALLVEC, pch=16, col='grey70',xlim=c(-43,35),ylim=c(-40,35),cex=CEX)
 par(new=T)
