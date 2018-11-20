@@ -96,6 +96,9 @@ immune.combined <- RunCCA(ctrl, stim, genes.use = genes.use, num.cc = 30, add.ce
 immune.combined <- AlignSubspace(immune.combined, reduction.type = "cca", grouping.var = "stim", 
     dims.align = 1:25)
 
+# We have tried to use 10, 15, 20, and 25 aligned CCA subspaces to draw tSNE plot. 
+# And we can see a clear "astrocytes_ependymal" cluster when using 10 aligned CCA subspaces.
+
 immune.combined <- RunTSNE(immune.combined, reduction.use = "cca.aligned", dims.use = 1:10, 
     do.fast = T)
 
