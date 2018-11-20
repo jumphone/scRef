@@ -43,7 +43,6 @@ getRanGene <- function(X){
 set.seed(123)
 sim_exp_sc_mat = apply(exp_sc_mat,2, getRanGene)
 
-save.image('tSNEprojection.RData')
 ###### tSNE projection ############
 
 LocalRef= .generate_ref(exp_ref_mat, ref_tag, min_cell = 10 )
@@ -58,7 +57,7 @@ out =.vec_projection(exp_sc_mat=sim_exp_sc_mat, sc_tag, exp_ref_mat, ref_tag, re
         method='kendall', nearest_cell=3, alpha=0.5, random_size=30, 
         random_seed=123, min_cell=10, CPU=4, print_step=10)
 
-pdf('simulationresult_tSNEprojection.pdf',width=5, height=5)
+pdf('simulationresult_tSNEprojection.pdf',width=4.5, height=5)
 CEX=0.7
 plot(ref_vec,xlim=c(-30, 30), ylim=c(-40,35),pch=16,col='grey70', cex=CEX)
 par(new=T)
@@ -71,7 +70,7 @@ dev.off()
 ###### CCA ############
 
 # we follow the instruction in https://satijalab.org/seurat/immune_alignment.html
-
+set.seed(123)
 ctrl <- CreateSeuratObject(raw.data = exp_ref_mat, project = "SIM", min.cells = 5)
 ctrl@meta.data$stim <- "CTRL"
 ctrl <- NormalizeData(ctrl)
@@ -93,18 +92,23 @@ genes.use <- intersect(genes.use, rownames(stim@scale.data))
 immune.combined <- RunCCA(ctrl, stim, genes.use = genes.use, num.cc = 30, add.cell.id1='All', add.cell.id2='Sim')
 
 immune.combined <- AlignSubspace(immune.combined, reduction.type = "cca", grouping.var = "stim", 
-    dims.align = 1:20)
+    dims.align = 1:30)
 
-immune.combined <- RunTSNE(immune.combined, reduction.use = "cca.aligned", dims.use = 1:20, 
+immune.combined <- RunTSNE(immune.combined, reduction.use = "cca.aligned", dims.use = 1:30, 
     do.fast = T)
 
-pdf('simulationresult_CCA.pdf',width=5, height=5)
+pdf('simulationresult_CCA.pdf',width=4.5, height=5)
 CEX=0.7
+XLIM=c(-35,35)
+YLIM=c(-32,30)
 ALLVEC=immune.combined@dr$tsne@cell.embeddings
-plot(ALLVEC, pch=16, col='grey70',xlim=c(-43,35),ylim=c(-40,35),cex=CEX)
+plot(ALLVEC, pch=16, col='grey70',xlim=XLIM,ylim=YLIM,cex=CEX)
 par(new=T)
-plot(ALLVEC[USE,], pch=16, col='blue',xlim=c(-43,35),ylim=c(-40,35),cex=CEX)
+plot(ALLVEC[USE,], pch=16, col='blue',xlim=XLIM,ylim=YLIM,cex=CEX)
 par(new=T)
-plot(ALLVEC[which(immune.combined@ident=='Sim'),], pch=16, col='red',xlim=c(-43,35),ylim=c(-40,35),cex=CEX)
+plot(ALLVEC[which(immune.combined@ident=='Sim'),], pch=16, col='red',xlim=XLIM,ylim=YLIM,cex=CEX)
 dev.off()
+
+
+save.image('tSNEprojection.RData')
 
