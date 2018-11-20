@@ -233,7 +233,7 @@ Please note that "MouseAtlas_MCA" is mouse reference
 
 Visualize low-quality scRNA-seq data in the tSNE plot of high-quality scRNA-seq data.
 
-Cell types in the low-quality data must be covered by the high-quality data.
+Cell types of the low-quality data must be covered by the high-quality data.
 
 ### Workflow: 
 
