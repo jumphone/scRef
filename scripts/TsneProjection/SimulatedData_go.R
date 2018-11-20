@@ -43,7 +43,7 @@ getRanGene <- function(X){
 set.seed(123)
 sim_exp_sc_mat = apply(exp_sc_mat,2, getRanGene)
 
-###### tSNE projection ############
+###### tSNE projection (default) ############
 
 LocalRef= .generate_ref(exp_ref_mat, ref_tag, min_cell = 10 )
 out=.get_cor(sim_exp_sc_mat, LocalRef, method='kendall',CPU=4, print_step=10)
@@ -68,6 +68,21 @@ par(new=T)
 plot(out$vec,xlim=c(-30, 30), ylim=c(-40,35),pch=16,col=RED, cex=CEX)
 dev.off()
 
+###### tSNE projection (All) ############
+out_all =.vec_projection(exp_sc_mat=sim_exp_sc_mat, sc_tag, exp_ref_mat, ref_tag, ref_vec, 
+        method='kendall', nearest_cell=1, alpha=0.5, random_size=3000, 
+        random_seed=123, min_cell=10, CPU=4, print_step=10)
+
+pdf('simulationresult_tSNEprojection_all.pdf',width=4.5, height=5)
+CEX=0.7
+BLUE=rgb(0, 0, 255, 150, maxColorValue=255)
+RED=rgb(255, 0, 0, 150, maxColorValue=255)
+plot(ref_vec,xlim=c(-30, 30), ylim=c(-40,35),pch=16,col='grey70', cex=CEX)
+par(new=T)
+plot(ref_vec[USE,1],ref_vec[USE,2],xlim=c(-30, 30), ylim=c(-40,35),pch=16,col=BLUE, cex=CEX, xlab='',ylab='')
+par(new=T)
+plot(out_all$vec,xlim=c(-30, 30), ylim=c(-40,35),pch=16,col=RED, cex=CEX)
+dev.off()
 
 ###### CCA ############
 
