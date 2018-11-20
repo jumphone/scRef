@@ -70,7 +70,7 @@ dev.off()
 
 ###### CCA ############
 
-# similar to the code at https://satijalab.org/seurat/immune_alignment.html
+# we follow the instruction in https://satijalab.org/seurat/immune_alignment.html
 
 ctrl <- CreateSeuratObject(raw.data = exp_ref_mat, project = "SIM", min.cells = 5)
 ctrl@meta.data$stim <- "CTRL"
@@ -91,14 +91,6 @@ genes.use <- intersect(genes.use, rownames(ctrl@scale.data))
 genes.use <- intersect(genes.use, rownames(stim@scale.data))
 
 immune.combined <- RunCCA(ctrl, stim, genes.use = genes.use, num.cc = 30, add.cell.id1='All', add.cell.id2='Sim')
-
-#p1 <- DimPlot(object = immune.combined, reduction.use = "cca", group.by = "stim", 
-#    pt.size = 0.5, do.return = TRUE)
-#p2 <- VlnPlot(object = immune.combined, features.plot = "CC1", group.by = "stim", 
-#    do.return = TRUE)
-#pdf('CCA.pdf')
-#plot_grid(p1, p2)
-#dev.off()
 
 immune.combined <- AlignSubspace(immune.combined, reduction.type = "cca", grouping.var = "stim", 
     dims.align = 1:20)
