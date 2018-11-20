@@ -59,8 +59,8 @@ out =.vec_projection(exp_sc_mat=sim_exp_sc_mat, sc_tag, exp_ref_mat, ref_tag, re
 
 pdf('simulationresult_tSNEprojection.pdf',width=4.5, height=5)
 CEX=0.7
-BLUE=rgb(0, 0, 255, 90, maxColorValue=255)
-RED=rgb(255, 0, 0, 90, maxColorValue=255)
+BLUE=rgb(0, 0, 255, 150, maxColorValue=255)
+RED=rgb(255, 0, 0, 150, maxColorValue=255)
 plot(ref_vec,xlim=c(-30, 30), ylim=c(-40,35),pch=16,col='grey70', cex=CEX)
 par(new=T)
 plot(ref_vec[USE,1],ref_vec[USE,2],xlim=c(-30, 30), ylim=c(-40,35),pch=16,col=BLUE, cex=CEX, xlab='',ylab='')
@@ -96,16 +96,16 @@ immune.combined <- RunCCA(ctrl, stim, genes.use = genes.use, num.cc = 30, add.ce
 immune.combined <- AlignSubspace(immune.combined, reduction.type = "cca", grouping.var = "stim", 
     dims.align = 1:25)
 
-immune.combined <- RunTSNE(immune.combined, reduction.use = "cca.aligned", dims.use = 1:20, 
+immune.combined <- RunTSNE(immune.combined, reduction.use = "cca.aligned", dims.use = 1:10, 
     do.fast = T)
 
 pdf('simulationresult_CCA.pdf',width=4.5, height=5)
 CEX=0.7
-XLIM=c(-30,30)
-YLIM=c(-32,42)
-BLUE=rgb(0, 0, 255, 90, maxColorValue=255)
-RED=rgb(255, 0, 0, 90, maxColorValue=255)
+BLUE=rgb(0, 0, 255, 150, maxColorValue=255)
+RED=rgb(255, 0, 0, 150, maxColorValue=255)
 ALLVEC=immune.combined@dr$tsne@cell.embeddings
+XLIM=c(min(ALLVEC[,1])-1,max(ALLVEC[,1])+1)
+YLIM=c(min(ALLVEC[,2])-1,max(ALLVEC[,2])+1)
 plot(ALLVEC, pch=16, col='grey70',xlim=XLIM,ylim=YLIM,cex=CEX)
 par(new=T)
 plot(ALLVEC[USE,], pch=16, col=BLUE,xlim=XLIM,ylim=YLIM,cex=CEX)
@@ -114,5 +114,5 @@ plot(ALLVEC[which(immune.combined@ident=='Sim'),], pch=16, col=RED,xlim=XLIM,yli
 dev.off()
 
 
-save.image('tSNEprojection.RData')
+#save.image('tSNEprojection.RData')
 
