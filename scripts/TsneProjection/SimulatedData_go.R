@@ -43,7 +43,7 @@ getRanGene <- function(X){
 set.seed(123)
 sim_exp_sc_mat = apply(exp_sc_mat,2, getRanGene)
 
-
+save.image('tSNEprojection.RData')
 ###### tSNE projection ############
 
 LocalRef= .generate_ref(exp_ref_mat, ref_tag, min_cell = 10 )
@@ -58,7 +58,7 @@ out =.vec_projection(exp_sc_mat=sim_exp_sc_mat, sc_tag, exp_ref_mat, ref_tag, re
         method='kendall', nearest_cell=3, alpha=0.5, random_size=30, 
         random_seed=123, min_cell=10, CPU=4, print_step=10)
 
-pdf('simulationresult_tSNEprojection.pdf',width=7, height=7)
+pdf('simulationresult_tSNEprojection.pdf',width=5, height=5)
 CEX=0.7
 plot(ref_vec,xlim=c(-30, 30), ylim=c(-40,35),pch=16,col='grey70', cex=CEX)
 par(new=T)
@@ -106,7 +106,7 @@ immune.combined <- AlignSubspace(immune.combined, reduction.type = "cca", groupi
 immune.combined <- RunTSNE(immune.combined, reduction.use = "cca.aligned", dims.use = 1:20, 
     do.fast = T)
 
-pdf('simulationresult_CCA.pdf',width=7, height=7)
+pdf('simulationresult_CCA.pdf',width=5, height=5)
 CEX=0.7
 ALLVEC=immune.combined@dr$tsne@cell.embeddings
 plot(ALLVEC, pch=16, col='grey70',xlim=c(-43,35),ylim=c(-40,35),cex=CEX)
