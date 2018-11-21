@@ -42,7 +42,7 @@ Denpendent R packages: pcaPP
 
 Single-cell and reference expression matrix must be tab-delimited with header and row names.
 
-For reference expression matrix, we recommend using TPM, FPKM, RPKM, or UMI matrix. 
+For reference expression matrix, we recommend using TPM, FPKM, RPKM, RPK, or UMI matrix. 
 
 For single-cell expression matrix, we recommend using UMI matrix.
 
@@ -133,9 +133,6 @@ Compare the clusters given by hierarchical clustering and the annotation given b
     Column 3: number of overlapped cells divided by number of cells with TAG1’s label 
     Column 4: a cluster label of TAG2
     Column 5: number of overlapped cells divided by number of cells with TAG2’s label 
-
-
-
     
 
 # 4. ScRef & Seurat
