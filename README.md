@@ -263,7 +263,10 @@ Cell types of the low-quality data must be covered by the high-quality data.
     exp_ref_mat=as.matrix(pbmc@raw.data)[,COL]
     exp_sc_mat=exp_ref_mat[,which(ref_tag[,2]=='5')]        
     
+    #generate local reference of high-quality data
     LocalRef= .generate_ref(exp_ref_mat, ref_tag, min_cell = 10 )    
+    
+    #semi-supervised annotation
     out=.get_cor(exp_sc_mat, LocalRef, method='kendall',CPU=4, print_step=10)
     tag=.get_tag_max(out)
     LocalRef= .generate_ref(exp_sc_mat, tag, min_cell = 10 )
