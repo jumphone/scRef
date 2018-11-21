@@ -263,10 +263,10 @@ Cell types of the low-quality data must be covered by the high-quality data.
     exp_ref_mat=as.matrix(pbmc@raw.data)[,COL]
     exp_sc_mat=exp_ref_mat[,which(ref_tag[,2]=='5')]        
     
-    #generate local reference of high-quality data
+    # Generate local reference of high-quality data
     LocalRef= .generate_ref(exp_ref_mat, ref_tag, min_cell = 10 )    
     
-    #semi-supervised annotation
+    # Semi-supervised annotation
     out=.get_cor(exp_sc_mat, LocalRef, method='kendall',CPU=4, print_step=10)
     tag=.get_tag_max(out)
     LocalRef= .generate_ref(exp_sc_mat, tag, min_cell = 10 )
@@ -274,6 +274,7 @@ Cell types of the low-quality data must be covered by the high-quality data.
     tag=.get_tag_max(out)
     sc_tag=tag
     
+    # tSNE projection
     out =.vec_projection(exp_sc_mat, sc_tag, exp_ref_mat, ref_tag, ref_vec, 
             method='kendall', nearest_cell=3, alpha=0.5, random_size=30, 
             random_seed=123, min_cell=10, CPU=4, print_step=10)
