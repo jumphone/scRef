@@ -24,7 +24,7 @@ A reference database for scRef
     * [2. Semi-supervised annotation](#2-Semi-supervised-annotation)
     * [3. Combine the results of clustering method and scRef](#3-Combine-the-results-of-clustering-method-and-scRef)
     * [4. ScRef & Seurat](#4-scRef--Seurat)
-    * [5. scRef-baed tSNE projection](#5-scRef-based-tSNE-projection)
+    * [5. scRef-based tSNE projection](#5-scRef-based-tSNE-projection)
 * [License](#License)
 
 
