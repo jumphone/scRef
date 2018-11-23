@@ -55,7 +55,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
     source('scRef.R')
     
     # Load data
-    exp_sc_mat=read.table('Zeisel_exp_sc_mat.txt',header=T,row.names=1,'\t')
+    exp_sc_mat=read.table('Zeisel_exp_sc_mat.txt',header=T,row.names=1,sep='\t')
     exp_ref_mat=read.table('Reference_expression.txt',header=T,row.names=1,sep='\t')
     
     # Kendall
