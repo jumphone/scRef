@@ -1,12 +1,12 @@
 # scRef
-Reference-based tool for single-cell annotation
+A reference-based tool for single-cell annotation
 
 <a href='https://github.com/jumphone/scRef'>
 <img src="/Logo.png" width="600">
 </a>
 
 # dbRef
-A reference database for scRef
+A reference database
 
 <a href='/Reference/'>Visit dbRef</a>
 
