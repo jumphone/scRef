@@ -1,5 +1,5 @@
 # scRef
-Reference-based single-cell annotation
+Reference-based tool for single-cell annotation
 
 <a href='https://github.com/jumphone/scRef'>
 <img src="/Logo.png" width="600">
