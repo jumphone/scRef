@@ -1,4 +1,4 @@
-# scREF
+# scRef
 Reference-based single-cell annotation
 
 <a href='https://github.com/jumphone/scRef'>
@@ -24,13 +24,13 @@ A reference database for scRef
     * [2. Semi-supervised annotation](#2-Semi-supervised-annotation)
     * [3. Combine the results of clustering method and scRef](#3-Combine-the-results-of-clustering-method-and-scRef)
     * [4. ScRef & Seurat](#4-scRef--Seurat)
-    * [5. tSNE projection](#5-tSNE-projection)
+    * [5. scRef-baed tSNE projection](#5-scRef-based-tSNE-projection)
 * [License](#License)
 
 
 # Citation
 
-Feng Zhang, Yaguang Dou, Rohit R Rao, Weidong Tian; SCREF: reference-based annotation for single-cell RNA-seq data, Coming Soon
+Feng Zhang, Yaguang Dou, Rohit R Rao, Q. Richard Lu, Weidong Tian; SCREF: a reference-based tool for single-cell annotation, Coming Soon
 
 # Requirement
 
@@ -226,7 +226,7 @@ Please note that "MouseAtlas_MCA" is mouse reference
     
     ##################################      
 
-# 5. tSNE projection
+# 5. scRef-based tSNE projection
 
 Visualize low-quality scRNA-seq data in the tSNE plot of high-quality scRNA-seq data.
 
