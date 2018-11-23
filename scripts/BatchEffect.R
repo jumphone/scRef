@@ -19,9 +19,11 @@ pbmc <- ScaleData(object = pbmc, vars.to.regress = c("nUMI"))
 
 pbmc <- RunPCA(object = pbmc, pc.genes = pbmc@var.genes, do.print = TRUE, pcs.print = 1:5, genes.print = 5)
 
-pdf('batch_effect_ref.pdf',width=5,height=4.5)
-PCAPlot(object = pbmc, dim.1 = 1, dim.2 = 2, pt.size=2)
-dev.off()
+#pdf('batch_effect_ref.pdf',width=5,height=4.5)
+PT=rep(0.5, length(pbmc@ident))
+PT[which(pbmc@ident=='ref')]=3
+PCAPlot(object = pbmc, dim.1 = 1, dim.2 = 2, pt.size=PT)
+#dev.off()
 
 source('scRef.R')
 out=.get_cor(exp_sc_mat, exp_ref_mat, method='kendall',CPU=4, print_step=10)
@@ -37,8 +39,10 @@ pbmc <- FindVariableGenes(object = pbmc, mean.function = ExpMean, dispersion.fun
 pbmc <- ScaleData(object = pbmc, vars.to.regress = c("nUMI"))
 pbmc <- RunPCA(object = pbmc, pc.genes = pbmc@var.genes, do.print = TRUE, pcs.print = 1:5, genes.print = 5)
 
-pdf('batch_effect_locref.pdf',width=5,height=4.5)
-PCAPlot(object = pbmc, dim.1 = 1, dim.2 = 2, pt.size=2)
-dev.off()
+#pdf('batch_effect_locref.pdf',width=5,height=4.5)
+PT=rep(0.5, length(pbmc@ident))
+PT[which(pbmc@ident=='locref')]=3
+PCAPlot(object = pbmc, dim.1 = 1, dim.2 = 2, pt.size=PT)
+#dev.off()
 
 
