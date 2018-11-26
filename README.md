@@ -22,7 +22,7 @@ A reference database
 * [Usage](#Usage)
     * [1. Reference-based annotation](#1-Reference-based-annotation)
     * [2. Semi-supervised annotation](#2-Semi-supervised-annotation)
-    * [3. Combine the results of clustering method and scRef](#3-Combine-the-results-of-clustering-method-and-scRef)
+    * [3. Compare the results of clustering method and scRef](#3-Compare-the-results-of-clustering-method-and-scRef)
     * [4. ScRef & Seurat](#4-scRef--Seurat)
     * [5. scRef-based tSNE projection](#5-scRef-based-tSNE-projection)
 * [License](#License)
@@ -96,7 +96,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
     tag=.get_tag_max(out)
     write.table(tag,file='Semi.txt',quote=F,row.names=F,col.names=T,sep='\t')
 
-# 3. Combine the results of clustering method and scRef 
+# 3. Compare the results of clustering method and scRef 
 
 ### Step 1.
 
