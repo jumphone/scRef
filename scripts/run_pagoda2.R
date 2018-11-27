@@ -5,7 +5,7 @@
 # douyaguang
 # package required: 
 #    pagoda2:         basic pagoda2 algorithm package
-#    NMI:             calculate ANMI
+#    NMI:             calculate NMI
 #    cidr:            calculate ARI
 #    igraph:          for cluster methods used by pagoda2
 #######################################################################################
