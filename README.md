@@ -23,7 +23,7 @@ A reference database
     * [1. Reference-based annotation](#1-Reference-based-annotation)
     * [2. Semi-supervised annotation](#2-Semi-supervised-annotation)
     * [3. Compare the results of clustering method and scRef](#3-Compare-the-results-of-clustering-method-and-scRef)
-    * [4. ScRef & Seurat](#4-scRef--Seurat)
+    * [4. scRef & Seurat](#4-scRef--Seurat)
     * [5. scRef-based tSNE projection](#5-scRef-based-tSNE-projection)
 * [License](#License)
 
