@@ -5,7 +5,7 @@
 # douyaguang
 # package required: 
 #    SAFEclustering:  for SAFEclustering algorithm
-#    NMI:             calculate ANMI
+#    NMI:             calculate NMI
 #    cidr:            calculate ARI
 #######################################################################################
 
