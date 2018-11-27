@@ -135,7 +135,7 @@ Compare the clusters given by hierarchical clustering and the annotation given b
     Column 5: number of overlapped cells divided by number of cells with TAG2’s label 
     
 
-# 4. ScRef & Seurat
+# 4. scRef & Seurat
 
 ### Original labels for human Peripheral Blood Mononuclear Cells (PBMC) 
 
