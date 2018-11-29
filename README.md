@@ -48,7 +48,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 # Usage
 
-# 1. Reference-based annotation
+# 1. One-round reference-based annotation
 
 ### Code:
     
@@ -78,7 +78,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
     tag=.get_tag_max(out)
     write.table(tag,file='Pearson.txt',quote=F,row.names=F,col.names=T,sep='\t')
 
-# 2. Semi-supervised annotation
+# 2. Two-round (semi-supervised) annotation
 
 ### Code:
 
