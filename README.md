@@ -84,6 +84,11 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
     source('scRef.R')
     
+    tag=SCREF(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomial', min_cell=10, CPU=4, print_step=10)
+    write.table(tag,file='Semi.txt',quote=F,row.names=F,col.names=T,sep='\t')
+    
+    # OR:
+    
     # First-round annotation - Kendall
     out=.get_cor(exp_sc_mat, exp_ref_mat, method='kendall',CPU=4, print_step=10)
     tag=.get_tag_max(out)
