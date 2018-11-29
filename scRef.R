@@ -290,8 +290,9 @@
         this_weight=this_weight/sum(this_weight)
 
         this_out_vec = t(as.matrix(this_vec)) %*% as.matrix(this_weight)
-        this_out_exp = as.matrix(this_ref) %*% as.matrix(this_weight)
-        names(this_out_exp) = rownames(this_ref)
+        this_out_exp='none'
+        #this_out_exp = as.matrix(this_ref) %*% as.matrix(this_weight)
+        #names(this_out_exp) = rownames(this_ref)
         this_out=list(out_vec=this_out_vec, out_exp=this_out_exp)
         
         if(i%%print_step==1){print(i)}
@@ -304,17 +305,18 @@
     RUN = mclapply(1:length(exp_sc_mat[1,]), SINGLE, mc.cores=CPU)
 
     OUT_VEC = c()
-    OUT_EXP = c()
+    #OUT_EXP = c()
     for(this_out in RUN){
         OUT_VEC = cbind(OUT_VEC, this_out$out_vec)
-        OUT_EXP = cbind(OUT_EXP, this_out$out_exp)
+        #OUT_EXP = cbind(OUT_EXP, this_out$out_exp)
         }
     OUT_VEC = t(OUT_VEC)
     rownames(OUT_VEC) = sc_cell_name
     colnames(OUT_VEC) = colnames(ref_vec) 
-    rownames(OUT_EXP) = names(this_out$out_exp)    
-    colnames(OUT_EXP) = sc_cell_name
-    OUT=list(vec=OUT_VEC, exp=OUT_EXP, tag=tag)
+    #rownames(OUT_EXP) = names(this_out$out_exp)    
+    #colnames(OUT_EXP) = sc_cell_name
+    #OUT=list(vec=OUT_VEC, exp=OUT_EXP, tag=tag)
+    OUT=list(vec=OUT_VEC, tag=tag)
     return(OUT)
     }
 
