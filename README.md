@@ -290,9 +290,12 @@ Cell types of the low-quality data must be covered by the high-quality data.
             method='kendall', nearest_cell=3, alpha=0.5, random_size=30, 
             random_seed=123, min_cell=10, CPU=4, print_step=10)
     
-    plot(ref_vec,xlim=c(-35,35),ylim=c(-35,35),pch=16,col='grey70')
+    XLIM=c(min(ref_vec[,1]-1,max(ref_vec[,1]+1)))
+    YLIM=c(min(ref_vec[,2]-1,max(ref_vec[,2]+1)))
+
+    plot(ref_vec,xlim=XLIM,ylim=YLIM,pch=16,col='grey70')
     par(new=T)
-    plot(out$vec,xlim=c(-35,35),ylim=c(-35,35),pch=16,col='red')
+    plot(out$vec,xlim=XLIM,ylim=YLIM,pch=16,col='red')
 
 # License
 
