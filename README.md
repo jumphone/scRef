@@ -84,7 +84,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
     source('scRef.R')
     
-    tag=SCREF(exp_sc_mat, exp_ref_mat)
+    tag=SCREF(exp_sc_mat, exp_ref_mat, CPU=4, print_step=10)
     
     write.table(tag,file='Semi.txt',quote=F,row.names=F,col.names=T,sep='\t')
     
