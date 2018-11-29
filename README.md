@@ -85,7 +85,6 @@ For single-cell expression matrix, we recommend using UMI matrix.
     source('scRef.R')
     
     tag=SCREF(exp_sc_mat, exp_ref_mat)
-    #tag=SCREF(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomial', min_cell=10, CPU=4, print_step=10)
     write.table(tag,file='Semi.txt',quote=F,row.names=F,col.names=T,sep='\t')
     
     # OR:
@@ -100,6 +99,8 @@ For single-cell expression matrix, we recommend using UMI matrix.
     # Second-round annotation - Multinomial
     out=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=4, print_step=10)
     tag=.get_tag_max(out)
+    
+    # Output results
     write.table(tag,file='Semi.txt',quote=F,row.names=F,col.names=T,sep='\t')
 
 # 3. Compare the results of clustering method and scRef 
