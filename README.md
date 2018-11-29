@@ -20,8 +20,8 @@ A reference database
 * [Requirement](#Requirement)
 * [Input format](#Input-format)
 * [Usage](#Usage)
-    * [1. Reference-based annotation](#1-Reference-based-annotation)
-    * [2. Semi-supervised annotation](#2-Semi-supervised-annotation)
+    * [1. Single-round annotation](#1-single-round-annotation)
+    * [2. SCREF (semi-supervised) annotation](#2-SCREF-semi-supervised-annotation)
     * [3. Compare the results of clustering method and scRef](#3-Compare-the-results-of-clustering-method-and-scRef)
     * [4. scRef & Seurat](#4-scRef--Seurat)
     * [5. scRef-based tSNE projection](#5-scRef-based-tSNE-projection)
@@ -48,7 +48,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 # Usage
 
-# 1. One-round reference-based annotation
+# 1. Single-round annotation
 
 ### Code:
     
@@ -78,7 +78,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
     tag=.get_tag_max(out)
     write.table(tag,file='Pearson.txt',quote=F,row.names=F,col.names=T,sep='\t')
 
-# 2. Two-round (semi-supervised) annotation
+# 2. SCREF (semi-supervised) annotation
 
 ### Code:
 
