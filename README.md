@@ -52,7 +52,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 ### Code:
 
-    #install.package('pcaPP')    
+    #install.packages('pcaPP')    
     source('scRef.R')
     
     # Load data
@@ -83,7 +83,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 ### Code:
 
-    #install.package('pcaPP') 
+    #install.packages('pcaPP') 
     source('scRef.R')
     
     # Load data
