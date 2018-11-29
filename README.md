@@ -51,7 +51,8 @@ For single-cell expression matrix, we recommend using UMI matrix.
 # 1. Single-round annotation
 
 ### Code:
-    
+
+    #install.package('pcaPP')    
     source('scRef.R')
     
     # Load data
@@ -82,6 +83,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 ### Code:
 
+    #install.package('pcaPP') 
     source('scRef.R')
     
     # Load data
