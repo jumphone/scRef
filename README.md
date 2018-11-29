@@ -210,21 +210,13 @@ Please note that "MouseAtlas_MCA" is mouse reference
     
     #############GTEX############
     exp_ref_mat=read.table('GTEx_v7_median_tpm_human.txt',header=T,row.names=1,sep='\t',check.name=F)    
-    out=.get_cor(exp_sc_mat, exp_ref_mat, method='kendall',CPU=10, print_step=10)
-    tag=.get_tag_max(out)
-    LocalRef=.generate_ref(exp_sc_mat, tag, min_cell=10)
-    out=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=10, print_step=10)
-    tag=.get_tag_max(out)
+    tag=SCREF(exp_sc_mat, exp_ref_mat)
     pbmc@meta.data$scref=tag[,2]
     TSNEPlot(object = pbmc, do.label=T, label.size=2.2, group.by ='scref')
     
     ##############DEV#################
     exp_ref_mat=read.table('GTEx_v7_median_tpm_human.txt',header=T,row.names=1,sep='\t',check.name=F)
-    out=.get_cor(exp_sc_mat, exp_ref_mat, method='kendall',CPU=10, print_step=10)
-    tag=.get_tag_max(out)
-    LocalRef=.generate_ref(exp_sc_mat, tag, min_cell=10)
-    out=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=10, print_step=10)
-    tag=.get_tag_max(out)
+    tag=SCREF(exp_sc_mat, exp_ref_mat)
     pbmc@meta.data$scref=tag[,2]
     COLOR=heat.colors(n=length(table(pbmc@meta.data$scref))+2)
     TSNEPlot(object = pbmc, colors.use=COLOR, group.by ='scref')
@@ -272,12 +264,7 @@ Cell types of the low-quality data must be covered by the high-quality data.
     LocalRef= .generate_ref(exp_ref_mat, ref_tag, min_cell = 10 )    
     
     # Semi-supervised annotation
-    out=.get_cor(exp_sc_mat, LocalRef, method='kendall',CPU=4, print_step=10)
-    tag=.get_tag_max(out)
-    LocalRef= .generate_ref(exp_sc_mat, tag, min_cell = 10 )
-    out=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=10, print_step=10)
-    tag=.get_tag_max(out)
-    sc_tag=tag
+    sc_tag=SCREF(exp_sc_mat, LocalRef)
     
     # tSNE projection
     out =.vec_projection(exp_sc_mat, sc_tag, exp_ref_mat, ref_tag, ref_vec, 
