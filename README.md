@@ -81,6 +81,8 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 # 2. SCREF (semi-supervised) annotation
 
+   Users can directly use "SCREF" funtion to do semi-supervised (two-round) annotation.
+   
 ### Code:
 
     #install.packages('pcaPP') 
