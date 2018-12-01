@@ -93,7 +93,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
     exp_ref_mat=read.table('Reference_expression.txt',header=T,row.names=1,sep='\t')
    
     # SCREF annotation
-    tag=SCREF(exp_sc_mat, exp_ref_mat, CPU=4, print_step=10)
+    tag=SCREF(exp_sc_mat, exp_ref_mat, CPU=4, print_step=10)$tag2
     
     # Output results
     write.table(tag,file='Semi.txt',quote=F,row.names=F,col.names=T,sep='\t')
@@ -229,13 +229,13 @@ Please note that "MouseAtlas_MCA" is mouse reference
     
     #############GTEX############
     exp_ref_mat=read.table('GTEx_v7_median_tpm_human.txt',header=T,row.names=1,sep='\t',check.name=F)    
-    tag=SCREF(exp_sc_mat, exp_ref_mat)
+    tag=SCREF(exp_sc_mat, exp_ref_mat)$tag2
     pbmc@meta.data$scref=tag[,2]
     TSNEPlot(object = pbmc, do.label=T, label.size=2.2, group.by ='scref')
     
     ##############DEV#################
     exp_ref_mat=read.table('exp_ref_mat_human_brain_dev',header=T,row.names=1,sep='\t',check.name=F)
-    tag=SCREF(exp_sc_mat, exp_ref_mat)
+    tag=SCREF(exp_sc_mat, exp_ref_mat)$tag2
     pbmc@meta.data$scref=tag[,2]
     COLOR=heat.colors(n=length(table(pbmc@meta.data$scref))+2)
     TSNEPlot(object = pbmc, colors.use=COLOR, group.by ='scref')
@@ -283,7 +283,7 @@ Cell types of the low-quality data must be covered by the high-quality data.
     LocalRef= .generate_ref(exp_ref_mat, ref_tag, min_cell = 10 )    
     
     # Semi-supervised annotation
-    sc_tag=SCREF(exp_sc_mat, LocalRef)
+    sc_tag=SCREF(exp_sc_mat, LocalRef)$tag2
     
     # tSNE projection
     out =.vec_projection(exp_sc_mat, sc_tag, exp_ref_mat, ref_tag, ref_vec, 
