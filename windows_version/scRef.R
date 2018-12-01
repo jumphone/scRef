@@ -343,7 +343,81 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
         } else {
         out2=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=CPU, print_step=print_step)
         }
-    tag2=.get_tag_max(out2)
+    tag2=.get_tag_max(out2)   
+    
+    output=list()
+    output$tag1=tag1
+    output$out1=out1
+    output$tag2=tag2
+    output$out2=out2
     print('Finish!')
-    return(tag2)
+    
+    return(output)
     }
+
+
+
+.trajectory = function(sim_mat){
+    
+    library(MASS)
+    library(ggplot2)
+    input_value=sim_mat
+    target_size=3
+    label_size=3
+    random_seed=123
+    random_ratio=0.05
+    plot_size=1.5
+    
+    set.seed(random_seed)
+    CN=length(colnames(input_value))
+    N=length(rownames(input_value))
+
+    A=pi/2
+    S=2*pi/N
+    VEC=c()
+    i=1
+    while(i<=N){
+        A=A+S
+        x=cos(A)
+        y=sin(A)
+        VEC=cbind(VEC,c(x,y))
+        i=i+1
+    }
+    VEC=t(VEC)
+    rownames(VEC)=rownames(input_value)
+    colnames(VEC)=c('X','Y')
+
+    tmp = apply(input_value,2,scale)
+    tmp[which(tmp<0)]=0
+    tmp = apply(tmp,2,pnorm)
+    tmp[which(tmp==0.5)]=0
+    colnames(tmp)=colnames(input_value)
+    rownames(tmp)=c(rownames(input_value))
+    tmp=t(tmp)
+    this_vec=tmp %*% VEC 
+
+    r_this_vec=this_vec
+
+    r_this_vec[,1]=this_vec[,1]+rnorm(CN)*random_ratio
+    r_this_vec[,2]=this_vec[,2]+rnorm(CN)*random_ratio
+
+    df=data.frame(r_this_vec); colnames(df) = c("x","y")
+    target_df=data.frame(VEC); colnames(target_df) = c("x","y")
+    output=list()
+    output$ggplot=ggplot(data=df,aes(x,y)) +  
+      geom_point(colour='grey50') +
+      stat_density2d(aes(fill=..level..,alpha=..level..),geom='polygon',colour='black') + 
+      scale_fill_continuous(low="green",high="red")  + 
+      guides(alpha="none") +
+      xlim(-plot_size, plot_size) +
+      ylim(-plot_size, plot_size) +
+      geom_point(data=target_df, aes(x, y), colour="royalblue",size=target_size) +
+      geom_text(data=target_df,aes(label=rownames(target_df)), size=label_size)
+
+    output$target_vec=VEC
+    output$cell_vec=this_vec
+    output$cell_vec_with_random=r_this_vec
+    return(output)
+    }
+
+
