@@ -356,8 +356,6 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
 
 
 
-
-
 .trajectory = function(sim_mat, plot_type='polygon', random_ratio=0.03, random_seed=123,target_size=1,label_size=3,cell_size=1,plot_size=1.5){
 
     library(MASS)
@@ -466,3 +464,5 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
     output$cell_vec_with_random=r_this_vec
     return(output)
     }
+
+
