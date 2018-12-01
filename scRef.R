@@ -348,20 +348,20 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
 
 
 
-.trajectory = function(sim_mat){
 
+
+.trajectory = function(sim_mat){
+    
     library(MASS)
     library(ggplot2)
-
     input_value=sim_mat
     target_size=3
     label_size=3
     random_seed=123
     random_ratio=0.05
     plot_size=1.5
-
+    
     set.seed(random_seed)
-
     CN=length(colnames(input_value))
     N=length(rownames(input_value))
 
@@ -396,8 +396,8 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
 
     df=data.frame(r_this_vec); colnames(df) = c("x","y")
     target_df=data.frame(VEC); colnames(target_df) = c("x","y")
-
-    output=ggplot(data=df,aes(x,y)) +  
+    output=list()
+    output$ggplot=ggplot(data=df,aes(x,y)) +  
       geom_point(colour='grey50') +
       stat_density2d(aes(fill=..level..,alpha=..level..),geom='polygon',colour='black') + 
       scale_fill_continuous(low="green",high="red")  + 
@@ -407,5 +407,8 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
       geom_point(data=target_df, aes(x, y), colour="royalblue",size=target_size) +
       geom_text(data=target_df,aes(label=rownames(target_df)), size=label_size)
 
+    output$target_vec=VEC
+    output$cell_vec=this_vec
+    output$cell_vec_with_random=r_this_vec
     return(output)
     }
