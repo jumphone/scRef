@@ -342,8 +342,15 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
         out2=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=CPU, print_step=print_step)
         }
     tag2=.get_tag_max(out2)
+    
+    output=list()
+    output$tag1=tag1
+    output$out1=out1
+    output$tag2=tag2
+    output$out2=out2
     print('Finish!')
-    return(tag2)
+    
+    return(output)
     }
 
 
