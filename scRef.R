@@ -365,7 +365,6 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
     input_value=sim_mat
     random_ratio=random_ratio
     random_seed=random_seed
-    target_size=target_size
     label_size=label_size
     plot_size=plot_size
     cell_size=cell_size
