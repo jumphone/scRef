@@ -357,18 +357,23 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
 
 
 
-.trajectory = function(sim_mat){
-    
+
+.trajectory = function(sim_mat, plot_type='polygon', random_ratio=0.03, random_seed=123, do.label=TRUE, label_dist=1.2, label_size=3,cell_size=1,plot_size=1.5){
+
     library(MASS)
     library(ggplot2)
-    input_value=sim_mat
-    target_size=3
-    label_size=3
-    random_seed=123
-    random_ratio=0.05
-    plot_size=1.5
     
+    input_value=sim_mat
+    random_ratio=random_ratio
+    random_seed=random_seed
+    target_size=target_size
+    label_size=label_size
+    plot_size=plot_size
+    cell_size=cell_size
+    plot_type=plot_type
+
     set.seed(random_seed)
+
     CN=length(colnames(input_value))
     N=length(rownames(input_value))
 
@@ -387,10 +392,25 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
     rownames(VEC)=rownames(input_value)
     colnames(VEC)=c('X','Y')
 
-    tmp = apply(input_value,2,scale)
-    tmp[which(tmp<0)]=0
+    topN_scale = function(x){
+        topN=3
+        #s_x=scale(x)
+        r=rank(-x,ties.method='random')
+        topn=which(r <= topN)
+        s_topn=scale(x[topn])
+        s_topn[which(s_topn<0)]=0
+        y=rep(0,length(x))
+        y[topn]=s_topn
+        return(y)
+        }
+    normone = function(x){
+        x=x/sum(x)
+        }
+    tmp = apply(input_value,2,topN_scale)
+    #tmp[which(tmp<0)]=0
     tmp = apply(tmp,2,pnorm)
     tmp[which(tmp==0.5)]=0
+    tmp = apply(tmp,2,normone)
     colnames(tmp)=colnames(input_value)
     rownames(tmp)=c(rownames(input_value))
     tmp=t(tmp)
@@ -402,18 +422,47 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
     r_this_vec[,2]=this_vec[,2]+rnorm(CN)*random_ratio
 
     df=data.frame(r_this_vec); colnames(df) = c("x","y")
-    target_df=data.frame(VEC); colnames(target_df) = c("x","y")
-    output=list()
-    output$ggplot=ggplot(data=df,aes(x,y)) +  
-      geom_point(colour='grey50') +
-      stat_density2d(aes(fill=..level..,alpha=..level..),geom='polygon',colour='black') + 
-      scale_fill_continuous(low="green",high="red")  + 
+    
+
+
+    p=ggplot(data=df,aes(x,y)) +  
+      geom_point(colour='grey50',size=cell_size) +
       guides(alpha="none") +
       xlim(-plot_size, plot_size) +
-      ylim(-plot_size, plot_size) +
-      geom_point(data=target_df, aes(x, y), colour="royalblue",size=target_size) +
-      geom_text(data=target_df,aes(label=rownames(target_df)), size=label_size)
+      ylim(-plot_size, plot_size) 
+    
+    if(plot_type=='polygon'){
+        p = p+stat_density2d(aes(fill=..level..,alpha=..level..),geom='polygon',colour='grey30', contour=T) + 
+        scale_fill_continuous(low="green",high="red")  
+    }else if(plot_type=='tile'){
+        p=p+stat_density2d(aes(alpha=..density..), geom="tile", contour=FALSE)
+    }else{p=p}
 
+    if(do.label==TRUE){
+        target_df=data.frame(VEC* label_dist); colnames(target_df) = c("x","y")
+        p=p+geom_text(data=target_df,aes(label=rownames(target_df)), colour='black',size=label_size)
+        }
+
+    seg_vec=c()
+    i=1
+    while(i<=length(VEC[,1])-1){
+    	j=i+1
+        while(j <=length(VEC[,1])){
+            this_x=VEC[i,1]
+            this_y=VEC[i,2]
+            this_xe=VEC[j,1]
+            this_ye=VEC[j,2]
+            seg_vec=cbind(seg_vec, c(this_x,this_y,this_xe,this_ye))
+            j=j+1}
+        i=i+1}
+    seg_vec=t(seg_vec)
+
+    for (i in c(1:length(seg_vec[,1]))) {
+        p <- p + geom_segment(x=seg_vec[i,1], y=seg_vec[i,2], xend=seg_vec[i,3], yend=seg_vec[i,4],color="red", linetype="dashed")
+    }
+
+    output=list()
+    output$ggplot = p
     output$target_vec=VEC
     output$cell_vec=this_vec
     output$cell_vec_with_random=r_this_vec
