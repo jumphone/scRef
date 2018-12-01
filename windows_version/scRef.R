@@ -423,8 +423,6 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
 
     df=data.frame(r_this_vec); colnames(df) = c("x","y")
     
-
-
     p=ggplot(data=df,aes(x,y)) +  
       geom_point(colour='grey50',size=cell_size) +
       guides(alpha="none") +
