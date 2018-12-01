@@ -421,7 +421,7 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
     r_this_vec[,2]=this_vec[,2]+rnorm(CN)*random_ratio
 
     df=data.frame(r_this_vec); colnames(df) = c("x","y")
-
+    
     p=ggplot(data=df,aes(x,y)) +  
       geom_point(colour='grey50',size=cell_size) +
       guides(alpha="none") +
@@ -456,6 +456,7 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
 
     for (i in c(1:length(seg_vec[,1]))) {
         p <- p + geom_segment(x=seg_vec[i,1], y=seg_vec[i,2], xend=seg_vec[i,3], yend=seg_vec[i,4],color="red", linetype="dashed")
+        p <- p + geom_point(x=(seg_vec[i,1]+seg_vec[i,3])/2, y=(seg_vec[i,2]+seg_vec[i,4])/2, colour='red', ,size=1.5)
     }
 
     output=list()
@@ -465,5 +466,6 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
     output$cell_vec_with_random=r_this_vec
     return(output)
     }
+
 
 
