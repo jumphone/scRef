@@ -234,7 +234,7 @@ Please note that "MouseAtlas_MCA" is mouse reference
     TSNEPlot(object = pbmc, do.label=T, label.size=2.2, group.by ='scref')
     
     ##############DEV#################
-    exp_ref_mat=read.table('GTEx_v7_median_tpm_human.txt',header=T,row.names=1,sep='\t',check.name=F)
+    exp_ref_mat=read.table('exp_ref_mat_human_brain_dev',header=T,row.names=1,sep='\t',check.name=F)
     tag=SCREF(exp_sc_mat, exp_ref_mat)
     pbmc@meta.data$scref=tag[,2]
     COLOR=heat.colors(n=length(table(pbmc@meta.data$scref))+2)
