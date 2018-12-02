@@ -10,7 +10,7 @@ fo=open('GSE70630_OG_processed_data_v2_MGH97.txt','w')
 header=fi.readline().rstrip().split('\t')
 
 tmp=[]
-i=1
+i=0
 while i<len(header):
     #print(header[i])
     #if 'MGH54' in header[i] or header[i][:2]=='54':
