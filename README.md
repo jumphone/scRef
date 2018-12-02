@@ -279,6 +279,8 @@ Cell types of the low-quality data must be covered by the high-quality data.
 
 Drawing trajectory based on the results of scRef
 
+Note: the input should have at least three cell types
+
 ### Demo data (GSE75330_Oligodendrocyte): 
 
 <a href='https://github.com/jumphone/scRef'>
