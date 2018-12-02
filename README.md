@@ -317,6 +317,9 @@ Drawing trajectory based on the results of scRef
 
 ### Code:
      
+    #install.packages('MASS')
+    #install.packages('ggplot2')
+    
     library(Seurat)
     load('pbmc.RData')
     source('scRef.R')
