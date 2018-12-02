@@ -170,14 +170,6 @@ Source: https://satijalab.org/seurat/pbmc3k_tutorial.html
 <img src="/source/Usage4_Original.png" width="520">
 </a>
 
-### scRef labels (Reference: ImmuneCell_ImmGen, [Download](/Reference/ImmuneCell_ImmGen/)) 
-
-Please note that "ImmuneCell_ImmGen" is mouse reference
-
-<a href='https://github.com/jumphone/scRef'>
-<img src="/source/Usage4_scRef_ImmGen.png" width="500">
-</a>
-
 ### scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/)) 
 
 <a href='https://github.com/jumphone/scRef'>
@@ -192,14 +184,6 @@ Smaller number indicates earlier development stage.
 
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage4_scRef_dev.png" width="450">
-</a>
-
-### scRef labels (Reference: MouseCell_TabulaMuris, Spleen&Thymus, [Download](/Reference/MouseCell_TabulaMuris/)) 
-
-Please note that "MouseCell_TabulaMuris" is mouse reference
-
-<a href='https://github.com/jumphone/scRef'>
-<img src="/source/Usage4_scRef_TabulaMuris.png" width="780">
 </a>
 
 ### scRef labels (Reference: MouseAtlas_MCA, Spleen&Thymus, [Download](/Reference/MouseAtlas_MCA/)) 
