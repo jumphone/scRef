@@ -4,7 +4,7 @@ source('scRef.R')
 
 exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH54.txt',sep='\t',header=T,row.names=1)
 #exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH53.txt',sep='\t',header=T,row.names=1)
-#exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH50.txt',sep='\t',header=T,row.names=1)
+#exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH60.txt',sep='\t',header=T,row.names=1)
 #exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH93.txt',sep='\t',header=T,row.names=1)
 #exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH97.txt',sep='\t',header=T,row.names=1)
 #exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH36.txt',sep='\t',header=T,row.names=1)
