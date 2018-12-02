@@ -25,6 +25,7 @@ A reference database
     * [3. Compare the results of clustering method and scRef](#3-Compare-the-results-of-clustering-method-and-scRef)
     * [4. scRef & Seurat](#4-scRef--Seurat)
     * [5. scRef-based tSNE projection](#5-scRef-based-tSNE-projection)
+    * [6. scRef-based trajectory](#5-scRef-based-trajectory)
 * [License](#License)
 
 
@@ -297,6 +298,32 @@ Cell types of the low-quality data must be covered by the high-quality data.
     par(new=T)
     plot(out$vec,xlim=XLIM,ylim=YLIM,pch=16,col='red')
 
+
+# 5. scRef-based trajectory
+
+Drawing trajectory based on the results of scRef
+
+### Workflow: 
+
+<a href='https://github.com/jumphone/scRef'>
+<img src="/source/Usage6.png" width="420">
+</a>
+
+### Code:
+     
+    library(Seurat)
+    load('pbmc.RData')
+    source('scRef.R')
+    
+    pbmc=readRDS('GSE75330.RDS')
+    exp_ref_mat=read.table('GSE75330_mouse_combined_reference.txt',header=T,row.names=1,sep='\t')
+    
+    out=.get_log_p_sc_given_ref(pbmc@raw.data, exp_ref_mat)
+    result=.trajectory(out,plot_size=1.7, label_dist=1.1, label_size=5, random_ratio=0.01)
+    png(filename = "TraOPC.png",width = 1024, height = 1024)
+    result$ggplot
+    dev.off()
+    
 # License
 
     Copyright (c) 2018 Zhang, Feng
