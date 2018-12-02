@@ -463,6 +463,7 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
     output$target_vec=VEC
     output$cell_vec=this_vec
     output$cell_vec_with_random=r_this_vec
+    output$mat=tmp
     return(output)
     }
 
