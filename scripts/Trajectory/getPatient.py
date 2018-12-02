@@ -1,7 +1,6 @@
 import sys
 fi=open('GSE70630_OG_processed_data_v2.txt')
 #fo=open('GSE70630_OG_processed_data_v2_MGH54.txt','w')
-#fo=open('GSE70630_OG_processed_data_v2_MGH54.txt','w')
 #fo=open('GSE70630_OG_processed_data_v2_MGH36.txt','w')
 #fo=open('GSE70630_OG_processed_data_v2_MGH53.txt','w')
 #fo=open('GSE70630_OG_processed_data_v2_MGH60.txt','w')
