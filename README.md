@@ -306,7 +306,7 @@ Drawing trajectory based on the results of scRef
     out=.get_log_p_sc_given_ref(pbmc@raw.data, exp_ref_mat)
     
     # Construct trajectory
-    result=.trajectory(out,plot_size=1.7, label_dist=1.2, label_size=10, random_ratio=0.03)
+    result=.trajectory(out, plot_type='polygon', plot_size=1.7, label_dist=1.2, label_size=10, random_ratio=0.03)
 
     png(filename = "TraOPC.png",width = 1024, height = 1024)
     result$ggplot
