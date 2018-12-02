@@ -309,6 +309,12 @@ Drawing trajectory based on the results of scRef
 <img src="/source/Usage6.png" width="420">
 </a>
 
+### Ref. (GSE75330_Oligodendrocyte): 
+
+<a href='https://github.com/jumphone/scRef'>
+<img src="/source/Usage6_original.png" width="420">
+</a>
+
 ### Code:
      
     library(Seurat)
