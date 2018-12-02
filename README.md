@@ -321,7 +321,6 @@ Drawing trajectory based on the results of scRef
     #install.packages('ggplot2')
     
     library(Seurat)
-    load('pbmc.RData')
     source('scRef.R')
     
     pbmc=readRDS('GSE75330.RDS')
