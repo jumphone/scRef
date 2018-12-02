@@ -2,7 +2,7 @@
 library('Seurat')
 source('scRef.R')
 
-exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH54.txt',sep='\t',header=T,row.names=1)
+exp_raw_data= read.table('GSE70630_OG_processed_data_v2_pure.txt',sep='\t',header=T,row.names=1)
 pbmc <- CreateSeuratObject(raw.data =exp_raw_data, min.cells = 3, min.genes = 200, project = "10X_PBMC")
 COL=c()
 i=1
