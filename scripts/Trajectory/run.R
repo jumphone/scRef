@@ -3,6 +3,12 @@ library('Seurat')
 source('scRef.R')
 
 exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH54.txt',sep='\t',header=T,row.names=1)
+#exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH53.txt',sep='\t',header=T,row.names=1)
+#exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH50.txt',sep='\t',header=T,row.names=1)
+#exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH93.txt',sep='\t',header=T,row.names=1)
+#exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH97.txt',sep='\t',header=T,row.names=1)
+#exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH36.txt',sep='\t',header=T,row.names=1)
+
 pbmc <- CreateSeuratObject(raw.data =exp_raw_data, min.cells = 3, min.genes = 200, project = "10X_PBMC")
 COL=c()
 i=1
@@ -20,7 +26,12 @@ tag=a$tag2
 
 rownames(out)[which(rownames(out)=='Newly Formed Oligodendrocyte')]='Oligodendrocytes'
 result=.trajectory(out, plot_type='polygon', plot_size=1.7, cell_size=2,label_dist=1.2, label_size=10, random_ratio=0.03)
-png(filename = "TraOligGlioma.png",width = 1024, height = 1024)
+png(filename = "TraOligGliomaMGH54.png",width = 1024, height = 1024)
+#png(filename = "TraOligGliomaMGH53.png",width = 1024, height = 1024)
+#png(filename = "TraOligGliomaMGH60.png",width = 1024, height = 1024)
+#png(filename = "TraOligGliomaMGH93.png",width = 1024, height = 1024)
+#png(filename = "TraOligGliomaMGH97.png",width = 1024, height = 1024)
+#png(filename = "TraOligGliomaMGH36.png",width = 1024, height = 1024)
 result$ggplot
 dev.off()
 
