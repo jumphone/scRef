@@ -402,12 +402,20 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
         return(y)
         }
     normone = function(x){
-        x=x/sum(x)
+        y=x/sum(x)
+        return(y)
         }
+    
+    trascore=function(x){
+        y=2*pnorm(x)-1
+        y[which(y<0)]=0
+        return(y)
+        }
+    
     tmp = apply(input_value,2,topN_scale)
     #tmp[which(tmp<0)]=0
-    tmp = apply(tmp,2,pnorm)
-    tmp[which(tmp==0.5)]=0
+    tmp = apply(tmp,2,trascore)
+    #tmp[which(tmp==0.5)]=0
     tmp = apply(tmp,2,normone)
     colnames(tmp)=colnames(input_value)
     rownames(tmp)=c(rownames(input_value))
