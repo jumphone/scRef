@@ -25,7 +25,7 @@ A reference database
     * [3. Compare the results of clustering method and scRef](#3-Compare-the-results-of-clustering-method-and-scRef)
     * [4. scRef & Seurat](#4-scRef--Seurat)
     * [5. scRef-based tSNE projection](#5-scRef-based-tSNE-projection)
-    * [6. scRef-based trajectory construction](#5-scRef-based-trajectory-construction)
+    * [6. scRef-based trajectory construction](#6-scRef-based-trajectory-construction)
 * [License](#License)
 
 
@@ -299,7 +299,7 @@ Cell types of the low-quality data must be covered by the high-quality data.
     plot(out$vec,xlim=XLIM,ylim=YLIM,pch=16,col='red')
 
 
-# 5. scRef-based trajectory construction
+# 6. scRef-based trajectory construction
 
 Drawing trajectory based on the results of scRef
 
