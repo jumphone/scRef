@@ -324,8 +324,12 @@ Drawing trajectory based on the results of scRef
     pbmc=readRDS('GSE75330.RDS')
     exp_ref_mat=read.table('GSE75330_mouse_combined_reference.txt',header=T,row.names=1,sep='\t')
     
+    # Reference-based annotation - multinomial
     out=.get_log_p_sc_given_ref(pbmc@raw.data, exp_ref_mat)
-    result=.trajectory(out,plot_size=1.7, label_dist=1.1, label_size=5, random_ratio=0.01)
+    
+    # Construct trajectory
+    result=.trajectory(out,plot_size=1.7, label_dist=1.2, label_size=10, random_ratio=0.03)
+
     png(filename = "TraOPC.png",width = 1024, height = 1024)
     result$ggplot
     dev.off()
