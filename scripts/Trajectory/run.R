@@ -4,6 +4,14 @@ source('scRef.R')
 
 exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH54.txt',sep='\t',header=T,row.names=1)
 pbmc <- CreateSeuratObject(raw.data =exp_raw_data, min.cells = 3, min.genes = 200, project = "10X_PBMC")
+COL=c()
+i=1
+while(i <=length(pbmc@ident)){
+    this_col=which(colnames(pbmc@raw.data)==names(pbmc@ident)[i])
+    COL=c(COL,this_col)
+    i=i+1
+    }      
+exp_sc_mat=as.matrix(pbmc@raw.data)[,COL]
 
 exp_ref_mat=read.table('Reference_expression_human.txt',header=T,row.names=1,sep='\t',check.name=F)
 a=SCREF(exp_sc_mat, exp_ref_mat)
