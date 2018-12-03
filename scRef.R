@@ -477,7 +477,7 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
 
 
 
-.generate_mst <- funtion(INPUT){
+.generate_mst <- function(INPUT){
     library(igraph)
     INPUT=INPUT
     CNUM=length(INPUT[1,])
