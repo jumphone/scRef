@@ -37,7 +37,7 @@ Feng Zhang, Yaguang Dou, Rohit R Rao, Q. Richard Lu, Weidong Tian; SCREF: a refe
 
 R: 3.5.0
 
-Denpendent R packages: pcaPP, MASS, ggplot2
+Denpendent R packages: pcaPP, MASS, ggplot2, igraph
 
 # Input format
 
