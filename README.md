@@ -296,6 +296,10 @@ Note: the input should have at least three cell types
 ### Minimum Spanning Tree (MST) (GSE75330_Oligodendrocyte): 
 
 <a href='https://github.com/jumphone/scRef'>
+<img src="/source/Usage6_distance.png" width="240">
+</a>
+
+<a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage6_MST.png" width="420">
 </a>
 
