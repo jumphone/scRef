@@ -357,7 +357,7 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
 
 
 
-.trajectory = function(sim_mat, plot_type='none', random_ratio=0.03, random_seed=123, do.label=TRUE, label_dist=1.2, label_size=3,cell_size=1,plot_size=1.5){
+.trajectory <- function(sim_mat, plot_type='none', random_ratio=0.03, random_seed=123, do.label=TRUE, label_dist=1.2, label_size=3,cell_size=1,plot_size=1.5){
 
     library(MASS)
     library(ggplot2)
@@ -477,3 +477,45 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
 
 
 
+.generate_mst <- funtion(INPUT){
+    library(igraph)
+    INPUT=INPUT
+    CNUM=length(INPUT[1,])
+    CNAME=colnames(INPUT)
+
+    p1=c()
+    p2=c()
+    edge_score=c()
+    i=1
+    while(i<CNUM){
+        j=i+1
+        while(j<=CNUM){
+            p1=c(p1,CNAME[i])
+            p2=c(p2,CNAME[j])
+            p1_num=length(which(INPUT[,i]>0))
+            p2_num=length(which(INPUT[,j]>0))
+            p1_and_p2=length(which( INPUT[,i]>0 & INPUT[,j]>0))
+            if(p1_and_p2!=0){
+                this_score =  (p1_num * p2_num) / (p1_and_p2)**2}
+                else{this_score=NA} 
+            edge_score=c(edge_score, this_score)
+            j=j+1
+        }
+        i=i+1
+    }
+
+    NO_NA=which(!is.na(edge_score))
+    p1=p1[NO_NA]
+    p2=p2[NO_NA]
+    edge_score=edge_score[NO_NA]
+    #beta=10
+    #max_tmp=max(edge_score[!is.na(edge_score)])
+    #edge_score[is.na(edge_score)] = max_tmp * beta
+    NET = cbind(p1,p2) 
+    g <- make_graph(t(NET),directed = FALSE)
+    MST=mst(g, weights = edge_score, algorithm = NULL)
+    return(MST)
+    }
+
+    
+    
