@@ -293,6 +293,12 @@ Note: the input should have at least three cell types
 <img src="/source/Usage6.png" width="420">
 </a>
 
+### Minimum Spanning Tree (MST) (GSE75330_Oligodendrocyte): 
+
+<a href='https://github.com/jumphone/scRef'>
+<img src="/source/Usage6_MST.png" width="420">
+</a>
+
 ### Code:
      
     #install.packages('MASS')
@@ -312,6 +318,15 @@ Note: the input should have at least three cell types
 
     png(filename = "TraOPC.png",width = 1024, height = 1024)
     result$ggplot
+    dev.off()
+    
+    # MST:
+    #install.packages('igraph')
+    library(igraph)
+    
+    MST=.generate_mst(result$mat)
+    pdf('MST.pdf')
+    plot(MST)
     dev.off()
     
 # License
