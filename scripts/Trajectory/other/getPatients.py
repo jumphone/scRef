@@ -8,7 +8,7 @@ i=1
 while i<len(header):
 
     p=header[i].split('_')[0]
-    if p[0] in [0,1,2,3,4,5,6,7,8,9]:
+    if p[0] in ['0','1','2','3','4','5','6','7','8','9']:
         p='MGH'+p
     P.add(p)
     if p in tmp:
@@ -23,7 +23,7 @@ for p in P:
     new_header=['gene']
     for one in tmp[p]:
         new_header.append(header[one])
-    open(FO[p],'a').write('\t'.join(new_header)+'\n')
+    open(FO[p],'w').write('\t'.join(new_header)+'\n')
 
 
 for line in fi:
