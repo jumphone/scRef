@@ -10,6 +10,7 @@ while i<len(header):
     p=header[i].split('_')[0]
     if p[0] in ['0','1','2','3','4','5','6','7','8','9']:
         p='MGH'+p
+        header[i]='MGH'+header[i]
     P.add(p)
     if p in tmp:
         tmp[p].append(i)
