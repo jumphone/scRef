@@ -20,8 +20,8 @@ A reference database
     * [2. scRef two-rounds annotation](#2-SCREF-two-rounds-annotation)
     * [3. Compare the results of clustering method and scRef](#3-Compare-the-results-of-clustering-method-and-scRef)
     * [4. scRef & Seurat](#4-scRef--Seurat)
-    * [5. scRef-based tSNE projection](#5-scRef-based-tSNE-projection)
-    * [6. scRef-based trajectory construction](#6-scRef-based-trajectory-construction)
+    * [5. scRef tSNE alignment](#5-scRef-tSNE-alignment)
+    * [6. scRef trajectory construction](#6-scRef-trajectory-construction)
 * [License](#License)
 
 
@@ -215,7 +215,7 @@ Smaller number indicates earlier development stage.
     
     ##################################      
 
-# 5. scRef-based tSNE projection
+# 5. scRef tSNE alignment
 
 Visualize low-quality scRNA-seq data in the tSNE plot of high-quality scRNA-seq data.
 
@@ -271,7 +271,7 @@ Note: cell types of the low-quality data should be covered by the high-quality d
     plot(out$vec,xlim=XLIM,ylim=YLIM,pch=16,col='red')
 
 
-# 6. scRef-based trajectory construction
+# 6. scRef trajectory construction
 
 Drawing trajectory based on the results of scRef
 
