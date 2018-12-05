@@ -20,9 +20,15 @@ REF_TAG=c()
 for(one in tmp){REF_TAG=c(REF_TAG, one[1])}
 NewRef=.generate_ref(exp_ref_mat, cbind(REF_TAG,REF_TAG), min_cell=1) 
 
-tag=SCREF(exp_sc_mat, NewRef)$tag2
-pbmc@meta.data$scref=tag[,2]
-TSNEPlot(object = pbmc, do.label=T, label.size=2.2, group.by ='scref')
+out=SCREF(exp_sc_mat, NewRef)
+tag1=out$tag1
+tag2=out$tag2
+pbmc@meta.data$tag1=tag1[,2]
+pbmc@meta.data$tag2=tag2[,2]
+TSNEPlot(object = pbmc, do.label=T, label.size=2.2, group.by ='tag1')
+TSNEPlot(object = pbmc, do.label=T, label.size=2.2, group.by ='tag2')
 
-adjustedRandIndex(pbmc@ident,tag[,2])
-
+adjustedRandIndex(pbmc@ident,tag1[,2])
+#0.6084547
+adjustedRandIndex(pbmc@ident,tag2[,2])
+#0.7172649
