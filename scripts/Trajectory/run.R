@@ -2,7 +2,7 @@
 library('Seurat')
 source('scRef.R')
 
-exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH54.txt',sep='\t',header=T,row.names=1)
+exp_raw_data= read.table('MGH54_mat.txt',sep='\t',header=T,row.names=1)
 #exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH53.txt',sep='\t',header=T,row.names=1)
 #exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH60.txt',sep='\t',header=T,row.names=1)
 #exp_raw_data= read.table('GSE70630_OG_processed_data_v2_MGH93.txt',sep='\t',header=T,row.names=1)
@@ -40,6 +40,7 @@ library(igraph)
 MST=.generate_mst(result$mat)
 pdf('MST.pdf')
 plot(MST)
+plot(MST,edge.width=2, vertex.size=1,vertex.label.color = "black")
 dev.off()
 
 
@@ -56,5 +57,5 @@ result$ggplot
 dev.off()
 
 MST=.generate_mst(result$mat)
-plot(MST)
+plot(MST,edge.width=2, vertex.size=1,vertex.label.color = "black")
 
