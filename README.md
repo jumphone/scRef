@@ -17,11 +17,11 @@ A reference database
 * [Input format](#Input-format)
 * [Usage](#Usage)
     * [1. Single-round annotation](#1-single-round-annotation)
-    * [2. scRef two-rounds annotation](#2-SCREF-two-rounds-annotation)
+    * [2. scRef-two-rounds annotation](#2-SCREF-two-rounds-annotation)
     * [3. Compare the results of clustering method and scRef](#3-Compare-the-results-of-clustering-method-and-scRef)
     * [4. scRef & Seurat](#4-scRef--Seurat)
-    * [5. scRef tSNE plot alignment](#5-scRef-tSNE-plot-alignment)
-    * [6. scRef trajectory construction](#6-scRef-trajectory-construction)
+    * [5. scRef-tSNE plot alignment](#5-scRef-tSNE-plot-alignment)
+    * [6. scRef-trajectory detection](#6-scRef-trajectory-detection)
 * [License](#License)
 
 
@@ -271,7 +271,7 @@ Note: cell types of the low-quality data should be covered by the high-quality d
     plot(out$vec,xlim=XLIM,ylim=YLIM,pch=16,col='red')
 
 
-# 6. scRef trajectory construction
+# 6. scRef trajectory detection
 
 Drawing trajectory based on the results of scRef
 
