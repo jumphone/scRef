@@ -27,7 +27,7 @@ while(i <=length(pbmc@ident)){
     }      
 exp_sc_mat=as.matrix(pbmc@raw.data)[,COL]
 #################
-exp_ref_mat=read.table('Brain_ref_human.txt',header=T,row.names=1,sep='\t',check.name=F) 
+exp_ref_mat=read.table('COM_ref.txt',header=T,row.names=1,sep='\t',check.name=F) 
 
 REF_TAG=colnames(exp_ref_mat)
 tmp=strsplit(REF_TAG, "_")
