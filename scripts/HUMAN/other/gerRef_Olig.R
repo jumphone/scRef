@@ -14,6 +14,8 @@ pbmc <- RunTSNE(object = pbmc, dims.use = 1:10, do.fast = TRUE)
 
 save(pbmc,file='OligTumor.RData')
 
+
+load('OligTumor.RData')
 source('scRef.R')
 
 COL=c()
