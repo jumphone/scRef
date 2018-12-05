@@ -35,7 +35,12 @@ png(filename = "TraOligGliomaMGH54.png",width = 1024, height = 1024)
 result$ggplot
 dev.off()
 
+library(igraph)
 
+MST=.generate_mst(result$mat)
+pdf('MST.pdf')
+plot(MST)
+dev.off()
 
 
 pbmc=readRDS('GSE75330.RDS')
