@@ -1,9 +1,5 @@
 # scRef
-A reference-based tool for single-cell annotation
-
-<a href='https://github.com/jumphone/scRef'>
-<img src="/Logo.png" width="600">
-</a>
+A reference-based toolkit for single-cell annalysis
 
 # dbRef
 A reference database
