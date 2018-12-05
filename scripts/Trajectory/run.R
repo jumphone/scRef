@@ -54,3 +54,7 @@ result=.trajectory(out, plot_type='polygon', plot_size=1.7, cell_size=2,label_di
 png(filename = "TraOPC.png",width = 1024, height = 1024)
 result$ggplot
 dev.off()
+
+MST=.generate_mst(result$mat)
+plot(MST)
+
