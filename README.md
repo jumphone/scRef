@@ -20,7 +20,7 @@ A reference database
     * [2. scRef two-rounds annotation](#2-SCREF-two-rounds-annotation)
     * [3. Compare the results of clustering method and scRef](#3-Compare-the-results-of-clustering-method-and-scRef)
     * [4. scRef & Seurat](#4-scRef--Seurat)
-    * [5. scRef tSNE alignment](#5-scRef-tSNE-alignment)
+    * [5. scRef tSNE plot alignment](#5-scRef-tSNE-plot-alignment)
     * [6. scRef trajectory construction](#6-scRef-trajectory-construction)
 * [License](#License)
 
@@ -215,7 +215,7 @@ Smaller number indicates earlier development stage.
     
     ##################################      
 
-# 5. scRef tSNE alignment
+# 5. scRef tSNE plot alignment
 
 Visualize low-quality scRNA-seq data in the tSNE plot of high-quality scRNA-seq data.
 
