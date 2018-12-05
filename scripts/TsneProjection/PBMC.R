@@ -12,9 +12,9 @@ while(i <=length(pbmc@ident)){
     i=i+1
     } 
 
-#ref_tag=cbind(names(pbmc@ident),as.character(pbmc@ident))    
+sc_tag=cbind(names(pbmc@ident),as.character(pbmc@ident))    
 exp_raw_mat=as.matrix(pbmc@raw.data)[,COL]
-exp_sc_mat=exp_raw_mat[,which(ref_tag[,2]=='5')] # NK cells
+exp_sc_mat=exp_raw_mat[,which(sc_tag[,2]=='5')] # NK cells
 
 
 
