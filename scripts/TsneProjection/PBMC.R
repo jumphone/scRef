@@ -20,7 +20,7 @@ exp_sc_mat=exp_raw_mat[,which(ref_tag[,2]=='5')] # NK cells
 
 
 
-raw_mat=read.table('PeripheralBlood_com.txt',header=T,row.names=1,sep='\t')
+raw_mat=read.table('PeripheralBlood_com.txt.anno.txt.human',header=T,row.names=1,sep='\t')
 pbmc <- CreateSeuratObject(raw.data = raw_mat, min.cells = 3, min.genes = 200, 
     project = "10X_PBMC")
 
