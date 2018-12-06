@@ -5,7 +5,7 @@
 #######################################
 
 .get_log_p_sc_given_ref <- function(exp_sc_mat, exp_ref_mat, CPU=4, print_step=10){
-    delta = 0.01;
+    delta = 0.5;
     #exp_sc_mat: single-cell gene expression matrix; row is gene; col is sample; should have row name and col name
     #exp_ref_mat: reference gene expression matrix; row is gene; col is sample; should have row name and col name   
     ##################
@@ -214,7 +214,7 @@
 
 .vec_projection <- function(exp_sc_mat, sc_tag, exp_ref_mat, ref_tag, ref_vec,  method='kendall', nearest_cell=3, random_size=30, random_seed=123, alpha=0.5, min_cell=10, CPU=4, print_step=10){
 
-    delta = 0.01;
+    delta = 0.5;
     alpha = alpha;
     library(parallel);
     random_seed=random_seed;
