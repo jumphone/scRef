@@ -27,7 +27,7 @@ A reference database
 
 # Citation
 
-Feng Zhang, Yaguang Dou, Rohit R Rao, Q. Richard Lu, Weidong Tian; SCREF: a reference-based tool for single-cell annotation, Coming Soon
+Feng Zhang, Yaguang Dou, Rohit R Rao, Q. Richard Lu, Weidong Tian; SCREF: a reference-based toolkit for single-cell annalysis, Coming Soon
 
 # Requirement
 
