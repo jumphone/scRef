@@ -65,7 +65,7 @@ merged_tag=pbmc@meta.data$tag
 merged_tag[which(merged_tag=='NK cell')]='T & NK cell'
 merged_tag[which(merged_tag=='T-cells')]='T & NK cell'
 
-
+USED=which(!merged_tag %in% c('unresolved','malignant'))
 
 
 
@@ -77,8 +77,8 @@ adjustedRandIndex(pbmc@meta.data$tag,tag2[,2])
 tmp=tag2
 tmp[which(tag2[,2]=='NK cell'),2]='T & NK cell'
 tmp[which(tag2[,2]=='T cell'),2]='T & NK cell'
-adjustedRandIndex(merged_tag,tmp[,2])
-#0.7508944
+adjustedRandIndex(merged_tag[USED],tmp[USED,2])
+#0.9784565
 
 
 #Ken
@@ -87,8 +87,8 @@ adjustedRandIndex(pbmc@meta.data$tag, out$tag1[,2])
 tmp=out$tag1
 tmp[which(tag2[,2]=='NK cell'),2]='T & NK cell'
 tmp[which(tag2[,2]=='T cell'),2]='T & NK cell'
-adjustedRandIndex(merged_tag,tmp[,2])
-#0.7441506
+adjustedRandIndex(merged_tag[USED],tmp[USED,2])
+#0.9752244
 
 
 sout=.get_cor(exp_sc_mat, NewRef, method='spearman',CPU=4, print_step=10)
@@ -102,20 +102,27 @@ adjustedRandIndex(pbmc@meta.data$tag,stag[,2])
 tmp=stag
 tmp[which(tag2[,2]=='NK cell'),2]='T & NK cell'
 tmp[which(tag2[,2]=='T cell'),2]='T & NK cell'
-adjustedRandIndex(merged_tag,tmp[,2])
-#0.7297304
+adjustedRandIndex(merged_tag[USED],tmp[USED,2])
+#0.9764272
 
 
 pout=.get_cor(exp_sc_mat, NewRef, method='pearson',CPU=4, print_step=10)
 ptag=.get_tag_max(pout)
 adjustedRandIndex(pbmc@meta.data$tag,ptag[,2])
 #0.4173703
-
-
+tmp=ptag
+tmp[which(tag2[,2]=='NK cell'),2]='T & NK cell'
+tmp[which(tag2[,2]=='T cell'),2]='T & NK cell'
+adjustedRandIndex(merged_tag[USED],tmp[USED,2])
+#0.9319294
 
 mout=.get_log_p_sc_given_ref(exp_sc_mat, NewRef, CPU=4, print_step=10)
 mtag=.get_tag_max(mout)
 adjustedRandIndex(pbmc@meta.data$tag,mtag[,2])
 #0.1388988
-
+tmp=mtag
+tmp[which(tag2[,2]=='NK cell'),2]='T & NK cell'
+tmp[which(tag2[,2]=='T cell'),2]='T & NK cell'
+adjustedRandIndex(merged_tag[USED],tmp[USED,2])
+#0.92837
 
