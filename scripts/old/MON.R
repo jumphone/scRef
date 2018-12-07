@@ -1,10 +1,10 @@
-source("http://bioconductor.org/biocLite.R")
-biocLite()
-library(monocle)
-install.packages("devtools")
-devtools::install_github("cole-trapnell-lab/monocle-release@develop")
-biocLite(c("DDRTree", "pheatmap"))
+#source("http://bioconductor.org/biocLite.R")
+#biocLite()
+#install.packages("devtools")
+#devtools::install_github("cole-trapnell-lab/monocle-release@develop")
+#biocLite(c("DDRTree", "pheatmap"))
 
+library(monocle)
 load('OligTumor.RData')
 
 COL=c()
@@ -41,7 +41,6 @@ HSMM <- newCellDataSet(as.matrix(expr_matrix), phenoData = pd, featureData = fd,
 diff_test_res <- differentialGeneTest(cds,
     fullModelFormulaStr = "~Media")
 
-
 HSMM <- estimateSizeFactors(HSMM)
 HSMM <- estimateDispersions(HSMM)
 HSMM <- reduceDimension(HSMM, max_components = 2, num_dim = 6, reduction_method = 'tSNE', verbose = T)
@@ -49,18 +48,12 @@ HSMM <- reduceDimension(HSMM, max_components = 2, num_dim = 6, reduction_method 
 HSMM <- clusterCells(HSMM, num_clusters = 5)
 plot_cell_clusters(HSMM, 1, 2)
 
-
-
-
 diff_test_res <- differentialGeneTest(HSMM,  fullModelFormulaStr = "~Cluster")
-
 ordering_genes <- row.names (subset(diff_test_res, qval < 0.01))
-
-HSMM_myo <- setOrderingFilter(HSMM_myo, ordering_genes)
-
-
-
-
+HSMM <- setOrderingFilter(HSMM, ordering_genes)
+HSMM <- reduceDimension(HSMM, max_components = 2,method = 'DDRTree')
+HSMM <- orderCells(HSMM)
+plot_cell_trajectory(HSMM_myo, color_by = "Cluster")
 
 
 
