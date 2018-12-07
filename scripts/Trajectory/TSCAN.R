@@ -8,6 +8,21 @@ load('OligTumor.RData')
 library('Seurat')
 source('scRef.R')
 
+
+
+
+library(TSCAN)
+library('Seurat')
+
+#exp_raw_data=read.table('MGH36_mat.txt',header=T,row.names=1)
+#exp_raw_data=read.table('MGH53_mat.txt',header=T,row.names=1)
+#exp_raw_data=read.table('MGH54_mat.txt',header=T,row.names=1)
+#exp_raw_data=read.table('MGH60_mat.txt',header=T,row.names=1)
+#exp_raw_data=read.table('MGH93_mat.txt',header=T,row.names=1)
+#exp_raw_data=read.table('MGH97_mat.txt',header=T,row.names=1)
+
+pbmc <- CreateSeuratObject(raw.data =exp_raw_data, min.cells = 3, min.genes = 200, project = "10X_PBMC")
+
 COL=c()
 i=1
 while(i <=length(pbmc@ident)){
@@ -26,16 +41,38 @@ rownames(out)[which(rownames(out)=='Newly Formed Oligodendrocyte')]='Oligodendro
 
 tag[which(tag[,2]=="Newly Formed Oligodendrocyte"),2]='Oligodendrocytes'
 tag[which(tag[,2]=="Oligodendrocyte Precursor Cell"),2]='OPC'
-result=.trajectory(out, plot_type='polygon', plot_size=1.7, cell_size=2,label_dist=1.2, label_size=10, random_ratio=0.03)
 
+VAR_GENE=apply(exp_sc_mat,1,var)
+USED_GENE=which(VAR_GENE>0)
+used_data=exp_sc_mat[USED_GENE,]
 
-procdata <- preprocess(exp_sc_mat,clusternum=4)
-lpsmclust <- exprmclust(procdata, clusternum =4)
+#36
+#procdata <- preprocess(used_data, clusternum=4,  pseudocount = 1, minexpr_value = 1, minexpr_percent = 0.4, cvcutoff = 0.5)
+#53
+#procdata <- preprocess(used_data, clusternum=4  )
+
+#54
+procdata <- preprocess(used_data,clusternum=4)
+#60
+#procdata <- preprocess(used_data, clusternum=4)
+#93
+#procdata <- preprocess(used_data, clusternum=4)
+#97
+#procdata <- preprocess(used_data, clusternum=4)
+
+####
+lpsmclust <- exprmclust(procdata, clusternum=4 )
 
 tmp=names(lpsmclust$clusterid)
 lpsmclust$clusterid=tag[,2]
 names(lpsmclust$clusterid)=tmp
-pdf('TSCAN_MGH54.pdf',width=14,height=14)
+
+#pdf('TSCAN_MGH36.pdf',width=14,height=14)
+#pdf('TSCAN_MGH53.pdf',width=14,height=14)
+#pdf('TSCAN_MGH54.pdf',width=14,height=14)
+#pdf('TSCAN_MGH60.pdf',width=14,height=14)
+#pdf('TSCAN_MGH93.pdf',width=14,height=14)
+#pdf('TSCAN_MGH97.pdf',width=14,height=14)
 plotmclust(lpsmclust,show_cell_names=F,cell_name_size =1)
 dev.off()
 
