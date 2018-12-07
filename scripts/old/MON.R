@@ -48,7 +48,7 @@ HSMM <- reduceDimension(HSMM, max_components = 2, num_dim = 6, reduction_method 
 HSMM <- clusterCells(HSMM, num_clusters = 5)
 plot_cell_clusters(HSMM, 1, 2)
 
-diff_test_res <- differentialGeneTest(HSMM,  fullModelFormulaStr = "~Cluster")
+diff_test_res <- differentialGeneTest(HSMM,  fullModelFormulaStr = "~Cluster", cores = 6)
 ordering_genes <- row.names (subset(diff_test_res, qval < 0.01))
 HSMM <- setOrderingFilter(HSMM, ordering_genes)
 HSMM <- reduceDimension(HSMM, max_components = 2,method = 'DDRTree')
