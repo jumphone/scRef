@@ -24,12 +24,12 @@ pbmc <- ScaleData(object = pbmc, vars.to.regress = c("nUMI"))
 
 pbmc <- RunPCA(object = pbmc, pc.genes = pbmc@var.genes, do.print = TRUE, pcs.print = 1:5, 
     genes.print = 5)
-pbmc <- RunTSNE(object = pbmc, dims.use = 1:20, do.fast = TRUE)    
+pbmc <- RunTSNE(object = pbmc, dims.use = 1:10, do.fast = TRUE)    
 pbmc@meta.data$tag=tag1
 saveRDS(pbmc, file = "GSE72056.RDS")
 
 pdf('ORI.pdf',width=10,height=7)
-TSNEPlot(object = pbmc, do.label=T,group.by='tag',cex=0.5)
+TSNEPlot(object = pbmc, do.label=T,group.by='tag',cex=0.5,label.size=3)
 dev.off()
 
 ######################
