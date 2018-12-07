@@ -25,6 +25,7 @@ tag=a$tag2
 rownames(out)[which(rownames(out)=='Newly Formed Oligodendrocyte')]='Oligodendrocytes'
 
 tag[which(tag[,2]=="Newly Formed Oligodendrocyte"),2]='Oligodendrocytes'
+tag[which(tag[,2]=="Oligodendrocyte Precursor Cell"),2]='OPC'
 result=.trajectory(out, plot_type='polygon', plot_size=1.7, cell_size=2,label_dist=1.2, label_size=10, random_ratio=0.03)
 
 
