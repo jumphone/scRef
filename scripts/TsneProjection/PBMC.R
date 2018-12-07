@@ -50,7 +50,7 @@ LocalRef= .generate_ref(exp_ref_mat, ref_tag, min_cell = 10 )
 
 sc_tag=SCREF(exp_sc_mat, LocalRef)$tag2
 out =.vec_projection(exp_sc_mat, sc_tag, exp_ref_mat, ref_tag, ref_vec, 
-        method='kendall', nearest_cell=3, alpha=0.5, random_size=30, 
+        method='kendall', nearest_cell=3, alpha=0.5, random_size=10000, 
         random_seed=123, min_cell=10, CPU=4, print_step=10)
 
 
