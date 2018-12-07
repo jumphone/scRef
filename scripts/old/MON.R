@@ -43,18 +43,25 @@ diff_test_res <- differentialGeneTest(cds,
 
 HSMM <- estimateSizeFactors(HSMM)
 HSMM <- estimateDispersions(HSMM)
-HSMM <- reduceDimension(HSMM, max_components = 2, num_dim = 6, reduction_method = 'tSNE', verbose = T)
-                
+         
+disp_table <- dispersionTable(HSMM)
+unsup_clustering_genes <- subset(disp_table, mean_expression >= 0.1)
+HSMM <- setOrderingFilter(HSMM, unsup_clustering_genes$gene_id)
+HSMM <- reduceDimension(HSMM, max_components = 2, num_dim = 6,
+                reduction_method = 'tSNE', verbose = T)
 HSMM <- clusterCells(HSMM, num_clusters = 5)
 plot_cell_clusters(HSMM, 1, 2)
 
 diff_test_res <- differentialGeneTest(HSMM,  fullModelFormulaStr = "~Cluster", cores = 6)
 ordering_genes <- row.names (subset(diff_test_res, qval < 0.01))
 HSMM <- setOrderingFilter(HSMM, ordering_genes)
-HSMM <- reduceDimension(HSMM, max_components = 2,method = 'DDRTree')
+plot_ordering_genes(HSMM)
+
+#devtools::install_github('bwlewis/irlba')
+HSMM <- reduceDimension(HSMM, max_components = 2,method = 'DDRTree', num_dim = 6)
 HSMM <- orderCells(HSMM)
-plot_cell_trajectory(HSMM_myo, color_by = "Cluster")
 
-
+#plot_cell_trajectory(HSMM, color_by = "Cluster")
+plot_cell_trajectory(HSMM, color_by = "State")
 
 
