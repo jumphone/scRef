@@ -4,8 +4,10 @@ source('scRef.R')
 
 
 
-exp_raw_data=read.table('GSE72056_melanoma_single_cell_revised_v2.txt',header=T,row.names=1)
-exp_raw_data=exp_raw_data[3:length(exp_raw_data[,1]),]
+exp_raw_data=read.table('GSE72056_melanoma_single_cell_revised_v2.txt.pure',header=T,row.names=1)
+
+tag1=read.table('GSE72056_cnv.txt',header=T,row.names=1)
+tag2=read.table('GSE72056_tag.txt',header=T,row.names=1)
 
 pbmc <- CreateSeuratObject(raw.data = exp_raw_data, min.cells = 0, min.genes = 0, project = "10X_PBMC")
 
