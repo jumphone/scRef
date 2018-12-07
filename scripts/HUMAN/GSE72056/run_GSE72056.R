@@ -26,11 +26,13 @@ pbmc <- ScaleData(object = pbmc, vars.to.regress = c("nUMI"))
 
 pbmc <- RunPCA(object = pbmc, pc.genes = pbmc@var.genes, do.print = TRUE, pcs.print = 1:5, 
     genes.print = 5)
-pbmc <- RunTSNE(object = pbmc, dims.use = 1:10, do.fast = TRUE)    
+pbmc <- RunTSNE(object = pbmc, dims.use = 1:20, do.fast = TRUE)    
 pbmc@meta.data$tag=tag1
-TSNEPlot(object = pbmc, group.by='tag')
 saveRDS(pbmc, file = "GSE72056.RDS")
 
+pdf('ORI.pdf',width=10,height=7)
+TSNEPlot(object = pbmc, do.label=T,group.by='tag',cex=0.5)
+dev.off()
 
 ######################
 
@@ -55,8 +57,67 @@ out=SCREF(exp_sc_mat, NewRef)
 tag2=out$tag2
 pbmc@meta.data$scref=tag2[,2]
 
+pdf('SCREF.pdf',width=10,height=7)
 TSNEPlot(object = pbmc, do.label=T, group.by ='scref', pt.size = 0.5)
+dev.off()
 
 
+
+merged_tag=pbmc@meta.data$tag
+merged_tag[which(merged_tag=='NK cell')]='T & NK cell'
+merged_tag[which(merged_tag=='T-cells')]='T & NK cell'
+
+
+
+
+
+library(mclust)
+#USED=which(pbmc@meta.data$tag!='malignant')
+
+adjustedRandIndex(pbmc@meta.data$tag,tag2[,2])
+#0.6123499
+tmp=tag2
+tmp[which(tag2[,2]=='NK cell'),2]='T & NK cell'
+tmp[which(tag2[,2]=='T cell'),2]='T & NK cell'
+adjustedRandIndex(merged_tag,tmp[,2])
+#0.7508944
+
+
+#Ken
+adjustedRandIndex(pbmc@meta.data$tag, out$tag1[,2])
+#0.5866281
+tmp=out$tag1
+tmp[which(tag2[,2]=='NK cell'),2]='T & NK cell'
+tmp[which(tag2[,2]=='T cell'),2]='T & NK cell'
+adjustedRandIndex(merged_tag,tmp[,2])
+#0.7441506
+
+
+sout=.get_cor(exp_sc_mat, NewRef, method='spearman',CPU=4, print_step=10)
+stag=.get_tag_max(sout)
+pbmc@meta.data$spea=stag[,2]
+pdf('SPEA.pdf',width=10,height=7)
+TSNEPlot(object = pbmc, do.label=T, group.by ='spea', pt.size = 0.5)
+dev.off()
+adjustedRandIndex(pbmc@meta.data$tag,stag[,2])
+#0.6243437
+tmp=stag
+tmp[which(tag2[,2]=='NK cell'),2]='T & NK cell'
+tmp[which(tag2[,2]=='T cell'),2]='T & NK cell'
+adjustedRandIndex(merged_tag,tmp[,2])
+#0.7297304
+
+
+pout=.get_cor(exp_sc_mat, NewRef, method='pearson',CPU=4, print_step=10)
+ptag=.get_tag_max(pout)
+adjustedRandIndex(pbmc@meta.data$tag,ptag[,2])
+#0.4173703
+
+
+
+mout=.get_log_p_sc_given_ref(exp_sc_mat, NewRef, CPU=4, print_step=10)
+mtag=.get_tag_max(mout)
+adjustedRandIndex(pbmc@meta.data$tag,mtag[,2])
+#0.1388988
 
 
