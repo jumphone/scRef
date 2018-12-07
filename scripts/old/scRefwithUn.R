@@ -2,12 +2,11 @@
 load('TSNE.RData')
 library(Seurat)
 
-TAG=tag
-
-    TSNE_VEC=pbmc@dr$tsne@cell.embeddings
 
 
-.add_clustering <-function(TAG, TSNE_VEC, MAXC=10, random_seed=123){
+
+
+.addclust <-function(TAG, TSNE_VEC, MINC=3, MAXC=10, random_seed=123){
 
     random_seed=random_seed
     TSNE_VEC=TSNE_VEC
@@ -32,7 +31,7 @@ TAG=tag
         this_opt=fviz_nbclust(this_tsne_vec, kmeans, k.max = MAXC,method = "silhouette")
         this_k = as.numeric(this_opt$data[which(this_opt$data[,2] == max(this_opt$data[,2])),1])
     
-        if(this_k==2){this_k=1}
+        if(this_k<MINC){this_k=1}
         this_out=kmeans(this_tsne_vec,centers=this_k)
     
         this_new_tag=as.character(this_out$cluster)
@@ -47,7 +46,7 @@ TAG=tag
     return(OUT_TAG)
     }
 
-
+TSNE_VEC=pbmc@dr$tsne@cell.embeddings
 
 pbmc@meta.data$new=OUT_TAG[,2]
 TSNEPlot(pbmc,group.by='new')
