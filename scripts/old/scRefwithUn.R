@@ -19,7 +19,7 @@ library(Seurat)
     OUT_TAG=TAG
     tag_list=TAG[,2]
     uniq_tag_list=unique(tag_list)
-
+    print('begin')
     i=1
     while(i<=length(uniq_tag_list)){
         this_uniq_tag=uniq_tag_list[i]
@@ -43,11 +43,13 @@ library(Seurat)
     
         i=i+1
         }
+    print('end')
     return(OUT_TAG)
     }
 
 TSNE_VEC=pbmc@dr$tsne@cell.embeddings
 
+out=.addclust(TAG,TSNE_VEC)
 pbmc@meta.data$new=OUT_TAG[,2]
 TSNEPlot(pbmc,group.by='new')
 
