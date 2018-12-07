@@ -525,7 +525,7 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
 ######
 
 
-.addclust <-function(TAG, TSNE_VEC, MINC=3, MAXC=10, random_seed=123){
+.addclust <-function(TAG, TSNE_VEC, MINC=3, MAXC=5, random_seed=123){
 
     random_seed=random_seed
     TSNE_VEC=TSNE_VEC
