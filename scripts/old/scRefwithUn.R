@@ -4,8 +4,6 @@ library(Seurat)
 
 
 
-
-
 .addclust <-function(TAG, TSNE_VEC, MINC=3, MAXC=10, random_seed=123){
 
     random_seed=random_seed
