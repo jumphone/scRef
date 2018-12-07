@@ -9,6 +9,12 @@ exp_raw_data=read.table('GSE72056_melanoma_single_cell_revised_v2.txt.pure',head
 tag1=read.table('GSE72056_cnv.txt',header=T,row.names=1)
 tag2=read.table('GSE72056_tag.txt',header=T,row.names=1)
 
+tag1=t(tag1)
+tag2=t(tag2)
+tag1[which(tag1!='malignant')]=tag2[which(tag1!='malignant')]
+tag1[which(tag1=='6')]='NK cell'
+tag1[which(tag1=='0')]='unresolved'
+
 pbmc <- CreateSeuratObject(raw.data = exp_raw_data, min.cells = 0, min.genes = 0, project = "10X_PBMC")
 
 
