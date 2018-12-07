@@ -27,3 +27,36 @@ pbmc <- ScaleData(object = pbmc, vars.to.regress = c("nUMI"))
 pbmc <- RunPCA(object = pbmc, pc.genes = pbmc@var.genes, do.print = TRUE, pcs.print = 1:5, 
     genes.print = 5)
 pbmc <- RunTSNE(object = pbmc, dims.use = 1:10, do.fast = TRUE)    
+pbmc@meta.data$tag=tag1
+TSNEPlot(object = pbmc, group.by='tag')
+saveRDS(pbmc, file = "GSE72056.RDS")
+
+
+######################
+
+COL=c()
+i=1
+while(i <=length(pbmc@ident)){
+    this_col=which(colnames(pbmc@raw.data)==names(pbmc@ident)[i])
+    COL=c(COL,this_col)
+    i=i+1
+    }      
+exp_sc_mat=as.matrix(pbmc@raw.data)[,COL]
+exp_ref_mat=read.table('PeripheralBlood_ref_human.txt',header=T,row.names=1,sep='\t',check.name=F) 
+
+REF_TAG=colnames(exp_ref_mat)
+tmp=strsplit(REF_TAG, "_")
+REF_TAG=c()
+for(one in tmp){REF_TAG=c(REF_TAG, one[1])}
+NewRef=.generate_ref(exp_ref_mat, cbind(REF_TAG,REF_TAG), min_cell=1) 
+
+out=SCREF(exp_sc_mat, NewRef)
+
+tag2=out$tag2
+pbmc@meta.data$scref=tag2[,2]
+
+TSNEPlot(object = pbmc, do.label=T, group.by ='scref', pt.size = 0.5)
+
+
+
+
