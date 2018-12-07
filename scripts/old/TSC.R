@@ -41,6 +41,7 @@ dev.off()
 ########################################################
 
 
+########################################################
 
 library(TSCAN)
 pbmc=readRDS('GSE75330.RDS')
@@ -68,10 +69,15 @@ USED_GENE=which(VAR_GENE>0)
 
 used_data=exp_sc_mat[USED_GENE,]
 
-procdata <- preprocess(used_data, clusternum=6,  pseudocount = 1, minexpr_value = 1, minexpr_percent = 0.1, cvcutoff = 0.5)
+procdata <- preprocess(used_data, clusternum=6,  pseudocount = 1, minexpr_value = 1, minexpr_percent = 0.4, cvcutoff = 0.5)
 lpsmclust <- exprmclust(procdata, clusternum =6)
 
-
+tmp=names(lpsmclust$clusterid)
+lpsmclust$clusterid=tag
+names(lpsmclust$clusterid)=tmp
+pdf('TSCAN_OligDEV.pdf',width=14,height=14)
+plotmclust(lpsmclust,show_cell_names=F,cell_name_size =1)
+dev.off()
 
 
 
