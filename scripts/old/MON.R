@@ -59,7 +59,7 @@ plot_ordering_genes(HSMM)
 
 #devtools::install_github('bwlewis/irlba')
 HSMM <- reduceDimension(HSMM, max_components = 2,method = 'DDRTree', num_dim = 6)
-HSMM <- orderCells(HSMM)
+HSMM <- orderCells(HSMM,path=3)
 
 #plot_cell_trajectory(HSMM, color_by = "Cluster")
 plot_cell_trajectory(HSMM, color_by = "State")
