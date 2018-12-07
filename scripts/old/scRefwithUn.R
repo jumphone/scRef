@@ -4,7 +4,7 @@ library(Seurat)
 
 
 
-.addclust <-function(TAG, TSNE_VEC, MINC=3, MAXC=10, random_seed=123){
+.addclust <-function(TAG, TSNE_VEC, MINC=3, MAXC=5, random_seed=123){
 
     random_seed=random_seed
     TSNE_VEC=TSNE_VEC
@@ -45,10 +45,15 @@ library(Seurat)
     return(OUT_TAG)
     }
 
+
+
+TAG[which(TAG[,2]=='Myelinating.Oligodendrocytes'),2]='Oligodendrocytes'
+TAG[which(TAG[,2]=='Newly.Formed.Oligodendrocyte'),2]='Oligodendrocytes'
+
 TSNE_VEC=pbmc@dr$tsne@cell.embeddings
 
 out=.addclust(TAG,TSNE_VEC)
 pbmc@meta.data$new=OUT_TAG[,2]
 TSNEPlot(pbmc,group.by='new')
-
+write.table(out,'TAG',quote=F,sep='\t',row.names=F,col.names=T)
 
