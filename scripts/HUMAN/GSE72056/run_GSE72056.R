@@ -2,8 +2,6 @@
 library(Seurat)
 source('scRef.R')
 
-
-
 exp_raw_data=read.table('GSE72056_melanoma_single_cell_revised_v2.txt.pure',header=T,row.names=1)
 
 tag1=read.table('GSE72056_cnv.txt',header=T,row.names=1)
