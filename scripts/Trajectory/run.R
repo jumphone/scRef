@@ -23,9 +23,40 @@ exp_ref_mat=read.table('Reference_expression_human.txt',header=T,row.names=1,sep
 a=SCREF(exp_sc_mat, exp_ref_mat)
 out=a$out2
 tag=a$tag2
+tag[which(tag[,2]=='Newly Formed Oligodendrocyte'),2]='Oligodendrocytes'
+
+
+########
+pbmc <- NormalizeData(object = pbmc, normalization.method = "LogNormalize",  scale.factor = 10000)
+
+exp_mat=as.matrix(pbmc@data)
+STEM=read.table('STEM.txt')
+OC=read.table('OC.txt')
+AC=read.table('AC.txt')
+
+STEM_ROW=which(rownames(exp_mat) %in% STEM[,1])
+OC_ROW=which(rownames(exp_mat) %in% OC[,1])
+AC_ROW=which(rownames(exp_mat) %in% AC[,1])
+
+STEM_SCORE=apply(exp_mat[STEM_ROW,], 2,mean)
+OC_SCORE=apply(exp_mat[OC_ROW,], 2,mean)
+AC_SCORE=apply(exp_mat[AC_ROW,], 2,mean)
+
+AO_SCORE=cbind(OC_SCORE,AC_SCORE)
+MAX_AO_SCORE=apply(AO_SCORE,1,max)
+
+FINAL_STEM_SCORE=STEM_SCORE-MAX_AO_SCORE
+
+
+#INFO=cbind(STEM_SCORE,tag[,2])
+boxplot(FINAL_STEM_SCORE~tag[,2])
+######
+
+
 
 rownames(out)[which(rownames(out)=='Newly Formed Oligodendrocyte')]='Oligodendrocytes'
 result=.trajectory(out, plot_type='polygon', plot_size=1.7, cell_size=2,label_dist=1.2, label_size=10, random_ratio=0.03)
+
 png(filename = "TraOligGliomaMGH54.png",width = 1024, height = 1024)
 #png(filename = "TraOligGliomaMGH53.png",width = 1024, height = 1024)
 #png(filename = "TraOligGliomaMGH60.png",width = 1024, height = 1024)
