@@ -77,5 +77,14 @@ dev.off()
 
 save.image('MultiRef.RData')
 
+NRM=which(!pbmc@meta.data$ori %in% c('pyramidal SS','pyramidal CA1','interneurons'))
+
+adjustedRandIndex(pbmc@meta.data$ori[NRM],pbmc@meta.data$zhang2014[NRM])
+#0.9133551
+adjustedRandIndex(pbmc@meta.data$ori[NRM],pbmc@meta.data$mba[NRM])
+#0.8134128
+adjustedRandIndex(pbmc@meta.data$ori[NRM],pbmc@meta.data$mca[NRM])
+#0.8738621
+
 
 
