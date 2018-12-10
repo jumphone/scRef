@@ -61,7 +61,7 @@ pbmc@meta.data$mba[which(pbmc@meta.data$mba=='Neuron.Brain.')]='Neuron'
 pbmc@meta.data$mba[which(pbmc@meta.data$mba=='OPC')]='Oligodendrocyte.Precursor.Cell'
 pbmc@meta.data$mba[which(pbmc@meta.data$mba=='Endothelial_Stalk')]='Endothelial.Cells'
 pbmc@meta.data$mba[which(pbmc@meta.data$mba=='NeuronSlc17a7')]='Neuron'
-pbmc@meta.data$mba[which(pbmc@meta.data$mba=='Oligodendrocytes')]='Oligodendrocytes'
+pbmc@meta.data$mba[which(pbmc@meta.data$mba=='Oligodendrocyte')]='Oligodendrocytes'
 
 
 
@@ -87,4 +87,8 @@ adjustedRandIndex(pbmc@meta.data$ori[NRM],pbmc@meta.data$mca[NRM])
 #0.8738621
 
 
+CON=which(pbmc@meta.data$zhang2014[NRM]==pbmc@meta.data$mba[NRM] & pbmc@meta.data$mba[NRM]==pbmc@meta.data$mca[NRM])
+
+adjustedRandIndex(pbmc@meta.data$ori[NRM][CON],pbmc@meta.data$zhang2014[NRM][CON])
+#0.9784506
 
