@@ -28,11 +28,19 @@ pbmc <- RunTSNE(object = pbmc, dims.use = 1:10, do.fast = TRUE)
 pbmc@meta.data$tag=tag1
 saveRDS(pbmc, file = "GSE72056.RDS")
 
+
+
+
+###############################
+
+
 pdf('ORI.pdf',width=10,height=7)
 TSNEPlot(object = pbmc, do.label=T,group.by='tag',cex=0.5,label.size=3)
 dev.off()
 
-######################
+
+
+##################################
 
 COL=c()
 i=1
@@ -42,7 +50,37 @@ while(i <=length(pbmc@ident)){
     i=i+1
     }      
 exp_sc_mat=as.matrix(pbmc@raw.data)[,COL]
+
+###########
+
+
+#Visualization
+NORM=which(!pbmc@meta.data$tag %in% c('malignant','unresolved'))
+pbmc_norm=exp_sc_mat[,NORM]
+
+pbmc_norm <- CreateSeuratObject(raw.data = pbmc_norm, min.cells = 0, min.genes = 0, project = "10X_PBMC")
+pbmc_norm <- NormalizeData(object = pbmc_norm, normalization.method = "LogNormalize", 
+    scale.factor = 10000)
+pbmc_norm <- FindVariableGenes(object = pbmc_norm, do.plot=F,mean.function = ExpMean, dispersion.function = LogVMR, 
+    x.low.cutoff = 0.0125, x.high.cutoff = 3, y.cutoff = 0.5)
+pbmc_norm <- ScaleData(object = pbmc_norm, vars.to.regress = c("nUMI"))
+
+pbmc_norm <- RunPCA(object = pbmc_norm, pc.genes = pbmc@var.genes, do.print = TRUE, pcs.print = 1:5, 
+    genes.print = 5)
+pbmc_norm <- RunTSNE(object = pbmc_norm, dims.use = 1:10, do.fast = TRUE)  
+
+
+pbmc_norm@meta.data$tag=pbmc@meta.data$tag[NORM]
+pdf('NORM_ORI.pdf',width=10,height=7)
+TSNEPlot(object = pbmc_norm, do.label=T,group.by='tag',cex=0.5,label.size=3)
+dev.off()
+
+
+######################
+
+
 exp_ref_mat=read.table('PeripheralBlood_ref_human.txt',header=T,row.names=1,sep='\t',check.name=F) 
+
 
 REF_TAG=colnames(exp_ref_mat)
 tmp=strsplit(REF_TAG, "_")
@@ -55,17 +93,27 @@ out=SCREF(exp_sc_mat, NewRef)
 tag2=out$tag2
 pbmc@meta.data$scref=tag2[,2]
 
+
+
+out_norm=SCREF(exp_sc_mat[,NORM], NewRef)
+tag_norm=out_norm$tag2
+pbmc_norm@meta.data$scref=tag_norm[,2]
+
 pdf('SCREF.pdf',width=10,height=7)
 TSNEPlot(object = pbmc, do.label=T, group.by ='scref', pt.size = 0.5)
 dev.off()
-
-
+pdf('NORM_SCREF.pdf',width=10,height=7)
+TSNEPlot(object = pbmc_norm, do.label=T,group.by='tag',cex=0.5,label.size=5)
+TSNEPlot(object = pbmc_norm, do.label=T,group.by='scref',cex=0.5,label.size=5)
+dev.off()
+saveRDS(pbmc_norm, file = "GSE72056_NORM.RDS")
 
 merged_tag=pbmc@meta.data$tag
 merged_tag[which(merged_tag=='NK cell')]='T & NK cell'
 merged_tag[which(merged_tag=='T-cells')]='T & NK cell'
 
 USED=which(!merged_tag %in% c('unresolved','malignant'))
+
 
 
 
