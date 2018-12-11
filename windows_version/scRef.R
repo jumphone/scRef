@@ -482,7 +482,7 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
 
 
 
-.generate_mst <- function(INPUT){
+.generate_mst <- function(INPUT, min_cell=10){
     library(igraph)
     INPUT=INPUT
     CNUM=length(INPUT[1,])
@@ -500,7 +500,7 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
             p1_num=length(which(INPUT[,i]>0))
             p2_num=length(which(INPUT[,j]>0))
             p1_and_p2=length(which( INPUT[,i]>0 & INPUT[,j]>0))
-            if(p1_and_p2!=0){
+            if(p1_and_p2 >= min_cell){
                 this_score =  (p1_num * p2_num) / (p1_and_p2)**2}
                 else{this_score=NA} 
             edge_score=c(edge_score, this_score)
