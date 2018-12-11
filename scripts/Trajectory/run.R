@@ -26,7 +26,7 @@ tag=a$tag2
 tag[which(tag[,2]=='Newly Formed Oligodendrocyte'),2]='Oligodendrocytes'
 
 
-########
+######STEMNESS##
 pbmc <- NormalizeData(object = pbmc, normalization.method = "LogNormalize",  scale.factor = 10000)
 
 exp_mat=as.matrix(pbmc@data)
@@ -46,10 +46,17 @@ AO_SCORE=cbind(OC_SCORE,AC_SCORE)
 MAX_AO_SCORE=apply(AO_SCORE,1,max)
 
 FINAL_STEM_SCORE=STEM_SCORE-MAX_AO_SCORE
+BX_USE=which(tag[,2]!='Microglia')
+boxplot(FINAL_STEM_SCORE[BX_USE]~tag[BX_USE,2],out=F)
 
+AC_STEM=FINAL_STEM_SCORE[which(tag[,2]=='Astrocytes')]
+OC_STEM=FINAL_STEM_SCORE[which(tag[,2]=='Oligodendrocytes')]
+OPC_STEM=FINAL_STEM_SCORE[which(tag[,2]=='Oligodendrocyte Precursor Cell')]
 
-#INFO=cbind(STEM_SCORE,tag[,2])
-boxplot(FINAL_STEM_SCORE~tag[,2])
+ks.test(OPC_STEM,AC_STEM)
+#0.00131
+ks.test(OPC_STEM,OC_STEM)
+#1.067e-13
 ######
 
 
