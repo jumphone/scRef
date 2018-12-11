@@ -1,4 +1,8 @@
-# Data Type
+# Note:
+
+Before loading into R, please remove the quotation marks in the header!!!
+
+# Data Type:
 
 Mouse, UMI
 
