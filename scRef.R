@@ -324,7 +324,7 @@
 SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomial', min_cell=10, CPU=4, print_step=10){
     print('First-round annotation:')
     print(method1)
-    if(method1!='multinomail'){
+    if(method1!='multinomial'){
         out1=.get_cor(exp_sc_mat, exp_ref_mat, method=method1,CPU=CPU, print_step=print_step)
         } else {
         out1=.get_log_p_sc_given_ref(exp_sc_mat, exp_ref_mat, CPU=CPU, print_step=print_step)
