@@ -53,13 +53,17 @@ out =.vec_projection(exp_sc_mat, sc_tag, exp_ref_mat, ref_tag, ref_vec,
         method='kendall', nearest_cell=3, alpha=0.5, random_size=10000, 
         random_seed=123, min_cell=10, CPU=4, print_step=10)
 
-
+CEX=0.5
 XLIM=c(min(ref_vec[,1]-1),max(ref_vec[,1]+1))
 YLIM=c(min(ref_vec[,2]-1),max(ref_vec[,2]+1))
-
-plot(ref_vec,xlim=XLIM,ylim=YLIM,pch=16,col='grey70',cex=0.5)
+BLUE=rgb(0, 0, 255, 150, maxColorValue=255)
+RED=rgb(255, 0, 0, 150, maxColorValue=255)
+plot(ref_vec,xlim=XLIM,ylim=YLIM,pch=16,col='grey70',cex=CEX)
 par(new=T)
-plot(out$vec,xlim=XLIM,ylim=YLIM,pch=16,col='red',cex=0.5)
+USE=which(pbmc@ident=='NK.cell')
+plot(ref_vec[USE,], pch=16, col=BLUE,xlim=XLIM,ylim=YLIM,cex=CEX)
+par(new=T)
+plot(out$vec,xlim=XLIM,ylim=YLIM,pch=16,col=RED,cex=CEX)
 
 
 
@@ -95,7 +99,7 @@ immune.combined <- RunTSNE(immune.combined, reduction.use = "cca.aligned", dims.
     do.fast = T)
 
 #pdf('simulationresult_CCA.pdf',width=4.5, height=5)
-CEX=0.5
+CEX=0.7
 BLUE=rgb(0, 0, 255, 150, maxColorValue=255)
 RED=rgb(255, 0, 0, 150, maxColorValue=255)
 ALLVEC=immune.combined@dr$tsne@cell.embeddings
