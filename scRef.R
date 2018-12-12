@@ -561,3 +561,36 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
     return(OUT_TAG)
     }
     
+####
+
+.getcutoff <- function(SYMBOL, exp_sc_mat, BW = FALSE){
+    library(pastecs)
+    exp_sc_mat=exp_sc_mat
+    SYMBOL=SYMBOL
+    BW=BW
+    GENE=which(rownames(exp_sc_mat)==SYMBOL)
+    EXP=as.numeric(exp_sc_mat[GENE,])
+    POSEXP=EXP[which(EXP>0)]
+    if(BW==FALSE){D=density(POSEXP)}else{D=density(POSEXP,bw=BW)}
+    PEAK_PIT=extract(turnpoints(D$y),length(D$y),peak=1,pit=-1)
+    LOC=D$x[which(PEAK_PIT==-1)]
+    YLIM=c(min(D$y),max(D$y))
+    XLIM=c(min(D$x),max(D$x))
+    plot(D,main=SYMBOL)
+    abline(v=LOC,col='red',lty=3)
+    text(x=LOC, y=mean(YLIM), col='red',labels=as.character(round(LOC,2)))
+    return(LOC)
+} 
+
+.usecutoff <- function(SYMBOL, exp_sc_mat, cutoff){
+    exp_sc_mat=exp_sc_mat
+    SYMBOL=SYMBOL
+    GENE=which(rownames(exp_sc_mat)==SYMBOL)
+    EXP=as.numeric(exp_sc_mat[GENE,])
+    TAG=rep(0,length(exp_sc_mat[1,]))
+    TAG[which(EXP >=cutoff)]=1
+    return(TAG)
+}
+
+
+
