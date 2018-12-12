@@ -130,5 +130,6 @@ save.image('GSE104276_Done.RData')
 
 
 
+write.table(GeneRef,file='PrefrontalCortexDev_GSE104276_human_ref.txt',sep='\t',quote=F,row.names=T,col.names=T)
 
 
