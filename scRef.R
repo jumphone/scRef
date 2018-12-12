@@ -563,7 +563,7 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
     
 ####
 
-.getcutoff <- function(SYMBOL, exp_sc_mat, BW = FALSE){
+.get_gene_cutoff <- function(SYMBOL, exp_sc_mat, BW = FALSE){
     library(pastecs)
     exp_sc_mat=exp_sc_mat
     SYMBOL=SYMBOL
@@ -582,7 +582,7 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
     return(LOC)
 } 
 
-.usecutoff <- function(SYMBOL, exp_sc_mat, cutoff){
+.use_gene_cutoff <- function(SYMBOL, exp_sc_mat, cutoff){
     exp_sc_mat=exp_sc_mat
     SYMBOL=SYMBOL
     GENE=which(rownames(exp_sc_mat)==SYMBOL)
