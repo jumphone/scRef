@@ -520,6 +520,7 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
 #########
 
 
+
 .addclust <-function(TAG, TSNE_VEC, MINC=3, MAXC=5, random_seed=123){
 
     random_seed=random_seed
@@ -541,25 +542,29 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
         used_cell=which(tag_list==this_uniq_tag)
         this_tsne_vec=TSNE_VEC[used_cell,]
         this_tag=tag_list[used_cell]
+
+        if(length(this_tag)>=MAXC){
     
-        this_opt=fviz_nbclust(this_tsne_vec, kmeans, k.max = MAXC,method = "silhouette")
-        this_k = as.numeric(this_opt$data[which(this_opt$data[,2] == max(this_opt$data[,2])),1])
+            this_opt=fviz_nbclust(this_tsne_vec, kmeans, k.max = MAXC,method = "silhouette")
+            this_k = as.numeric(this_opt$data[which(this_opt$data[,2] == max(this_opt$data[,2])),1])
     
-        if(this_k<MINC){this_k=1}
-        this_out=kmeans(this_tsne_vec,centers=this_k)
+            if(this_k<MINC){this_k=1}
+            this_out=kmeans(this_tsne_vec,centers=this_k)
     
-        this_new_tag=as.character(this_out$cluster)
+            this_new_tag=as.character(this_out$cluster)
     
-        j=1
-        while(j<=length(used_cell)){
-            OUT_TAG[used_cell,2][j]=paste0(OUT_TAG[used_cell,2][j],'_',this_new_tag[j])
-            j=j+1}
+            j=1
+            while(j<=length(used_cell)){
+                OUT_TAG[used_cell,2][j]=paste0(OUT_TAG[used_cell,2][j],'_',this_new_tag[j])
+                j=j+1}
+            }
     
-        i=i+1
+        i=i+1;
         }
     print('end')
     return(OUT_TAG)
     }
+
     
 ####
 
