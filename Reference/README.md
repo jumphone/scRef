@@ -13,7 +13,7 @@
 * Source: https://web.stanford.edu/group/barres_lab/brain_rnaseq.html
 
 
-# 2. BrainDev_AllenBrain
+# 2. HumanBrainDev_AllenBrain
 
 <a href="/Reference/BrainDev_AllenBrain">
 <img src="/Reference/images/BrainDev_AllenBrain.png" width="280">
@@ -25,7 +25,7 @@
 
 * Source: http://www.brainspan.org/static/download.html
 
-# 3. Tissue_Gtex_v7
+# 3. HumanTissue_Gtex_v7
 
 <a href="/Reference/Tissue_Gtex_v7">
 <img src="/Reference/images/gtex2.png" width="280">
@@ -37,7 +37,7 @@
 
 * Source: https://gtexportal.org/home/datasets
 
-# 4. ImmuneCell_ImmGen
+# 4. MouseImmuneCell_ImmGen
 
 <a href="/Reference/ImmuneCell_ImmGen">
 <img src="/Reference/images/ImmuneCell_ImmGen.png" width="280">
