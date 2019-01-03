@@ -53,10 +53,10 @@ AC_STEM=FINAL_STEM_SCORE[which(tag[,2]=='Astrocytes')]
 OC_STEM=FINAL_STEM_SCORE[which(tag[,2]=='Oligodendrocytes')]
 OPC_STEM=FINAL_STEM_SCORE[which(tag[,2]=='Oligodendrocyte Precursor Cell')]
 
-ks.test(OPC_STEM,AC_STEM)
-#0.00131
-ks.test(OPC_STEM,OC_STEM)
-#1.067e-13
+wilcox.test(OPC_STEM,AC_STEM)
+#0.0002009
+wilcox.test(OPC_STEM,OC_STEM)
+# <2.2e-16
 ######
 
 
