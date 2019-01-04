@@ -1,6 +1,6 @@
 # Recommend Processing
 
-When you use MCA as a reference, we recommend combining all subtype cells.
+When you use MCA as a reference, we recommend combining all single-gene-expression-based subtypes.
 
 Such as, merging "Astrocyte_Pla2g7 high(Brain)", "Astrocyte_Atp1b2 high(Brain)", and "Astrocyte_Mfe8 high(Brain)" into "Astrocyte".
 
