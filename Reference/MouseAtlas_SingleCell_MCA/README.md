@@ -1,4 +1,4 @@
-# Recommend Processing
+# Notice:
 
 When you use MCA as a reference, we recommend combining all single-gene-expression-based subtypes.
 
@@ -14,7 +14,7 @@ You can use the following scripts to generate a new reference by combining subty
     for(one in tmp){REF_TAG=c(REF_TAG, one[1])}
     NewRef=.generate_ref(exp_ref_mat, cbind(REF_TAG,REF_TAG), min_cell=1) 
 
-# Data Type
+# Data Type:
 
 Mouse, UMI
 
