@@ -166,13 +166,13 @@ Source: https://satijalab.org/seurat/pbmc3k_tutorial.html
 <img src="/source/Usage4_Original.png" width="520">
 </a>
 
-### scRef labels (Reference: Tissue_Gtex_v7, [Download](/Reference/Tissue_Gtex_v7/)) 
+### scRef labels (Reference: HumanTissue_Bulk_GtexV7, [Download](/Reference/HumanTissue_Bulk_GtexV7/)) 
 
 <a href='https://github.com/jumphone/scRef'>
 <img src="/source/Usage4_scRef.png" width="570">
 </a>
 
-### scRef labels (Reference: BrainDev_AllenBrain, [Download](/Reference/BrainDev_AllenBrain/)) 
+### scRef labels (Reference: HumanBrainDev_Bulk_AllenBrain, [Download](/Reference/HumanBrainDev_Bulk_AllenBrain/)) 
 
 Please note that this brain reference may not be suitable for PBMC. 
 
