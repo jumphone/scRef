@@ -1,3 +1,13 @@
+# Recommend Processing
+    
+    source('scRef.R')
+    exp_ref_mat=read.table('MCA_Brain_ref_mouse.txt',header=T,sep='\t',row.names=1)
+    REF_TAG=colnames(exp_ref_mat)
+    tmp=strsplit(REF_TAG, "_")
+    REF_TAG=c()
+    for(one in tmp){REF_TAG=c(REF_TAG, one[1])}
+    NewRef=.generate_ref(exp_ref_mat, cbind(REF_TAG,REF_TAG), min_cell=1) 
+
 # Data Type
 
 Mouse, UMI
