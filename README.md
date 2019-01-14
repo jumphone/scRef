@@ -16,7 +16,7 @@ A reference database
 * [Requirement](#Requirement)
 * [Input format](#Input-format)
 * [Usage](#Usage)
-    * [1. Single-round annotation](#1-single-round-annotation)
+    * [1. Single-round classification](#1-single-round-classification)
     * [2. scRef-two-round classification (RBC)](#2-SCREF-two-round-classification-RBC)
     * [3. Compare the results of clustering method and scRef](#3-Compare-the-results-of-clustering-method-and-scRef)
     * [4. scRef & Seurat](#4-scRef--Seurat)
