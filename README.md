@@ -1,6 +1,10 @@
 # scRef
 A reference-based toolkit for single-cell analysis
 
+<a href='/'>
+<img src="/source/MainLogo.png" width="300">
+</a>
+
 # dbRef
 A reference database
 
