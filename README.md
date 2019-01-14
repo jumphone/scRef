@@ -17,11 +17,11 @@ A reference database
 * [Input format](#Input-format)
 * [Usage](#Usage)
     * [1. Single-round annotation](#1-single-round-annotation)
-    * [2. scRef-two-rounds annotation](#2-SCREF-two-rounds-annotation)
+    * [2. scRef-two-rounds classification (RBC)](#2-SCREF-two-rounds-classification)
     * [3. Compare the results of clustering method and scRef](#3-Compare-the-results-of-clustering-method-and-scRef)
     * [4. scRef & Seurat](#4-scRef--Seurat)
-    * [5. scRef-tSNE plot alignment](#5-scRef-tSNE-plot-alignment)
-    * [6. scRef-trajectory detection](#6-scRef-trajectory-detection)
+    * [5. scRef-tSNE plot alignment (TPA)](#5-scRef-tSNE-plot-alignment)
+    * [6. scRef-trajectory detection (TDE)](#6-scRef-trajectory-detection)
 * [License](#License)
 
 
@@ -76,7 +76,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
     tag=.get_tag_max(out)
     write.table(tag,file='Pearson.txt',quote=F,row.names=F,col.names=T,sep='\t')
 
-# 2. scRef two-rounds annotation
+# 2. scRef two-rounds classification
 
    Users can directly use "SCREF" funtion to do semi-supervised (two-round) annotation.
    
