@@ -219,7 +219,7 @@ Smaller number indicates earlier development stage.
 
 Visualize low-quality scRNA-seq data in the tSNE plot of high-quality scRNA-seq data.
 
-You can also use this function to align UMAP plot.
+You can use this function to align tSNE plot, PCA plot, and UMAP plot.
 
 Note: cell types of the low-quality data should be covered by the high-quality data.
 
