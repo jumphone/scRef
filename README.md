@@ -25,6 +25,18 @@ A web resource of references
 
 Feng Zhang, Yaguang Dou, Rohit R Rao, Q. Richard Lu, Weidong Tian; SCREF: a reference-based solution for single-cell analysis, Coming Soon
 
+# Download scRef
+
+Download: https://github.com/jumphone/scRef/archive/master.zip
+
+For Linux and Mac: 
+
+curl https://raw.githubusercontent.com/jumphone/scRef/master/scRef.R > scRef.R
+
+For Windows (in cmd):
+
+curl https://raw.githubusercontent.com/jumphone/scRef/master/windows_version/scRef.R > scRef.R
+
 # Requirement
 
 R: 3.5.0
