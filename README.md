@@ -6,10 +6,6 @@ A reference database
 
 <a href='/Reference/'>Visit dbRef</a>
 
-<a href='/Reference/'>
-<img src="/source/dbRef.png" width="150">
-</a>
-
 # Table of content
 
 * [Citation](#Citation)
