@@ -1,3 +1,5 @@
+#####################################
+# Simulated benchmark
 
 load('TSNE.RData')
 ori_label=read.table('Zeisel_exp_sc_mat_cluster_original.txt',header=T,sep='\t')
@@ -94,6 +96,12 @@ plot(
 )
 
 ####################################
+####################################
+####################################
+#Human NK cell
+
+
+
 
 
 
