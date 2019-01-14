@@ -7,6 +7,7 @@ A web resource of references. <a href='/Reference/'>Visit dbRef</a>
 # Table of content
 
 * [Citation](#Citation)
+* [Download](#Download)
 * [Requirement](#Requirement)
 * [Input format](#Input-format)
 * [Usage](#Usage)
