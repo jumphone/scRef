@@ -17,11 +17,11 @@ A reference database
 * [Input format](#Input-format)
 * [Usage](#Usage)
     * [1. Single-round annotation](#1-single-round-annotation)
-    * [2. scRef-two-rounds classification (RBC)](#2-SCREF-two-rounds-classification)
+    * [2. scRef-two-round classification (RBC)](#2-SCREF-two-round-classification-RBC)
     * [3. Compare the results of clustering method and scRef](#3-Compare-the-results-of-clustering-method-and-scRef)
     * [4. scRef & Seurat](#4-scRef--Seurat)
-    * [5. scRef-tSNE plot alignment (TPA)](#5-scRef-tSNE-plot-alignment)
-    * [6. scRef-trajectory detection (TDE)](#6-scRef-trajectory-detection)
+    * [5. scRef-tSNE plot alignment (TPA)](#5-scRef-tSNE-plot-alignment-TPA)
+    * [6. scRef-trajectory detection (TDE)](#6-scRef-trajectory-detection-TDE)
 * [License](#License)
 
 
@@ -45,7 +45,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 # Usage
 
-# 1. Single-round annotation
+# 1. Single-round classification
 
 ### Code:
 
@@ -76,7 +76,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
     tag=.get_tag_max(out)
     write.table(tag,file='Pearson.txt',quote=F,row.names=F,col.names=T,sep='\t')
 
-# 2. scRef two-rounds classification
+# 2. scRef two-round classification (RBC)
 
    Users can directly use "SCREF" funtion to do semi-supervised (two-round) annotation.
    
@@ -215,7 +215,7 @@ Smaller number indicates earlier development stage.
     
     ##################################      
 
-# 5. scRef tSNE plot alignment
+# 5. scRef tSNE plot alignment (TPA)
 
 Visualize low-quality scRNA-seq data in the tSNE plot of high-quality scRNA-seq data.
 
@@ -273,7 +273,7 @@ Note: cell types of the low-quality data should be covered by the high-quality d
     plot(out$vec,xlim=XLIM,ylim=YLIM,pch=16,col='red')
 
 
-# 6. scRef trajectory detection
+# 6. scRef trajectory detection (TDE)
 
 Drawing trajectory based on the results of scRef
 
