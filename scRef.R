@@ -597,5 +597,29 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
     return(TAG)
 }
 
+##2019.01.14#####
 
+.simple_combine <- function(exp_sc_mat1, exp_sc_mat2){    
+    exp_sc_mat=exp_sc_mat1
+    exp_ref_mat=exp_sc_mat2
+    exp_sc_mat=exp_sc_mat[order(rownames(exp_sc_mat)),]
+    exp_ref_mat=exp_ref_mat[order(rownames(exp_ref_mat)),]
+    gene_sc=rownames(exp_sc_mat)
+    gene_ref=rownames(exp_ref_mat)
+    gene_over= gene_sc[which(gene_sc %in% gene_ref)]
+    exp_sc_mat=exp_sc_mat[which(gene_sc %in% gene_over),]
+    exp_ref_mat=exp_ref_mat[which(gene_ref %in% gene_over),]
+    colname_sc=colnames(exp_sc_mat)
+    colname_ref=colnames(exp_ref_mat)
+    OUT=list()
+    OUT$exp_sc_mat1=exp_sc_mat
+    OUT$exp_sc_mat2=exp_ref_mat
+    OUT$combine=cbind(exp_sc_mat,exp_ref_mat)
+    return(OUT)
+}
+    
+    
+    
+    
+    
 
