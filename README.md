@@ -228,7 +228,7 @@ Smaller number indicates earlier development stage.
 
 # 5. scRef tSNE plot alignment (TPA)
 
-Visualize low-quality scRNA-seq data in the dimension reduction (e.g. tSNE) plot of high-quality scRNA-seq data.
+Visualize scRNA-seq data of different batches in a single dimension reduction (e.g. tSNE) plot .
 
 Users can use this function to align cells to any given dimension reduction plot (e.g. tSNE plot, PCA plot, and UMAP plot, etc.)
 
