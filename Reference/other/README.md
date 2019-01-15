@@ -1,6 +1,6 @@
 # Informal References
 
-These references are collected by us.
+These references are collected by us informally.
 
 If you want to use them in your paper, please email us for the appropriate citation.
 
