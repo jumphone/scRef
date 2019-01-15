@@ -26,9 +26,13 @@ Feng Zhang, Yaguang Dou, Rohit R Rao, Q. Richard Lu, Weidong Tian; SCREF: a refe
 
 # Download
 
+### Whole repository:
+
 Download: https://github.com/jumphone/scRef/archive/master.zip
 
-For Linux and Mac: 
+Only scRef.R:
+
+### For Linux and Mac: 
 
 curl https://raw.githubusercontent.com/jumphone/scRef/master/scRef.R > scRef.R
 
