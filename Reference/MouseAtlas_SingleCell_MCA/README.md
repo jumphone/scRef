@@ -14,6 +14,12 @@ You can use the following scripts to generate a new reference by combining those
     for(one in tmp){REF_TAG=c(REF_TAG, one[1])}
     NewRef=.generate_ref(exp_ref_mat, cbind(REF_TAG,REF_TAG), min_cell=1) 
 
+We provide the combined file which includes all main cell types in MCA:
+
+MCA_combined_mouse.txt.zip and MCA_combined_human.txt.zip
+
+
+
 # Data Type:
 
 Mouse, UMI
