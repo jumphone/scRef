@@ -1,6 +1,6 @@
 # Notice:
 
-If you know the tissue type of your sample, we recommend using separated reference files.
+If you know the tissue type of your sample, we recommend using tissue-separated reference files (MCA_ref.zip).
 
 # Reason:
 
