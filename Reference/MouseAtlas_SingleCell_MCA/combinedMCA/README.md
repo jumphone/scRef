@@ -1,2 +1,2 @@
 
-We recommend using separated reference files, if you know the tissue type of your sample.
+If you know the tissue type of your sample, we recommend using separated reference files.
