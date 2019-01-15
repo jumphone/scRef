@@ -232,7 +232,7 @@ Visualize scRNA-seq data of different batches in a single dimension reduction (e
 
 Users can use this function to align cells to any given dimension reduction plot (e.g. tSNE plot, PCA plot, and UMAP plot, etc.)
 
-Cell types of the low-quality data should be covered by the high-quality data.
+Cell types of the input data should be covered by the reference data (the original data of the dimension reduction plot).
 
 ### Workflow: 
 
