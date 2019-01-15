@@ -4,7 +4,7 @@ When you use MCA as a reference, we recommend combining all single-gene-expressi
 
 For example, merging "Astrocyte_Pla2g7 high(Brain)", "Astrocyte_Atp1b2 high(Brain)", and "Astrocyte_Mfe8 high(Brain)" into "Astrocyte".
 
-You can use the following scripts to generate a new reference by combining subtypes:
+You can use the following scripts to generate a new reference by combining those subtypes:
 
     source('scRef.R')
     exp_ref_mat=read.table('MCA_Brain_ref_mouse.txt',header=T,sep='\t',row.names=1)
