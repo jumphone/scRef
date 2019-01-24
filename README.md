@@ -10,7 +10,7 @@ A web resource of references. <a href='/Reference/'>Visit dbRef</a>
 * [Download](#Download)
 * [Requirement](#Requirement)
 * [Input format](#Input-format)
-* [Usage(WIKI)](https://github.com/jumphone/scRef/wiki)
+* [Usage (Wiki)](https://github.com/jumphone/scRef/wiki)
 * [License](#License)
 
 
@@ -45,7 +45,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 # Usage
    
-## Please see [WIKI](https://github.com/jumphone/scRef/wiki)
+## See [Wiki](https://github.com/jumphone/scRef/wiki)
 
    
 # License
