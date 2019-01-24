@@ -77,8 +77,8 @@
     ###############
     print('Number of overlapped genes:')
     print(nrow(exp_sc_mat))
-    print('Press "return" to continue:')
-    scan()
+    print('Press RETURN to continue:')
+    scan();
     ###################
     #Step 2. calculate prob
     SINGLE <- function(i){
