@@ -250,7 +250,7 @@
         	exp_ref[which(exp_ref==0)] = delta * min(exp_ref[which(exp_ref > 0)]) 
             log_p_sc_given_ref = dmultinom(x=exp_sc,log=T,prob=exp_ref)
             return(log_p_sc_given_ref)}
-        .get_dis= function(this_sc, this_ref, method2=method2){
+        .get_dis= function(this_sc, this_ref, method=method){
             exp_sc_mat=this_sc
             exp_ref_mat=this_ref
             exp_sc_mat=exp_sc_mat[order(rownames(exp_sc_mat)),]
@@ -291,7 +291,7 @@
         this_sc = cbind(exp_sc_mat[,i],exp_sc_mat[,i])
         rownames(this_sc) = rownames(exp_sc_mat)
         colnames(this_sc)= c('rep1','rep2')
-        this_out = .get_dis(this_sc, this_ref, method2=method2)
+        this_out = .get_dis(this_sc, this_ref, method=method)
         this_out_rank=rank(-this_out)
         used_index=which(this_out_rank <= nearest_cell)
         
