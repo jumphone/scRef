@@ -43,7 +43,9 @@
         return(log_p_sc_given_ref_list)
         }
     #######################################
-    RUN = mclapply(1:length(colname_sc), SINGLE, mc.cores=CPU)
+    cl= makeCluster(CPU)
+    RUN = parLapply(cl=cl,1:length(exp_sc_mat[1,]), SINGLE)
+    #RUN = mclapply(1:length(colname_sc), SINGLE, mc.cores=CPU)
     LOG_P_SC_GIVEN_REF = c()
     for(log_p_sc_given_ref_list in RUN){
         LOG_P_SC_GIVEN_REF=cbind(LOG_P_SC_GIVEN_REF, log_p_sc_given_ref_list)}
@@ -103,7 +105,9 @@
         return(log_p_sc_given_ref_list)
         }
     #######################################
-    RUN = mclapply(1:length(colname_sc), SINGLE, mc.cores=CPU)
+    cl= makeCluster(CPU)
+    RUN = parLapply(cl=cl,1:length(exp_sc_mat[1,]), SINGLE)
+    #RUN = mclapply(1:length(colname_sc), SINGLE, mc.cores=CPU)
     LOG_P_SC_GIVEN_REF = c()
     for(log_p_sc_given_ref_list in RUN){
         LOG_P_SC_GIVEN_REF=cbind(LOG_P_SC_GIVEN_REF, log_p_sc_given_ref_list)}
@@ -310,11 +314,11 @@
         if(i%%print_step==1){print(i)}
         return(this_out)
         }
-    #windows
-    #cl= makeCluster(CPU)
-    #RUN = parLapply(cl=cl,1:length(exp_sc_mat[1,]), SINGLE)
+    #windows & unix
+    cl= makeCluster(CPU)
+    RUN = parLapply(cl=cl,1:length(exp_sc_mat[1,]), SINGLE)
     #unix
-    RUN = mclapply(1:length(exp_sc_mat[1,]), SINGLE, mc.cores=CPU)
+    #RUN = mclapply(1:length(exp_sc_mat[1,]), SINGLE, mc.cores=CPU)
 
     OUT_VEC = c()
     #OUT_EXP = c()
