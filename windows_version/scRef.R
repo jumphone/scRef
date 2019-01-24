@@ -60,6 +60,11 @@
     #exp_sc_mat: single-cell gene expression matrix; row is gene; col is sample; should have row name and col name
     #exp_ref_mat: reference gene expression matrix; row is gene; col is sample; should have row name and col name
     ##################
+    print('Gene number of exp_sc_mat:')
+    print(nrow(exp_sc_mat))
+    print('Gene number of exp_ref_mat:')
+    print(nrow(exp_ref_mat))
+    #################
     library(parallel)
     #Step 1. get overlapped genes
     exp_sc_mat=exp_sc_mat[order(rownames(exp_sc_mat)),]
@@ -71,6 +76,12 @@
     exp_ref_mat=exp_ref_mat[which(gene_ref %in% gene_over),]
     colname_sc=colnames(exp_sc_mat)
     colname_ref=colnames(exp_ref_mat)
+    ###############
+    print('Number of overlapped genes:')
+    print(nrow(exp_sc_mat))
+    print('Press RETURN to continue:')
+    scan();
+    ###################
     #Step 2. calculate prob
     SINGLE <- function(i){
         library('pcaPP')
