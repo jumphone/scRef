@@ -4,9 +4,8 @@
 #Email: 15110700005@fudan.edu.cn
 #######################################
 
-.get_log_p_sc_given_ref <- function(exp_sc_mat, exp_ref_mat, CPU=4, print_step=10, outfile='tmp_out.txt'){
+.get_log_p_sc_given_ref <- function(exp_sc_mat, exp_ref_mat, CPU=4, print_step=10){
     delta = 0.5;
-    outfile=outfile;
     #exp_sc_mat: single-cell gene expression matrix; row is gene; col is sample; should have row name and col name
     #exp_ref_mat: reference gene expression matrix; row is gene; col is sample; should have row name and col name   
     ##################
@@ -44,7 +43,7 @@
         return(log_p_sc_given_ref_list)
         }
     #######################################
-    cl= makeCluster(CPU,outfile=outfile)
+    cl= makeCluster(CPU,outfile='')
     RUN = parLapply(cl=cl,1:length(exp_sc_mat[1,]), SINGLE)
     #RUN = mclapply(1:length(colname_sc), SINGLE, mc.cores=CPU)
     LOG_P_SC_GIVEN_REF = c()
@@ -56,8 +55,7 @@
     return(LOG_P_SC_GIVEN_REF)
     }
 
-.get_cor  <- function(exp_sc_mat, exp_ref_mat, method='kendall',CPU=4, print_step=10, gene_check=FALSE, outfile='tmp_out.txt'){
-    outfile=outfile;
+.get_cor  <- function(exp_sc_mat, exp_ref_mat, method='kendall',CPU=4, print_step=10, gene_check=FALSE){
     #method = "pearson", "kendall", "spearman"
     #exp_sc_mat: single-cell gene expression matrix; row is gene; col is sample; should have row name and col name
     #exp_ref_mat: reference gene expression matrix; row is gene; col is sample; should have row name and col name
@@ -107,7 +105,7 @@
         return(log_p_sc_given_ref_list)
         }
     #######################################
-    cl= makeCluster(CPU,outfile=outfile)
+    cl= makeCluster(CPU,outfile='')
     RUN = parLapply(cl=cl,1:length(exp_sc_mat[1,]), SINGLE)
     #RUN = mclapply(1:length(colname_sc), SINGLE, mc.cores=CPU)
     LOG_P_SC_GIVEN_REF = c()
@@ -230,8 +228,7 @@
 
 
 
-.vec_projection <- function(exp_sc_mat, sc_tag, exp_ref_mat, ref_tag, ref_vec,  method='kendall', nearest_cell=3, random_size=30, random_seed=123, alpha=0.5, min_cell=10, CPU=4, print_step=10, outfile='tmp_out.txt'){
-    outfile=outfile;
+.vec_projection <- function(exp_sc_mat, sc_tag, exp_ref_mat, ref_tag, ref_vec,  method='kendall', nearest_cell=3, random_size=30, random_seed=123, alpha=0.5, min_cell=10, CPU=4, print_step=10){
     delta = 0.5;
     alpha = alpha;
     library(parallel);
@@ -317,7 +314,7 @@
         return(this_out)
         }
     #windows & unix
-    cl= makeCluster(CPU,outfile=outfile)
+    cl= makeCluster(CPU,outfile='')
     RUN = parLapply(cl=cl,1:length(exp_sc_mat[1,]), SINGLE)
     #unix
     #RUN = mclapply(1:length(exp_sc_mat[1,]), SINGLE, mc.cores=CPU)
@@ -339,13 +336,13 @@
     }
 
 
-SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomial', min_cell=10, CPU=4, print_step=10,gene_check=FALSE, outfile='tmp_out.txt'){
+SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomial', min_cell=10, CPU=4, print_step=10,gene_check=FALSE){
     print('First-round annotation:')
     print(method1)
     if(method1!='multinomial'){
-        out1=.get_cor(exp_sc_mat, exp_ref_mat, method=method1,CPU=CPU, print_step=print_step,gene_check=gene_check,outfile=outfile)
+        out1=.get_cor(exp_sc_mat, exp_ref_mat, method=method1,CPU=CPU, print_step=print_step,gene_check=gene_check)
         } else {
-        out1=.get_log_p_sc_given_ref(exp_sc_mat, exp_ref_mat, CPU=CPU, print_step=print_step,outfile=outfile)
+        out1=.get_log_p_sc_given_ref(exp_sc_mat, exp_ref_mat, CPU=CPU, print_step=print_step)
         }
     tag1=.get_tag_max(out1)
 
@@ -355,9 +352,9 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
     print('Second-round annotation:')
     print(method2)
     if(method2!='multinomial'){
-        out2=.get_cor(exp_sc_mat, LocalRef, method=method2,CPU=CPU, print_step=print_step,gene_check=gene_check,outfile=outfile)
+        out2=.get_cor(exp_sc_mat, LocalRef, method=method2,CPU=CPU, print_step=print_step,gene_check=gene_check)
         } else {
-        out2=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=CPU, print_step=print_step, outfile=outfile)
+        out2=.get_log_p_sc_given_ref(exp_sc_mat, LocalRef, CPU=CPU, print_step=print_step)
         }
     tag2=.get_tag_max(out2)
     
