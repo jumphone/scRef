@@ -75,9 +75,9 @@
     colname_sc=colnames(exp_sc_mat)
     colname_ref=colnames(exp_ref_mat)
     ###############
-    print('Number of used genes:')
+    print('Number of overlapped genes:')
     print(nrow(exp_sc_mat))
-    print('Press any key to continue:')
+    print('Press "return" to continue:')
     scan()
     ###################
     #Step 2. calculate prob
