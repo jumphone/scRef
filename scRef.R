@@ -53,7 +53,7 @@
     return(LOG_P_SC_GIVEN_REF)
     }
 
-.get_cor  <- function(exp_sc_mat, exp_ref_mat, method='kendall',CPU=4, print_step=10, gene_check=TRUE){
+.get_cor  <- function(exp_sc_mat, exp_ref_mat, method='kendall',CPU=4, print_step=10, gene_check=FALSE){
     #method = "pearson", "kendall", "spearman"
     #exp_sc_mat: single-cell gene expression matrix; row is gene; col is sample; should have row name and col name
     #exp_ref_mat: reference gene expression matrix; row is gene; col is sample; should have row name and col name
