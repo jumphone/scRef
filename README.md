@@ -274,7 +274,7 @@ Cell types of the input data should be covered by the reference data (the origin
     # tSNE projection
     out =.vec_projection(exp_sc_mat, sc_tag, exp_ref_mat, ref_tag, ref_vec, 
             method='kendall', nearest_cell=3, alpha=0.5, random_size=30, 
-            random_seed=123, min_cell=10, CPU=4, print_step=10)
+            random_seed=123, CPU=4, print_step=10)
     
     XLIM=c(min(ref_vec[,1]-1),max(ref_vec[,1]+1))
     YLIM=c(min(ref_vec[,2]-1),max(ref_vec[,2]+1))
