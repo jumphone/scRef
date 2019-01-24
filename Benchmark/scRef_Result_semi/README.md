@@ -1,5 +1,5 @@
-# scRef::semi-supervised
+# scRef::two-round classification
 
 First round referenced-based annotation: Kendall
 
-Second round internal reference-based annotation: Multinomial
+Second round reference-based annotation: Multinomial
