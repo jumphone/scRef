@@ -39,7 +39,7 @@ Denpendent R packages: pcaPP, MASS, ggplot2, igraph, pastecs
 
 # Input format
 
-Single-cell and reference expression matrix must be tab-delimited with header and row names.
+Single-cell and reference expression matrix must have header (cell) and row names (gene).
 
 For reference expression matrix, we recommend using TPM, FPKM, RPKM, RPK, or UMI matrix. 
 
