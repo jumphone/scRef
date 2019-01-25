@@ -1,5 +1,5 @@
 # scRef
-A reference-based toolkit for single-cell analysis <a href='https://github.com/jumphone/scRef/wiki'>Visit Wiki</a>
+A reference-based toolkit for single-cell analysis <a href='https://github.com/jumphone/scRef/wiki#table-of-content'>Visit Wiki</a>
 
 # dbRef
 A web resource of references. <a href='/Reference/'>Visit dbRef</a>
