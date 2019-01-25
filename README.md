@@ -10,7 +10,7 @@ A web resource of references. <a href='/Reference/'>Visit dbRef</a>
 * [Download](#Download)
 * [Requirement](#Requirement)
 * [Input format](#Input-format)
-* [Usage (Wiki)](https://github.com/jumphone/scRef/wiki)
+* [Usage (Wiki)](https://github.com/jumphone/scRef/wiki#table-of-content)
 * [License](#License)
 
 
