@@ -1,5 +1,5 @@
-<a href="/">
-<img src="/Reference/images/NewLogo.png" width="280">
+<a href="">
+<img src="/source/NewLogo.png" width="280">
 </a>
 
 * A reference-based toolkit for single-cell analysis <a href='https://github.com/jumphone/scRef/wiki#table-of-content'>Visit Wiki</a>
