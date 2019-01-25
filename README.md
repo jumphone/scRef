@@ -1,4 +1,4 @@
-<a href="">
+<a href="https://github.com/jumphone/scRef/wiki">
 <img src="/source/NewLogo.png" width="280">
 </a>
 
