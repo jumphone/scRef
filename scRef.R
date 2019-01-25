@@ -636,7 +636,15 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
     return(OUT)
 }
     
-    
+
+##2019.01.25####
+
+.check_pos<-function(exp_ref_mat){
+    exp_ref_mat=as.matrix(exp_ref_mat)
+    exp_ref_mat[which(exp_ref_mat>0)]=1
+    SUM=apply(exp_ref_mat,2,sum)
+    return(SUM)
+}
     
     
     
