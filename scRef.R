@@ -645,7 +645,12 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
     SUM=apply(exp_ref_mat,2,sum)
     return(SUM)
 }
-    
-    
+
+.trim_pos<-function(exp_ref_mat, trim_number){
+    RANK=as.matrix(apply(-exp_ref_mat,2,rank))
+    exp_ref_mat=as.matrix(exp_ref_mat)
+    exp_ref_mat[which(RANK>trim_number)]=0
+    return(exp_ref_mat)
+}
     
 
