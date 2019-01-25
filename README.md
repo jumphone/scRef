@@ -45,7 +45,7 @@ For single-cell expression matrix, we recommend using UMI matrix.
 
 # Usage
    
-See [Wiki](https://github.com/jumphone/scRef/wiki)
+See [Wiki](https://github.com/jumphone/scRef/wiki#table-of-content)
 
    
 # License
