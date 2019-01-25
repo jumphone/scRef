@@ -4,7 +4,7 @@
 
 * A reference-based toolkit for single-cell analysis <a href='https://github.com/jumphone/scRef/wiki#table-of-content'>Visit Wiki</a>
 
-* A web resource of references. <a href='/Reference/'>Visit dbRef</a>
+* A web resource of references <a href='/Reference/'>Visit dbRef</a>
 
 # Table of content
 
