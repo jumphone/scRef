@@ -14,7 +14,7 @@ You can use the following scripts to generate a new reference by combining those
     for(one in tmp){REF_TAG=c(REF_TAG, one[1])}
     NewRef=.generate_ref(exp_ref_mat, cbind(REF_TAG,REF_TAG), min_cell=1) 
 
-We provide a combined file which includes all main cell types in MCA (combinedMCA)
+We provide a combined file which includes all main cell types in MCA ([combinedMCA](https://github.com/jumphone/scRef/tree/master/Reference/MouseAtlas_SingleCell_MCA/combinedMCA))
 
 
 
