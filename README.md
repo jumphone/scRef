@@ -41,9 +41,9 @@ Denpendent R packages: pcaPP, MASS, ggplot2, igraph, pastecs
 
 Single-cell and reference expression matrix must have header (cell) and row names (gene).
 
-For reference expression matrix, we recommend using TPM, FPKM, RPKM, RPK, or UMI matrix. 
+For reference expression matrix, we recommend using TPM, FPKM, RPKM, RPK, UMI (which can be used to compare the expression levels of different genes) matrix. 
 
-For single-cell expression matrix, we recommend using UMI matrix.
+For single-cell expression matrix, we recommend using UMI (or TPM, FPKM, RPKM, RPK) matrix.
 
 # Usage
    
