@@ -347,6 +347,11 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
         } else {
         out1=.get_log_p_sc_given_ref(exp_sc_mat, exp_ref_mat, CPU=CPU, print_step=print_step)
         }
+    
+    ######2019.02.16 start ######
+    out1[which(is.na(out1))]=0
+    ######2019.02.16 end ######
+    
     tag1=.get_tag_max(out1)
 
     print('Build local reference')
