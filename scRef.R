@@ -349,7 +349,7 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
         }
     
     ######2019.02.16 start ######
-    out1[which(is.na(out1))]=0
+    out1[which(is.na(out1))] = -1
     ######2019.02.16 end ######
     
     tag1=.get_tag_max(out1)
