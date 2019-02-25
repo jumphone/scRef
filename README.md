@@ -39,6 +39,8 @@ Denpendent R packages: pcaPP, MASS, ggplot2, igraph, pastecs
 
 # Input format
 
+<img src="https://github.com/jumphone/scRef/raw/master/source/Input_format.png">
+
 Single-cell and reference expression matrix must have header (cell) and row names (gene).
 
 For reference expression matrix, we recommend using TPM, FPKM, RPKM, RPK, UMI (which can be used to compare the expression levels of different genes) matrix. 
