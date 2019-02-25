@@ -39,7 +39,7 @@ Denpendent R packages: pcaPP, MASS, ggplot2, igraph, pastecs
 
 # Input format
 
-<img src="https://github.com/jumphone/scRef/raw/master/source/Input_format.png" width="360">
+<img src="https://github.com/jumphone/scRef/raw/master/source/Input_format.png" width="380">
 
 Single-cell and reference expression matrix must have header (cell) and row names (gene).
 
