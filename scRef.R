@@ -28,7 +28,8 @@
     #Step 2. calculate prob
     SINGLE <- function(i){
         exp_sc = as.array(exp_sc_mat[,i])
-        log_p_sc_given_ref_list=c()
+        #log_p_sc_given_ref_list=c()
+        log_p_sc_given_ref_list=rep(0,length(colname_ref))
         j=1
         while(j<=length(colname_ref)){
             exp_ref = as.array(exp_ref_mat[,j])
@@ -36,7 +37,8 @@
             exp_ref[which(exp_ref==0)]= delta * min(exp_ref[which(exp_ref>0)])
             #####
             log_p_sc_given_ref=Refprob(exp_sc,exp_ref)
-            log_p_sc_given_ref_list=c(log_p_sc_given_ref_list, log_p_sc_given_ref)
+            #log_p_sc_given_ref_list=c(log_p_sc_given_ref_list, log_p_sc_given_ref)
+            log_p_sc_given_ref_list[j]=log_p_sc_given_ref
             j=j+1}
         ################################
         if(i%%print_step==1){print(i)}
@@ -88,7 +90,8 @@
     SINGLE <- function(i){
         library('pcaPP')
         exp_sc = as.array(exp_sc_mat[,i])
-        log_p_sc_given_ref_list=c()
+        #log_p_sc_given_ref_list=c()
+        log_p_sc_given_ref_list=rep(0,length(colname_ref))
         j=1
         while(j<=length(colname_ref)){
             exp_ref = as.array(exp_ref_mat[,j])
@@ -99,7 +102,8 @@
             if(method=='kendall'){log_p_sc_given_ref=cor.fk(exp_sc,exp_ref)}
             else{
             log_p_sc_given_ref=cor(exp_sc,exp_ref, method=method)}
-            log_p_sc_given_ref_list=c(log_p_sc_given_ref_list, log_p_sc_given_ref)
+            #log_p_sc_given_ref_list=c(log_p_sc_given_ref_list, log_p_sc_given_ref)
+            log_p_sc_given_ref_list[j]=log_p_sc_given_ref
             j=j+1}
         ################################
         if(i%%print_step==1){print(i)}
@@ -267,7 +271,8 @@
             exp_ref_mat=exp_ref_mat[which(gene_ref %in% gene_over),]
             colname_sc=colnames(exp_sc_mat)
             colname_ref=colnames(exp_ref_mat)
-            log_p_sc_given_ref_list=c()
+            #log_p_sc_given_ref_list=c()
+            log_p_sc_given_ref_list=rep(0,length(colname_ref))
             exp_sc = as.array(exp_sc_mat[,1])
             j=1
             while(j<=length(colname_ref)){
@@ -280,7 +285,8 @@
                     log_p_sc_given_ref=cor(exp_sc,exp_ref, method=method)
                     }
                 
-                log_p_sc_given_ref_list=c(log_p_sc_given_ref_list, log_p_sc_given_ref) 
+                #log_p_sc_given_ref_list=c(log_p_sc_given_ref_list, log_p_sc_given_ref) 
+                log_p_sc_given_ref_list[j]=log_p_sc_given_ref
                 j=j+1
                 }
             return(log_p_sc_given_ref_list)
