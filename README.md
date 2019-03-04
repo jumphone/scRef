@@ -30,6 +30,9 @@ Download: https://github.com/jumphone/scRef/archive/master.zip
 
 curl https://raw.githubusercontent.com/jumphone/scRef/master/scRef.R > scRef.R
 
+### Use scRef without downloading anything:
+
+source('https://raw.githubusercontent.com/jumphone/scRef/master/scRef.R')
 
 # Requirement
 
