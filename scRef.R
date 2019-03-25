@@ -346,6 +346,7 @@
 
 
 SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomial', min_cell=10, CPU=4, print_step=10,gene_check=FALSE){
+    print_step=print_step
     print('First-round annotation:')
     print(method1)
     if(method1!='multinomial'){
