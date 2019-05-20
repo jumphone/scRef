@@ -667,6 +667,7 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
 
 ##2019.05.20###
 
+
 .generate_NET <- function(INPUT, min_cell=10){
     library(igraph)
     INPUT=INPUT
@@ -703,7 +704,8 @@ SCREF <- function(exp_sc_mat, exp_ref_mat, method1='kendall', method2='multinomi
     #edge_score[is.na(edge_score)] = max_tmp * beta
     NET = cbind(p1,p2) 
     g <- make_graph(t(NET),directed = FALSE)
+    E(g)$weight=edge_score
     #MST=mst(g, weights = edge_score, algorithm = NULL)
-    return(NET)
+    return(g)
     }
 
