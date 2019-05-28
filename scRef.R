@@ -181,7 +181,8 @@
         if(length(this_col)>= min_cell){
             outnames=c(outnames,one)
             if(length(this_col) >1){
-                this_new_ref=apply(exp_sc_mat[,this_col],1,sum)
+                #this_new_ref=apply(exp_sc_mat[,this_col],1,sum)
+                this_new_ref=apply(exp_sc_mat[,this_col],1,mean)
                 }
                 else{this_new_ref = exp_sc_mat[,this_col]}
             NewRef=cbind(NewRef,this_new_ref)
