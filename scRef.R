@@ -169,7 +169,7 @@
     }
 
 
-.generate_ref <- function(exp_sc_mat, TAG, min_cell=1, refnames=FALSE){
+.generate_ref <- function(exp_sc_mat, TAG, min_cell=1, refnames=FALSE, M='SUM'){
     NewRef=c()
     TAG[,2]=as.character(TAG[,2])
     if(refnames==FALSE){
@@ -181,8 +181,9 @@
         if(length(this_col)>= min_cell){
             outnames=c(outnames,one)
             if(length(this_col) >1){
-                #this_new_ref=apply(exp_sc_mat[,this_col],1,sum)
-                this_new_ref=apply(exp_sc_mat[,this_col],1,mean)
+                if(M=='SUM'){
+                    this_new_ref=apply(exp_sc_mat[,this_col],1,sum) }else{
+                    this_new_ref=apply(exp_sc_mat[,this_col],1,mean)}
                 }
                 else{this_new_ref = exp_sc_mat[,this_col]}
             NewRef=cbind(NewRef,this_new_ref)
