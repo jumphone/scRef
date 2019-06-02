@@ -10,7 +10,6 @@
 #setwd('../')
 
 source('./scRNAseq_Benchmark-master/Scripts/run_scPred.R')
-run_scPred('Zeisel_exp_sc_mat.txt.csv','./Zeisel_exp_sc_mat_cluster_original.txt.csv','./OUT/CV_folds.RData','~/OUT/')
-
+run_scPred('Zeisel_exp_sc_mat.txt.csv','./Zeisel_exp_sc_mat_cluster_original.txt.csv','./OUT/CV_folds.RData','./OUT/')
 result <- evaluate('./OUT/scPred_True_Labels.csv', './OUT/scPred_Pred_Labels.csv')
 
