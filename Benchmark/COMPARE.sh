@@ -9,7 +9,33 @@
 #Cross_Validation('./Zeisel_exp_sc_mat_cluster_original.txt.csv',1,'./OUT/')
 #setwd('../')
 
+source('evaluate.R')
+
+DataPath='Zeisel_exp_sc_mat.txt.csv'
+LabelsPath='./Zeisel_exp_sc_mat_cluster_original.txt.csv'
+CV_RDataPath='./OUT/CV_folds.RData'
+OutputDir='./OUT/'
+GeneOrderPath = NULL
+NumGenes = NULL
+
+
+
 source('./scRNAseq_Benchmark-master/Scripts/run_scPred.R')
-run_scPred('Zeisel_exp_sc_mat.txt.csv','./Zeisel_exp_sc_mat_cluster_original.txt.csv','./OUT/CV_folds.RData','./OUT/')
+run_scPred(DataPath, LabelsPath, CV_RDataPath, OutputDir)
+setwd('../')
 result <- evaluate('./OUT/scPred_True_Labels.csv', './OUT/scPred_Pred_Labels.csv')
+
+
+source('./scRNAseq_Benchmark-master/Scripts/run_scRef.R')
+run_scRef(DataPath, LabelsPath, CV_RDataPath, OutputDir)
+setwd('../')
+result <- evaluate('./OUT/scRef_True_Labels.csv', './OUT/scRef_Pred_Labels.csv')
+
+source('https://raw.githubusercontent.com/jumphone/scRef/master/scRef.R')
+
+
+
+
+
+
 
