@@ -18,18 +18,51 @@ OutputDir='./OUT/'
 GeneOrderPath = NULL
 NumGenes = NULL
 
-
-
+#scPred
+###################################
 source('./scRNAseq_Benchmark-master/Scripts/run_scPred.R')
 run_scPred(DataPath, LabelsPath, CV_RDataPath, OutputDir)
-setwd('../')
+###################################
+setwd('F:/SCREF_COM')
+source('evaluate.R')
 result <- evaluate('./OUT/scPred_True_Labels.csv', './OUT/scPred_Pred_Labels.csv')
+result$F1
 
-
+#scRef
+###################################
 source('./scRNAseq_Benchmark-master/Scripts/run_scRef.R')
 run_scRef(DataPath, LabelsPath, CV_RDataPath, OutputDir)
-setwd('../')
+###################################
+setwd('F:/SCREF_COM')
+source('evaluate.R')
 result <- evaluate('./OUT/scRef_True_Labels.csv', './OUT/scRef_Pred_Labels.csv')
+result$F1
+
+#CHETAH
+###################################
+setwd('F:/SCREF_COM')
+
+DataPath='Zeisel_exp_sc_mat.txt.csv'
+LabelsPath='./Zeisel_exp_sc_mat_cluster_original.txt.csv'
+CV_RDataPath='./OUT/CV_folds.RData'
+OutputDir='./OUT/'
+GeneOrderPath = NULL
+NumGenes = NULL
+##############
+
+source('./scRNAseq_Benchmark-master/Scripts/run_CHETAH.R')
+run_CHETAH(DataPath, LabelsPath, CV_RDataPath, OutputDir)
+
+setwd('F:/SCREF_COM')
+source('evaluate.R')
+result <- evaluate('./OUT/scRef_True_Labels.csv', './OUT/scRef_Pred_Labels.csv')
+result$F1
+
+
+
+
+
+
 
 source('https://raw.githubusercontent.com/jumphone/scRef/master/scRef.R')
 
