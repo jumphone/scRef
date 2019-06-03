@@ -2,6 +2,7 @@
 #write.table(t(a),'Zeisel_exp_sc_mat.txt.csv',quote=F,sep=',',row.names=T,col.names=T)
 #a=read.table('Zeisel_exp_sc_mat_cluster_original.txt',header=T,row.names=1,sep='\t')
 #write.table(a,'Zeisel_exp_sc_mat_cluster_original.txt.csv',quote=F,sep=',',row.names=T,col.names=T)
+#install.packages('devtools')
 #devtools::install_version(package = 'Seurat', version = package_version('2.3.4'))
 #install.packages("./", repos=NULL, type="source",dep=T)
 
@@ -17,6 +18,7 @@ CV_RDataPath='./OUT/CV_folds.RData'
 OutputDir='./OUT/'
 GeneOrderPath = NULL
 NumGenes = NULL
+
 
 #scPred
 ###################################
@@ -59,7 +61,7 @@ result <- evaluate('./OUT/CHETAH_True_Labels.csv', './OUT/CHETAH_Pred_Labels.csv
 result$F1
 
 
-#scID
+#scID V1.1 R3.6 
 ###################################
 
 DataPath='Zeisel_exp_sc_mat.txt.csv'
@@ -76,7 +78,7 @@ setwd('F:/SCREF_COM')
 source('evaluate.R')
 result <- evaluate('./OUT/scID_True_Labels.csv', './OUT/scID_Pred_Labels.csv')
 result$F1
-
+result$F1
 
 
 
