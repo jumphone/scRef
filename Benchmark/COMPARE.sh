@@ -20,7 +20,7 @@ GeneOrderPath = NULL
 NumGenes = NULL
 
 
-#scPred
+#scPred Seurat 2
 ###################################
 source('./scRNAseq_Benchmark-master/Scripts/run_scPred.R')
 run_scPred(DataPath, LabelsPath, CV_RDataPath, OutputDir)
@@ -29,6 +29,7 @@ setwd('F:/SCREF_COM')
 source('evaluate.R')
 result <- evaluate('./OUT/scPred_True_Labels.csv', './OUT/scPred_Pred_Labels.csv')
 result$F1
+result$MedF1
 
 #scRef
 ###################################
@@ -39,8 +40,9 @@ setwd('F:/SCREF_COM')
 source('evaluate.R')
 result <- evaluate('./OUT/scRef_True_Labels.csv', './OUT/scRef_Pred_Labels.csv')
 result$F1
+result$MedF1
 
-#CHETAH R=3.6
+#CHETAH R=3.6 Seurat3
 ###################################
 setwd('F:/SCREF_COM')
 
@@ -59,9 +61,9 @@ setwd('F:/SCREF_COM')
 source('evaluate.R')
 result <- evaluate('./OUT/CHETAH_True_Labels.csv', './OUT/CHETAH_Pred_Labels.csv')
 result$F1
+result$MedF1
 
-
-#scID V1.1 R3.6 
+#scID  Seurat 3
 ###################################
 
 DataPath='Zeisel_exp_sc_mat.txt.csv'
@@ -78,11 +80,71 @@ setwd('F:/SCREF_COM')
 source('evaluate.R')
 result <- evaluate('./OUT/scID_True_Labels.csv', './OUT/scID_Pred_Labels.csv')
 result$F1
+result$MedF1
+
+
+#scmap  R 3.6
+###################################
+
+source('./scRNAseq_Benchmark-master/Scripts/run_scmap.R')
+run_scmap(DataPath, LabelsPath, CV_RDataPath, OutputDir)
+
+setwd('F:/SCREF_COM')
+source('evaluate.R')
+result <- evaluate('./OUT/scmapcell_True_Labels.csv', './OUT/scmapcell_Pred_Labels.csv')
 result$F1
+result$MedF1
+
+setwd('F:/SCREF_COM')
+source('evaluate.R')
+result <- evaluate('./OUT/scmapcluster_True_Labels.csv', './OUT/scmapcluster_Pred_Labels.csv')
+result$F1
+result$MedF1
+
+
+#SCINA  R 3.6 $CRASHED
+###################################
+setwd('F:/SCREF_COM')
+
+DataPath='Zeisel_exp_sc_mat.txt.csv'
+LabelsPath='./Zeisel_exp_sc_mat_cluster_original.txt.csv'
+CV_RDataPath='./OUT/CV_folds.RData'
+OutputDir='./OUT/'
+GeneOrderPath = NULL
+NumGenes = NULL
+
+
+source('./scRNAseq_Benchmark-master/Scripts/run_SCINA.R')
+run_SCINA(DataPath, LabelsPath, CV_RDataPath, OutputDir)
+
+setwd('F:/SCREF_COM')
+source('evaluate.R')
+result <- evaluate('./OUT/SCINA_True_Labels.csv', './OUT/SCINA_Pred_Labels.csv')
+result$F1
+result$MedF1
 
 
 
+#SCINA  R 3.6 $CRASHED
+###################################
+setwd('F:/SCREF_COM')
 
+DataPath='Zeisel_exp_sc_mat.txt.csv'
+LabelsPath='./Zeisel_exp_sc_mat_cluster_original.txt.csv'
+CV_RDataPath='./OUT/CV_folds.RData'
+OutputDir='./OUT/'
+GeneOrderPath = NULL
+NumGenes = NULL
+
+
+source('./scRNAseq_Benchmark-master/Scripts/run_singleCellNet.R')
+run_singleCellNet(DataPath, LabelsPath, CV_RDataPath, OutputDir)
+
+setwd('F:/SCREF_COM')
+source('evaluate.R')
+result <- evaluate('./OUT/singleCellNet_True_Labels.csv', './OUT/singleCellNet_Pred_Labels.csv')
+result$F1
+result$MedF1
 
 
 
