@@ -38,7 +38,7 @@ source('evaluate.R')
 result <- evaluate('./OUT/scRef_True_Labels.csv', './OUT/scRef_Pred_Labels.csv')
 result$F1
 
-#CHETAH
+#CHETAH R=3.6
 ###################################
 setwd('F:/SCREF_COM')
 
@@ -48,23 +48,38 @@ CV_RDataPath='./OUT/CV_folds.RData'
 OutputDir='./OUT/'
 GeneOrderPath = NULL
 NumGenes = NULL
-##############
+#
 
 source('./scRNAseq_Benchmark-master/Scripts/run_CHETAH.R')
 run_CHETAH(DataPath, LabelsPath, CV_RDataPath, OutputDir)
 
 setwd('F:/SCREF_COM')
 source('evaluate.R')
-result <- evaluate('./OUT/scRef_True_Labels.csv', './OUT/scRef_Pred_Labels.csv')
+result <- evaluate('./OUT/CHETAH_True_Labels.csv', './OUT/CHETAH_Pred_Labels.csv')
+result$F1
+
+
+#scID
+###################################
+
+DataPath='Zeisel_exp_sc_mat.txt.csv'
+LabelsPath='./Zeisel_exp_sc_mat_cluster_original.txt.csv'
+CV_RDataPath='./OUT/CV_folds.RData'
+OutputDir='./OUT/'
+GeneOrderPath = NULL
+NumGenes = NULL
+
+source('./scRNAseq_Benchmark-master/Scripts/run_scID.R')
+run_scID(DataPath, LabelsPath, CV_RDataPath, OutputDir)
+
+setwd('F:/SCREF_COM')
+source('evaluate.R')
+result <- evaluate('./OUT/scID_True_Labels.csv', './OUT/scID_Pred_Labels.csv')
 result$F1
 
 
 
 
-
-
-
-source('https://raw.githubusercontent.com/jumphone/scRef/master/scRef.R')
 
 
 
