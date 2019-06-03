@@ -1,4 +1,4 @@
-
+pdf('COM_HEAT.pdf',width=14,height=10)
 ##################################
 RESULT=c()
 setwd('F:/SCREF_COM')
@@ -144,6 +144,6 @@ SSS=apply(RESULT,2,sum)
 library(gplots)
 heatmap.2(rRESULT[,order(SSS)],scale=c("none"),key=F,cellnote=round(RESULT[,order(SSS)],2),
 notecol='black',dendrogram='row',Colv=F,Rowv=T, trace='none',col=colorRampPalette(c('grey90','pink','red3')),margins=c(5,5))
-
+dev.off()
 
 
