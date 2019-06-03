@@ -31,7 +31,7 @@ result <- evaluate('./OUT/scPred_True_Labels.csv', './OUT/scPred_Pred_Labels.csv
 result$F1
 result$MedF1
 
-#scRef
+#scRef R3.5
 ###################################
 source('./scRNAseq_Benchmark-master/Scripts/run_scRef.R')
 run_scRef(DataPath, LabelsPath, CV_RDataPath, OutputDir)
