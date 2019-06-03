@@ -125,7 +125,7 @@ result$MedF1
 
 
 
-#SCINA  R 3.6 $CRASHED
+#singleCellNet  R 3.6 
 ###################################
 setwd('F:/SCREF_COM')
 
@@ -148,6 +148,115 @@ result$MedF1
 
 
 
+#garnett_CV  R 3.6 
+#:set fileformat=unix 
+#:w
+###################################
+setwd('F:/SCREF_COM')
+
+
+DataPath='./Zeisel_exp_sc_mat.txt.csv'
+LabelsPath='./Zeisel_exp_sc_mat_cluster_original.txt.csv'
+CV_RDataPath='./OUT/CV_folds.RData'
+OutputDir='./OUT/'
+GeneOrderPath = NULL
+NumGenes = NULL
+
+
+source('./scRNAseq_Benchmark-master/Scripts/run_Garnett_CV.R')
+run_Garnett_CV(DataPath, LabelsPath, CV_RDataPath, OutputDir, MarkerPath='MK.txt',Human=F)
+
+setwd('F:/SCREF_COM')
+source('evaluate.R')
+result <- evaluate('./OUT/Garnett_CV_True_Labels.csv', './OUT/Garnett_CV_Pred_Labels.csv')
+result$F1
+result$MedF1
 
 
 
+#run_CaSTLe  R 3.6 
+###################################
+setwd('F:/SCREF_COM')
+
+DataPath='./Zeisel_exp_sc_mat.txt.csv'
+LabelsPath='./Zeisel_exp_sc_mat_cluster_original.txt.csv'
+CV_RDataPath='./OUT/CV_folds.RData'
+OutputDir='./OUT/'
+GeneOrderPath = NULL
+NumGenes = NULL
+
+
+source('./scRNAseq_Benchmark-master/Scripts/run_CaSTLe.R')
+run_CaSTLe(DataPath, LabelsPath, CV_RDataPath, OutputDir)
+
+setwd('F:/SCREF_COM')
+source('evaluate.R')
+result <- evaluate('./OUT/True_Labels_CaSTLe.csv', './OUT/Pred_Labels_CaSTLe.csv')
+result$F1
+result$MedF1
+
+
+#run_SingleR  R 3.6 
+###################################
+setwd('F:/SCREF_COM')
+
+DataPath='./Zeisel_exp_sc_mat.txt.csv'
+LabelsPath='./Zeisel_exp_sc_mat_cluster_original.txt.csv'
+CV_RDataPath='./OUT/CV_folds.RData'
+OutputDir='./OUT/'
+GeneOrderPath = NULL
+NumGenes = NULL
+
+
+source('./scRNAseq_Benchmark-master/Scripts/run_SingleR.R')
+run_SingleR(DataPath, LabelsPath, CV_RDataPath, OutputDir)
+
+setwd('F:/SCREF_COM')
+source('evaluate.R')
+result <- evaluate('./OUT/SingleR_True_Labels.csv', './OUT/SingleR_Pred_Labels.csv')
+result$F1
+result$MedF1
+
+
+
+
+
+
+
+
+
+##################################
+RESULT=c()
+setwd('F:/SCREF_COM')
+source('evaluate.R')
+
+
+result <- evaluate('./OUT/scRef_True_Labels.csv', './OUT/scRef_Pred_Labels.csv')
+RESULT=cbind(RESULT,result$F1)
+
+result <- evaluate('./OUT/scPred_True_Labels.csv', './OUT/scPred_Pred_Labels.csv')
+RESULT=cbind(RESULT,result$F1)
+
+result <- evaluate('./OUT/CHETAH_True_Labels.csv', './OUT/CHETAH_Pred_Labels.csv')
+RESULT=cbind(RESULT,result$F1)
+
+result <- evaluate('./OUT/scID_True_Labels.csv', './OUT/scID_Pred_Labels.csv')
+RESULT=cbind(RESULT,result$F1)
+
+result <- evaluate('./OUT/scmapcell_True_Labels.csv', './OUT/scmapcell_Pred_Labels.csv')
+RESULT=cbind(RESULT,result$F1)
+
+result <- evaluate('./OUT/scmapcluster_True_Labels.csv', './OUT/scmapcluster_Pred_Labels.csv')
+RESULT=cbind(RESULT,result$F1)
+
+result <- evaluate('./OUT/singleCellNet_True_Labels.csv', './OUT/singleCellNet_Pred_Labels.csv')
+RESULT=cbind(RESULT,result$F1)
+
+result <- evaluate('./OUT/True_Labels_CaSTLe.csv', './OUT/Pred_Labels_CaSTLe.csv')
+RESULT=cbind(RESULT,result$F1)
+
+
+result <- evaluate('./OUT/SingleR_True_Labels.csv', './OUT/SingleR_Pred_Labels.csv')
+RESULT=cbind(RESULT,result$F1)
+
+colnames(RESULT)=c('scRef','scPred','CHETAH','scID', 'scmapcell', 'scmapcluster', 'singleCellNet','CaSTLe','SingleR')
