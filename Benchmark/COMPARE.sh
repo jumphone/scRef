@@ -260,3 +260,8 @@ result <- evaluate('./OUT/SingleR_True_Labels.csv', './OUT/SingleR_Pred_Labels.c
 RESULT=cbind(RESULT,result$F1)
 
 colnames(RESULT)=c('scRef','scPred','CHETAH','scID', 'scmapcell', 'scmapcluster', 'singleCellNet','CaSTLe','SingleR')
+library(gplots)
+heatmap.2(RESULT,scale=c("none"),dendrogram='row',Colv=T,trace='none',col=colorRampPalette(c('blue','green','yellow','yellow3','red3')),margins=c(5,5))
+heatmap.2(RESULT,scale=c("row"),dendrogram='row',Colv=T,trace='none',col=colorRampPalette(c('blue','red')),margins=c(5,5))
+
+
