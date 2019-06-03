@@ -226,6 +226,6 @@ rownames(rRESULT)=rownames(RESULT)
 colnames(rRESULT)=colnames(RESULT)
 
 
-heatmap.2(rRESULT,scale=c("row"),dendrogram='row',Colv=T,trace='none',col=colorRampPalette(c('blue','red')),margins=c(5,5))
+heatmap.2(rRESULT,scale=c("none"),dendrogram='both',Colv=T,trace='none',col=colorRampPalette(c('grey90','red3','black')),margins=c(5,5))
 
 
