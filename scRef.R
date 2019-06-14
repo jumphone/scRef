@@ -170,6 +170,11 @@
 
 
 .generate_ref <- function(exp_sc_mat, TAG, min_cell=1, refnames=FALSE, M='SUM'){
+    M=M
+    min_cell=min_cell
+    refnames=refnames
+    exp_sc_mat=exp_sc_mat
+    TAG=TAG
     NewRef=c()
     TAG[,2]=as.character(TAG[,2])
     if(refnames==FALSE){
