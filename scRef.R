@@ -169,7 +169,7 @@
     }
 
 
-.generate_ref <- function(exp_sc_mat, TAG, min_cell=1, refnames=FALSE, M='SUM'){
+.generate_ref <- function(exp_sc_mat, TAG, min_cell=1, M='SUM', refnames=FALSE ){
     M=M
     min_cell=min_cell
     refnames=refnames
