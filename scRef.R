@@ -171,6 +171,7 @@
 
 .generate_ref <- function(exp_sc_mat, TAG, min_cell=1, M='SUM', refnames=FALSE ){
     M=M
+    print(M)
     min_cell=min_cell
     refnames=refnames
     exp_sc_mat=exp_sc_mat
