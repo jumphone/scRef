@@ -18,7 +18,7 @@
 
 # Citation
 
-Feng Zhang, Ying Peng, Yaguang Dou, Rohit R Rao, Q. Richard Lu, Weidong Tian; SCREF: a reference-based solution for single-cell analysis, Coming Soon
+SCREF: a reference-based solution for single-cell analysis, Coming Soon
 
 # Download
 
